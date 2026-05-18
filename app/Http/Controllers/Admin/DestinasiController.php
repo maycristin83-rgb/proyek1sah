@@ -30,13 +30,11 @@ class DestinasiController extends Controller
             'nama'         => 'required|string|max:255',
             'lokasi'       => 'required|string|max:255',
             'deskripsi'    => 'required|string',
-            'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'tags'         => 'nullable|string',
             'kategori'     => 'required|in:Alam,Buatan,Budaya',
-           
         ]);
 
-        // Buat slug unik agar tidak bertabrakan di kolom UNIQUE
         $slug = $this->generateUniqueSlug($request->nama);
 
         $data = [
@@ -44,14 +42,11 @@ class DestinasiController extends Controller
             'slug'      => $slug,
             'lokasi'    => $request->lokasi,
             'deskripsi' => $request->deskripsi,
-            // Kembalikan sebagai ARRAY — model cast 'tags'=>'array' akan encode sendiri
             'tags'      => $this->parseTags($request->tags),
             'kategori'  => $request->kategori,
-            // checkbox: ada = 1, tidak ada = 0
             'status'    => $request->has('status') ? 1 : 0,
         ];
 
-        // Simpan file ke storage/app/public/destinasi
         if ($request->hasFile('gambar_utama')) {
             $data['gambar_utama'] = $request->file('gambar_utama')->store('destinasi', 'public');
         }
@@ -77,13 +72,12 @@ class DestinasiController extends Controller
             'nama'         => 'required|string|max:255',
             'lokasi'       => 'required|string|max:255',
             'deskripsi'    => 'required|string',
-            'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'tags'         => 'nullable|string',
             'kategori'     => 'required|in:Alam,Buatan,Budaya',
             'url'          => 'nullable|string|max:255',
         ]);
 
-        // Buat slug baru, kecuali nama tidak berubah (pakai slug yang sudah ada)
         $slug = ($request->nama !== $destinasi->nama)
             ? $this->generateUniqueSlug($request->nama, $id)
             : $destinasi->slug;
@@ -93,7 +87,6 @@ class DestinasiController extends Controller
             'slug'      => $slug,
             'lokasi'    => $request->lokasi,
             'deskripsi' => $request->deskripsi,
-            // Kembalikan sebagai ARRAY — model cast 'tags'=>'array' akan encode sendiri
             'tags'      => $this->parseTags($request->tags),
             'kategori'  => $request->kategori,
             'url'       => $request->url,
@@ -101,7 +94,6 @@ class DestinasiController extends Controller
         ];
 
         if ($request->hasFile('gambar_utama')) {
-            // Hapus file lama jika bukan base64
             if ($destinasi->gambar_utama && !str_starts_with($destinasi->gambar_utama, 'data:')) {
                 Storage::disk('public')->delete($destinasi->gambar_utama);
             }
@@ -118,7 +110,6 @@ class DestinasiController extends Controller
     {
         $destinasi = Destinasi::findOrFail($id);
 
-        // Hapus file gambar dari storage
         if ($destinasi->gambar_utama && !str_starts_with($destinasi->gambar_utama, 'data:')) {
             Storage::disk('public')->delete($destinasi->gambar_utama);
         }
@@ -129,12 +120,15 @@ class DestinasiController extends Controller
             ->with('success', 'Destinasi berhasil dihapus!');
     }
 
-    // ─── Private helpers ──────────────────────────────────────────────────────
+    public function toggleStatus($id)
+    {
+        $destinasi = Destinasi::findOrFail($id);
+        $destinasi->status = !$destinasi->status;
+        $destinasi->save();
 
-    /**
-     * Ubah string tags (koma-separated) menjadi ARRAY biasa.
-     * Model sudah punya cast 'tags' => 'array', jadi tidak perlu json_encode di sini.
-     */
+        return response()->json(['success' => true, 'status' => $destinasi->status]);
+    }
+
     private function parseTags(?string $tags): array
     {
         if (!$tags || trim($tags) === '') {
@@ -144,10 +138,6 @@ class DestinasiController extends Controller
         return array_values(array_filter(array_map('trim', explode(',', $tags))));
     }
 
-    /**
-     * Buat slug unik — jika sudah ada di tabel, tambahkan suffix angka.
-     * $excludeId digunakan saat update agar baris sendiri tidak dihitung.
-     */
     private function generateUniqueSlug(string $nama, ?int $excludeId = null): string
     {
         $base  = Str::slug($nama);

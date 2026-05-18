@@ -8,17 +8,11 @@ use App\Mail\KontakMail;
 
 class KontakController extends Controller
 {
-    /**
-     * Tampilkan halaman kontak.
-     */
     public function index()
     {
         return view('pages.kontak');
     }
 
-    /**
-     * Kirim pesan kontak via email.
-     */
     public function kirim(Request $request)
     {
         $request->validate([

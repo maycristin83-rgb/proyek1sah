@@ -16,9 +16,6 @@ class DestinasiController extends Controller
         return view('destinasi.index');
     }
 
-    /**
-     * Menampilkan destinasi berdasarkan kategori dari database.
-     */
     private function showKategori(string $kategoriNama, string $deskripsi)
     {
         $destinasi = Destinasi::where('kategori', $kategoriNama)
@@ -30,7 +27,6 @@ class DestinasiController extends Controller
             ->with('deskripsi', $deskripsi);
     }
 
-    // Destinasi Alam
     public function alam()
     {
         return $this->showKategori(
@@ -39,7 +35,6 @@ class DestinasiController extends Controller
         );
     }
 
-    // Destinasi Buatan
     public function buatan()
     {
         return $this->showKategori(
@@ -48,7 +43,6 @@ class DestinasiController extends Controller
         );
     }
 
-    // Destinasi Budaya
     public function budaya()
     {
         return $this->showKategori(
@@ -57,9 +51,6 @@ class DestinasiController extends Controller
         );
     }
 
-    /**
-     * Menampilkan halaman detail destinasi berdasarkan slug.
-     */
     public function detail(string $slug)
     {
         $destinasi = Destinasi::where('slug', $slug)

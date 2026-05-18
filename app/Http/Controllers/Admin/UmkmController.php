@@ -28,7 +28,7 @@ class UmkmController extends Controller
         $request->validate([
             'nama'      => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'lokasi'    => 'nullable|string|max:255',
             'kontak'    => 'nullable|string|max:255',
             'geosite'   => 'required|in:ambarita,tuktuk,tomok',
@@ -44,7 +44,6 @@ class UmkmController extends Controller
             'status'    => $request->has('status') ? 1 : 0,
         ];
 
-        // Simpan file ke storage/app/public/umkm
         if ($request->hasFile('gambar')) {
             $data['gambar'] = $request->file('gambar')->store('umkm', 'public');
         }
@@ -69,7 +68,7 @@ class UmkmController extends Controller
         $request->validate([
             'nama'      => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'lokasi'    => 'nullable|string|max:255',
             'kontak'    => 'nullable|string|max:255',
             'geosite'   => 'required|in:ambarita,tuktuk,tomok',
@@ -86,7 +85,6 @@ class UmkmController extends Controller
         ];
 
         if ($request->hasFile('gambar')) {
-            // Hapus file lama jika bukan base64
             if ($umkm->gambar && !str_starts_with($umkm->gambar, 'data:')) {
                 Storage::disk('public')->delete($umkm->gambar);
             }
@@ -103,7 +101,6 @@ class UmkmController extends Controller
     {
         $umkm = Umkm::findOrFail($id);
 
-        // Hapus file gambar dari storage
         if ($umkm->gambar && !str_starts_with($umkm->gambar, 'data:')) {
             Storage::disk('public')->delete($umkm->gambar);
         }
@@ -112,5 +109,14 @@ class UmkmController extends Controller
 
         return redirect()->route('admin.umkm.index')
             ->with('success', 'UMKM berhasil dihapus!');
+    }
+
+    public function toggleStatus($id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        $umkm->status = !$umkm->status;
+        $umkm->save();
+
+        return response()->json(['success' => true, 'status' => $umkm->status]);
     }
 }

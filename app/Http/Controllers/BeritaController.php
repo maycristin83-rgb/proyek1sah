@@ -6,18 +6,12 @@ use App\Models\Berita;
 
 class BeritaController extends Controller
 {
-    /**
-     * Halaman daftar berita publik.
-     */
     public function index()
     {
         $berita = Berita::where('status', true)->latest()->paginate(9);
         return view('pages.berita', compact('berita'));
     }
 
-    /**
-     * Halaman detail berita publik.
-     */
     public function show(string $slug)
     {
         $berita = Berita::where('slug', $slug)

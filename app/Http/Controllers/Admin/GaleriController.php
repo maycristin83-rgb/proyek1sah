@@ -26,7 +26,7 @@ class GaleriController extends Controller
             'judul'     => 'required|string|max:255',
             'kategori'  => 'required|string',
             'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
         ]);
 
         $data = [
@@ -38,7 +38,6 @@ class GaleriController extends Controller
             'status'       => $request->has('status') ? 1 : 0,
         ];
 
-        // Simpan file ke storage/app/public/galeri
         if ($request->hasFile('gambar')) {
             $data['gambar'] = $request->file('gambar')->store('galeri', 'public');
         }
@@ -60,7 +59,7 @@ class GaleriController extends Controller
             'judul'     => 'required|string|max:255',
             'kategori'  => 'required|string',
             'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
         ]);
 
         $galeri = Galeri::findOrFail($id);
@@ -75,7 +74,6 @@ class GaleriController extends Controller
         ];
 
         if ($request->hasFile('gambar')) {
-            // Hapus file lama jika bukan base64
             if ($galeri->gambar && !str_starts_with($galeri->gambar, 'data:')) {
                 Storage::disk('public')->delete($galeri->gambar);
             }
@@ -91,7 +89,6 @@ class GaleriController extends Controller
     {
         $galeri = Galeri::findOrFail($id);
 
-        // Hapus file gambar dari storage
         if ($galeri->gambar && !str_starts_with($galeri->gambar, 'data:')) {
             Storage::disk('public')->delete($galeri->gambar);
         }

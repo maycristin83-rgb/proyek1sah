@@ -110,4 +110,13 @@ class PenginapanController extends Controller
         return redirect()->route('admin.penginapan.index')
             ->with('success', 'Penginapan berhasil dihapus!');
     }
+
+    public function toggleStatus($id)
+    {
+        $penginapan = Penginapan::findOrFail($id);
+        $penginapan->status = !$penginapan->status;
+        $penginapan->save();
+
+        return response()->json(['success' => true, 'status' => $penginapan->status]);
+    }
 }

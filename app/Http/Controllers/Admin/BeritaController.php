@@ -26,7 +26,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'penulis' => 'nullable|string|max:100',
             'status' => 'nullable|boolean'
         ]);
@@ -38,7 +38,6 @@ class BeritaController extends Controller
             'status' => $request->has('status') ? 1 : 0
         ];
 
-        // Simpan file ke storage/app/public/berita
         if ($request->hasFile('gambar')) {
             $data['gambar'] = $request->file('gambar')->store('berita', 'public');
         }
@@ -62,7 +61,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144', // Max 6MB
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'penulis' => 'nullable|string|max:100',
             'status' => 'nullable|boolean'
         ]);
@@ -75,7 +74,6 @@ class BeritaController extends Controller
         ];
 
         if ($request->hasFile('gambar')) {
-            // Hapus file lama jika bukan base64
             if ($berita->gambar && !str_starts_with($berita->gambar, 'data:')) {
                 Storage::disk('public')->delete($berita->gambar);
             }
@@ -92,7 +90,6 @@ class BeritaController extends Controller
     {
         $berita = Berita::findOrFail($id);
 
-        // Hapus file gambar dari storage
         if ($berita->gambar && !str_starts_with($berita->gambar, 'data:')) {
             Storage::disk('public')->delete($berita->gambar);
         }

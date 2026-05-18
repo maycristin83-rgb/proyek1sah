@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class GaleriController extends Controller
 {
-    /**
-     * Halaman galeri publik — kelompok berdasarkan kategori.
-     */
     public function index()
     {
         $allGaleri = Galeri::where('status', true)
@@ -21,9 +18,6 @@ class GaleriController extends Controller
         return view('pages.galeri', compact('galeriByKategori'));
     }
 
-    /**
-     * Halaman detail galeri berdasarkan ID.
-     */
     public function show($id)
     {
         $galeri = Galeri::findOrFail($id);

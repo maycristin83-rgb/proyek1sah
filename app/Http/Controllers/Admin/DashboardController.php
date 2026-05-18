@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Berita;
+use App\Models\Galeri;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -17,9 +19,14 @@ class DashboardController extends Controller
         $totalPenginapan = DB::table('penginapan')->count();
         $totalFasilitas  = DB::table('fasilitas')->count();
 
+        $topBerita       = Berita::orderBy('views', 'desc')->limit(5)->get(['judul', 'views', 'slug']);
+        $totalViewsBerita = Berita::sum('views');
+        $totalViewsGaleri = Galeri::sum('views');
+
         return view('admin.dashboard', compact(
             'totalGaleri', 'totalBerita', 'totalInformasi', 'totalDestinasi',
             'totalUmkm', 'totalPenginapan', 'totalFasilitas',
+            'topBerita', 'totalViewsBerita', 'totalViewsGaleri',
         ));
     }
 }
