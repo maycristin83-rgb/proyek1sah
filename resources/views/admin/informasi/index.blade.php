@@ -41,11 +41,6 @@
                                 @php $imgUrl = !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : ''; @endphp
                                 <div style="position:relative;display:inline-block;">
                                     <img src="{{ $imgUrl ?: $item->gambar }}" width="60" height="60" style="object-fit: cover; border-radius: 8px; display:block;">
-                                    @if($item->link_referensi)
-                                        <a href="{{ $item->link_referensi }}" target="_blank"
-                                           style="position:absolute;bottom:0;left:0;background:rgba(0,0,0,0.55);color:#fff;font-size:9px;padding:1px 4px;text-decoration:none;line-height:1.4;max-width:60px;overflow:hidden;white-space:nowrap;display:block;border-radius:0 0 0 8px;"
-                                           title="{{ $item->link_referensi }}">🔗 src</a>
-                                    @endif
                                 </div>
 
                             @else

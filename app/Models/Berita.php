@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\Admin;
 use App\Models\Geosite;
 
 class Berita extends Model

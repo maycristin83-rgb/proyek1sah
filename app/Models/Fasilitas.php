@@ -20,16 +20,13 @@ class Fasilitas extends Model
         'harga',
         'geosite_id',
         'status',
-        'admin_id'
+       
     ];
 
     protected $casts = [
         'status' => 'boolean',
     ];
-     public function admin()
-    {
-        return $this->belongsTo(Admin::class);
-    }
+    
 
     public function geosite()
     {
