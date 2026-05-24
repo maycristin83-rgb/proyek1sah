@@ -96,6 +96,26 @@
                     </div>
                 </div>
 
+                {{-- Link Referensi --}}
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Link Referensi <small class="text-muted fw-normal">(opsional — isi jika gambar diambil dari website lain)</small></label>
+                    <input type="url" name="link_referensi" class="form-control"
+                           placeholder="https://sumber-gambar.com/..." value="{{ old('link_referensi') }}">
+                </div>
+
+                {{-- Geosite --}}
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Geosite <span class="text-danger">*</span></label>
+                    <select name="geosite_id" class="form-select" required>
+                        <option value="">-- Pilih Geosite --</option>
+                        @foreach($geositeList as $g)
+                            <option value="{{ $g->id }}" {{ old('geosite_id') == $g->id ? 'selected' : '' }}>
+                                {{ $g->nama }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
                 {{-- Submit --}}
                 <div class="col-12 d-flex gap-2">
                     <button type="submit" class="btn btn-primary">

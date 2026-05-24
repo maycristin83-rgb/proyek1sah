@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Informasi;
+use App\Models\Geosite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -18,24 +19,28 @@ class InformasiController extends Controller
 
     public function create()
     {
-        return view('admin.informasi.create');
+        $geositeList = Geosite::orderBy('nama')->get();
+        return view('admin.informasi.create', compact('geositeList'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'urutan' => 'required|integer|unique:informasi,urutan',
-            'status' => 'nullable|boolean'
+            'judul'      => 'required|string|max:255',
+            'konten'     => 'required|string',
+            'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'urutan'     => 'required|integer|unique:informasi,urutan',
+            'geosite_id' => 'required|exists:geosite,id',
+            'status'     => 'nullable|boolean'
         ]);
 
         $data = [
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'urutan' => $request->urutan,
-            'status' => $request->has('status') ? 1 : 0
+            'judul'          => $request->judul,
+            'konten'         => $request->konten,
+            'urutan'         => $request->urutan,
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0
         ];
 
         if ($request->hasFile('gambar')) {
@@ -50,8 +55,9 @@ class InformasiController extends Controller
 
     public function edit($id)
     {
-        $informasi = Informasi::findOrFail($id);
-        return view('admin.informasi.edit', compact('informasi'));
+        $informasi   = Informasi::findOrFail($id);
+        $geositeList = Geosite::orderBy('nama')->get();
+        return view('admin.informasi.edit', compact('informasi', 'geositeList'));
     }
 
     public function update(Request $request, $id)
@@ -59,18 +65,21 @@ class InformasiController extends Controller
         $informasi = Informasi::findOrFail($id);
 
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'urutan' => 'required|integer|unique:informasi,urutan,' . $id,
-            'status' => 'nullable|boolean'
+            'judul'      => 'required|string|max:255',
+            'konten'     => 'required|string',
+            'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'urutan'     => 'required|integer|unique:informasi,urutan,' . $id,
+            'geosite_id' => 'required|exists:geosite,id',
+            'status'     => 'nullable|boolean'
         ]);
 
         $data = [
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'urutan' => $request->urutan,
-            'status' => $request->has('status') ? 1 : 0
+            'judul'          => $request->judul,
+            'konten'         => $request->konten,
+            'urutan'         => $request->urutan,
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0
         ];
 
         if ($request->hasFile('gambar')) {

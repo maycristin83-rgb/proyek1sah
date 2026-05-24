@@ -94,9 +94,6 @@
                             @php $imgUrl = !str_starts_with($destinasi->gambar_utama, 'data:') ? asset('storage/' . $destinasi->gambar_utama) : ''; @endphp
                             <img src="{{ $imgUrl ?: $destinasi->gambar_utama }}" alt="{{ $destinasi->nama }}"
                                  style="max-height:150px; border-radius:8px; border:1px solid #dee2e6;">
-                            @if($imgUrl)
-                                <br><a href="{{ $imgUrl }}" target="_blank" style="font-size:11px; color:#6c757d;">🔗 {{ $imgUrl }}</a>
-                            @endif
                         </div>
                     @endif
                     <input type="file" name="gambar_utama" id="gambar_utama" accept="image/*"
@@ -109,6 +106,27 @@
                         <img id="previewImg" src="" alt="Preview"
                              style="max-height:200px; border-radius:8px; border:1px solid #dee2e6;">
                     </div>
+                </div>
+
+                {{-- Link Referensi --}}
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Link Referensi <small class="text-muted fw-normal">(opsional — isi jika gambar diambil dari website lain)</small></label>
+                    <input type="url" name="link_referensi" class="form-control"
+                           placeholder="https://sumber-gambar.com/..."
+                           value="{{ old('link_referensi', $destinasi->link_referensi) }}">
+                </div>
+
+                {{-- Geosite --}}
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Geosite <span class="text-danger">*</span></label>
+                    <select name="geosite_id" class="form-select" required>
+                        <option value="">-- Pilih Geosite --</option>
+                        @foreach($geositeList as $g)
+                            <option value="{{ $g->id }}" {{ old('geosite_id', $destinasi->geosite_id) == $g->id ? 'selected' : '' }}>
+                                {{ $g->nama }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Submit --}}

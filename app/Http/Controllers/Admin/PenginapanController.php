@@ -4,44 +4,44 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Penginapan;
+use App\Models\Geosite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PenginapanController extends Controller
 {
-    private array $geositeList = ['ambarita', 'tuktuk', 'tomok'];
-
     public function index()
     {
-        $penginapan = Penginapan::orderBy('geosite')->orderBy('nama')->paginate(10);
+        $penginapan = Penginapan::with('geosite')->orderBy('geosite_id')->orderBy('nama')->paginate(10);
         return view('admin.penginapan.index', compact('penginapan'));
     }
 
     public function create()
     {
-        $geositeList = $this->geositeList;
+        $geositeList = Geosite::orderBy('nama')->get();
         return view('admin.penginapan.create', compact('geositeList'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'harga'     => 'nullable|string|max:100',
-            'kontak'    => 'nullable|string|max:255',
-            'geosite'   => 'required|in:ambarita,tuktuk,tomok',
-            'status'    => 'nullable|boolean',
+            'nama'       => 'required|string|max:255',
+            'deskripsi'  => 'required|string',
+            'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'harga'      => 'nullable|string|max:100',
+            'kontak'     => 'nullable|string|max:255',
+            'geosite_id' => 'required|exists:geosite,id',
+            'status'     => 'nullable|boolean',
         ]);
 
         $data = [
-            'nama'      => $request->nama,
-            'deskripsi' => $request->deskripsi,
-            'harga'     => $request->harga,
-            'kontak'    => $request->kontak,
-            'geosite'   => $request->geosite,
-            'status'    => $request->has('status') ? 1 : 0,
+            'nama'           => $request->nama,
+            'deskripsi'      => $request->deskripsi,
+            'harga'          => $request->harga,
+            'kontak'         => $request->kontak,
+            'geosite_id'     => $request->geosite_id,
+            'link_referensi' => $request->link_referensi,
+            'status'         => $request->has('status') ? 1 : 0,
         ];
 
         if ($request->hasFile('gambar')) {
@@ -56,8 +56,8 @@ class PenginapanController extends Controller
 
     public function edit($id)
     {
-        $penginapan = Penginapan::findOrFail($id);
-        $geositeList = $this->geositeList;
+        $penginapan  = Penginapan::findOrFail($id);
+        $geositeList = Geosite::orderBy('nama')->get();
         return view('admin.penginapan.edit', compact('penginapan', 'geositeList'));
     }
 
@@ -66,22 +66,23 @@ class PenginapanController extends Controller
         $penginapan = Penginapan::findOrFail($id);
 
         $request->validate([
-            'nama'      => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'harga'     => 'nullable|string|max:100',
-            'kontak'    => 'nullable|string|max:255',
-            'geosite'   => 'required|in:ambarita,tuktuk,tomok',
-            'status'    => 'nullable|boolean',
+            'nama'       => 'required|string|max:255',
+            'deskripsi'  => 'required|string',
+            'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'harga'      => 'nullable|string|max:100',
+            'kontak'     => 'nullable|string|max:255',
+            'geosite_id' => 'required|exists:geosite,id',
+            'status'     => 'nullable|boolean',
         ]);
 
         $data = [
-            'nama'      => $request->nama,
-            'deskripsi' => $request->deskripsi,
-            'harga'     => $request->harga,
-            'kontak'    => $request->kontak,
-            'geosite'   => $request->geosite,
-            'status'    => $request->has('status') ? 1 : 0,
+            'nama'           => $request->nama,
+            'deskripsi'      => $request->deskripsi,
+            'harga'          => $request->harga,
+            'kontak'         => $request->kontak,
+            'geosite_id'     => $request->geosite_id,
+            'link_referensi' => $request->link_referensi,
+            'status'         => $request->has('status') ? 1 : 0,
         ];
 
         if ($request->hasFile('gambar')) {
@@ -113,7 +114,7 @@ class PenginapanController extends Controller
 
     public function toggleStatus($id)
     {
-        $penginapan = Penginapan::findOrFail($id);
+        $penginapan         = Penginapan::findOrFail($id);
         $penginapan->status = !$penginapan->status;
         $penginapan->save();
 

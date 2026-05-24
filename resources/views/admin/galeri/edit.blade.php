@@ -28,7 +28,6 @@
                 <div class="col-md-6 mb-3">
                     <label>Kategori</label>
                     <select name="kategori" class="form-control">
-                        <option value="Balige" {{ $galeri->kategori=='Balige'?'selected':'' }}>Balige</option>
                         <option value="tuktuk" {{ $galeri->kategori=='tuktuk'?'selected':'' }}>tuktuk</option>
                         <option value="Ambarita" {{ $galeri->kategori=='Ambarita'?'selected':'' }}>Ambarita</option>
                         <option value="Tomok" {{ $galeri->kategori=='Tomok'?'selected':'' }}>Tomok</option>
@@ -46,9 +45,6 @@
                         <div class="mb-2">
                             @php $imgUrl = !str_starts_with($galeri->gambar, 'data:') ? asset('storage/' . $galeri->gambar) : ''; @endphp
                             <img src="{{ $imgUrl ?: $galeri->gambar }}" style="max-width: 150px; border-radius: 8px;">
-                            @if($imgUrl)
-                                <br><a href="{{ $imgUrl }}" target="_blank" style="font-size:11px; color:#6c757d;">🔗 {{ $imgUrl }}</a>
-                            @endif
                         </div>
                     @else
                         <p class="text-muted">Tidak ada gambar</p>
@@ -77,6 +73,26 @@
                     <label>Tanggal</label>
                     <input type="date" name="tanggal_foto" class="form-control"
                         value="{{ $galeri->tanggal_foto }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Link Referensi</label>
+                    <input type="url" name="link_referensi" class="form-control"
+                           placeholder="https://sumber-gambar.com/..."
+                           value="{{ old('link_referensi', $galeri->link_referensi) }}">
+                    <small class="text-muted">Opsional — isi jika gambar diambil dari website lain</small>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Geosite <span class="text-danger">*</span></label>
+                    <select name="geosite_id" class="form-control" required>
+                        <option value="">-- Pilih Geosite --</option>
+                        @foreach($geositeList as $g)
+                            <option value="{{ $g->id }}" {{ old('geosite_id', $galeri->geosite_id) == $g->id ? 'selected' : '' }}>
+                                {{ $g->nama }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="col-md-6 mb-3">

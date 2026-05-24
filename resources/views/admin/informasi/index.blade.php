@@ -26,6 +26,7 @@
                         <th width="50">No</th>
                         <th width="100">Gambar</th>
                         <th>Judul</th>
+                        <th width="100">Geosite</th>
                         <th width="80">Urutan</th>
                         <th width="80">Status</th>
                         <th width="120">Aksi</th>
@@ -38,10 +39,15 @@
                         <td>
                             @if($item->gambar)
                                 @php $imgUrl = !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : ''; @endphp
-                                <img src="{{ $imgUrl ?: $item->gambar }}" width="60" height="60" style="object-fit: cover; border-radius: 8px;">
-                                @if($imgUrl)
-                                    <br><a href="{{ $imgUrl }}" target="_blank" title="{{ $imgUrl }}" style="font-size:10px; color:#6c757d;">🔗 URL</a>
-                                @endif
+                                <div style="position:relative;display:inline-block;">
+                                    <img src="{{ $imgUrl ?: $item->gambar }}" width="60" height="60" style="object-fit: cover; border-radius: 8px; display:block;">
+                                    @if($item->link_referensi)
+                                        <a href="{{ $item->link_referensi }}" target="_blank"
+                                           style="position:absolute;bottom:0;left:0;background:rgba(0,0,0,0.55);color:#fff;font-size:9px;padding:1px 4px;text-decoration:none;line-height:1.4;max-width:60px;overflow:hidden;white-space:nowrap;display:block;border-radius:0 0 0 8px;"
+                                           title="{{ $item->link_referensi }}">🔗 src</a>
+                                    @endif
+                                </div>
+
                             @else
                                 <div class="bg-secondary text-white text-center" style="width: 60px; height: 60px; line-height: 60px; border-radius: 8px;">
                                     <i class="fas fa-image"></i>
@@ -53,7 +59,8 @@
                             <br>
                             <small class="text-muted">{{ $item->created_at->format('d M Y') }}</small>
                         </td>
-                        <td>{{ $item->urutan }}</span></td>
+                        <td><span class="badge bg-info">{{ $item->geosite?->nama ?? '-' }}</span></td>
+                        <td>{{ $item->urutan }}</td>
                         <td>
                             <span class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }}">
                                 {{ $item->status ? 'Aktif' : 'Tidak Aktif' }}

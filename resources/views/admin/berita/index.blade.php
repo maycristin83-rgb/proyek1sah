@@ -22,6 +22,7 @@
                     <th>No</th>
                     <th>Gambar</th>
                     <th>Judul</th>
+                    <th>Geosite</th>
                     <th>Penulis</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -34,15 +35,21 @@
                     <td>
                         @if($item->gambar)
                             @php $imgUrl = !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : ''; @endphp
-                            <img src="{{ $imgUrl ?: $item->gambar }}" width="50" height="50" style="object-fit: cover;">
-                            @if($imgUrl)
-                                <br><a href="{{ $imgUrl }}" target="_blank" title="{{ $imgUrl }}" style="font-size:10px; color:#6c757d;">🔗 URL</a>
-                            @endif
+                            <div style="position:relative;display:inline-block;">
+                                <img src="{{ $imgUrl ?: $item->gambar }}" width="50" height="50" style="object-fit: cover; display:block;">
+                                @if($item->link_referensi)
+                                    <a href="{{ $item->link_referensi }}" target="_blank"
+                                       style="position:absolute;bottom:0;left:0;background:rgba(0,0,0,0.55);color:#fff;font-size:9px;padding:1px 4px;text-decoration:none;line-height:1.4;max-width:50px;overflow:hidden;white-space:nowrap;display:block;"
+                                       title="{{ $item->link_referensi }}">🔗 src</a>
+                                @endif
+                            </div>
+
                         @else
                             <span class="text-muted">-</span>
                         @endif
                     </td>
                     <td>{{ $item->judul }}</td>
+                    <td><span class="badge bg-info">{{ $item->geosite?->nama ?? '-' }}</span></td>
                     <td>{{ $item->penulis ?? '-' }}</td>
                     <td>
                         <span class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }}">
@@ -58,7 +65,7 @@
                     </td>
                 </tr>
                 @empty
-                <tr><td colspan="6" class="text-center">Belum ada berita</td></tr>
+                <tr><td colspan="7" class="text-center">Belum ada berita</td></tr>
                 @endforelse
             </tbody>
         </table>

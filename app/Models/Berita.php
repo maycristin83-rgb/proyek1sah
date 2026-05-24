@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\Admin;
+use App\Models\Geosite;
 
 class Berita extends Model
 {
@@ -16,10 +17,12 @@ class Berita extends Model
         'konten',
         'gambar',
         'sumber_gambar',
+        'link_referensi',
+        'geosite_id',
         'penulis',
         'views',
         'status',
-        'admin_id',
+        
     ];
 
     protected $casts = [
@@ -57,8 +60,10 @@ class Berita extends Model
         return $slug;
     }
 
-    public function admin()
+  
+
+    public function geosite()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Geosite::class);
     }
 }

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ambarita - Geosite Danau Toba</title>
+    <title>Pelabuhan Ambarita - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="/css/tuktuk.css">
+    <link rel="stylesheet" href="/css/Geosite.css">
 </head>
 <body>
 
@@ -50,7 +50,7 @@
 <!-- HERO -->
 <section class="hero" style="background-image: url('/image/Ambarita/Ambarita1.jpg');">
     <div>
-        <h1 class="hero-title">A M B A R I T A</h1>
+        <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
         <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
 </section>
@@ -59,36 +59,35 @@
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
-            <h2>Sejarah & Budaya</h2>
+            <h2>Sejarah &amp; Pelabuhan</h2>
             <div class="divider"></div>
-            <p>Warisan budaya Batak yang autentik dan masih hidup</p>
+            <p>Gerbang utama menuju Desa Ambarita yang sarat sejarah dan budaya Batak Toba</p>
         </div>
         <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita7.jpg" alt="Desa ambarita"></div>
+            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita7.jpg" alt="Pelabuhan Ambarita"></div>
             <div class="sejarah-text">
-                <h3>Sejarah Ambarita</h3>
-                <p>Ambarita merupakan desa tua yang terkenal sebagai pusat pemerintahan Raja
-                 Siallagan pada masa lalu. Desa ini dikenal karena adanya kursi batu dan meja persidangan batu yang digunakan 
-                 sebagai tempat pengadilan adat masyarakat Batak Toba.</p>
+                <h3>Sejarah Pelabuhan Ambarita</h3>
+                <p>Pelabuhan Ambarita merupakan salah satu pintu masuk utama menuju Desa Ambarita di Pulau Samosir.
+                    Pelabuhan ini melayani penyeberangan kapal ferry dari berbagai arah, menjadi jalur vital
+                    bagi wisatawan maupun warga lokal yang ingin mengunjungi situs sejarah Batu Persidangan Raja Siallagan.</p>
             </div>
         </div>
         <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita4.jpg" alt="Tradisi Batak"></div>
+            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita4.jpg" alt="Aktivitas Pelabuhan"></div>
             <div class="sejarah-text">
-                <h3>Budaya Ambarita</h3>
-                <p>Budaya di Ambarita masih sangat kental dengan tradisi Batak Toba. Rumah adat tradisional, tarian tortor, dan penggunaan ulos
-                     masih dijaga oleh masyarakat setempat. 
-                    Cerita rakyat dan sejarah kerajaan Batak juga diwariskan secara turun-temurun.</p>
+                <h3>Kehidupan di Pelabuhan</h3>
+                <p>Di sekitar pelabuhan, kehidupan masyarakat Batak Toba tetap terjaga keasliannya. Aktivitas nelayan,
+                    pedagang tradisional, dan kegiatan adat masih dapat disaksikan sehari-hari. Para nelayan berangkat
+                    pagi hari membawa hasil tangkapan ikan segar dari Danau Toba untuk dijual di pasar sekitar pelabuhan.</p>
             </div>
         </div>
         <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita5.jpg" alt="Wisata Budaya"></div>
+            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita5.jpg" alt="Pemandangan Danau Toba"></div>
             <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Ambarita</h3>
-                <p>Ambarita terkenal dengan situs Batu Persidangan 
-                    Raja Siallagan yang menjadi daya tarik utama wisatawan.
-                     Selain melihat peninggalan sejarah, pengunjung juga dapat menikmati suasana
-                      desa tradisional Batak dan menyaksikan pertunjukan budaya khas Batak Toba.</p>
+                <h3>Daya Tarik Wisata Pelabuhan Ambarita</h3>
+                <p>Pelabuhan Ambarita menawarkan pemandangan Danau Toba yang menakjubkan langsung dari dermaga.
+                    Wisatawan dapat menikmati sunrise dan sunset yang memukau, melihat aktivitas perahu tradisional,
+                    serta menjadikan pelabuhan sebagai titik awal penjelajahan menuju situs bersejarah Ambarita.</p>
             </div>
         </div>
     </div>
@@ -100,7 +99,7 @@
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal ambarita</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal Pelabuhan Ambarita</p>
         </div>
         <div class="grid-3">
             @forelse($umkm as $item)
@@ -193,22 +192,19 @@
     </div>
 </section>
 
-
-
 <!-- LOKASI -->
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi & Cara Mencapai</h2>
+            <h2>Lokasi Pelabuhan Ambarita</h2>
             <div class="divider"></div>
-            <p></p>
+            <p>Gerbang utama menuju situs bersejarah Ambarita di Pulau Samosir</p>
         </div>
 
         <div class="maps-section">
             <div class="maps-container">
-                <!-- Google Maps dengan marker lokasi Ambarita -->
                 <iframe
-                    src="https://maps.google.com/maps?q=Ambarita,%20Simanindo,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Pelabuhan+Ambarita,+Simanindo,+Samosir,+Sumatera+Utara&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -219,21 +215,19 @@
 
             <div class="rute-info">
                 <div class="rute-item">
-                    <h4>🏍️ Dengan Motor</h4>
-                    <p>Balige → Ajibata (30m) → Ferry (20m) → Ambarita (15m)</p>
+                    <h4>⛴️ Dari Muara</h4>
+                    <p>Naik ferry dari Muara menuju Pelabuhan Ambarita langsung.</p>
+                    <span class="rute-time">± 45 menit</span>
+                </div>
+                <div class="rute-item">
+                    <h4>🚢 Dari Ajibata</h4>
+                    <p>Ferry dari Ajibata ke Tomok, lanjut darat ke Ambarita.</p>
                     <span class="rute-time">± 1.5 jam</span>
                 </div>
-
                 <div class="rute-item">
-                    <h4>🚗 Dengan Mobil</h4>
-                    <p>Balige → Ajibata (30m) → Parkir → Ferry → Transportasi lokal</p>
-                    <span class="rute-time">± 2 jam</span>
-                </div>
-
-                <div class="rute-item">
-                    <h4>⛴️ Ferry Schedule</h4>
-                    <p>Operasional setiap hari 06:00 - 17:00 WIB</p>
-                    <span class="rute-time">Kapasitas penuh</span>
+                    <h4>📍 Jarak ke Situs Batu</h4>
+                    <p>Dari pelabuhan, situs Batu Persidangan Raja Siallagan dapat dicapai dengan berjalan kaki.</p>
+                    <span class="rute-time">± 10 menit</span>
                 </div>
             </div>
         </div>
@@ -243,9 +237,9 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Jangan Lewatkan Keindahan ambarita</h3>
+        <h3>Jelajahi Pesona Pelabuhan Ambarita</h3>
         <div class="divider"></div>
-        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di ambarita</p>
+        <p>Nikmati keindahan Danau Toba dari dermaga bersejarah, saksikan aktivitas nelayan lokal yang autentik, dan jadikan Pelabuhan Ambarita sebagai pintu gerbang petualangan budaya Batak Toba yang tak terlupakan.</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
             <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin;
+use App\Models\Geosite;
 
 class Destinasi extends Model
 {
@@ -20,6 +21,8 @@ class Destinasi extends Model
         'gambar_utama',
         'tags',
         'kategori',
+        'link_referensi',
+        'geosite_id',
         'status',
         'admin_id'
     ];
@@ -32,5 +35,10 @@ class Destinasi extends Model
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+
+    public function geosite()
+    {
+        return $this->belongsTo(Geosite::class);
     }
 }

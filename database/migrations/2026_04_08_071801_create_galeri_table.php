@@ -17,9 +17,10 @@ return new class extends Migration
     $table->string('judul', 255);
     $table->string('kategori', 100);
     $table->text('deskripsi')->nullable();
-    $table->longText('gambar')->nullable();  // ini pengganti
+    $table->longText('gambar')->nullable();
+    $table->string('link_referensi', 500)->nullable();
     $table->timestamps();
-    $table->foreignId('admin_id')->nullable() ->default(1) ->constrained('admin');
+    $table->foreignId('geosite_id')->constrained('geosite') ->cascadeOnDelete();
     $table->string('lokasi', 255)->nullable();
     $table->date('tanggal_foto')->nullable();
     $table->boolean('status')->default(true);

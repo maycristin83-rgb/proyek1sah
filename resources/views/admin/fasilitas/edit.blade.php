@@ -18,10 +18,13 @@
             </div>
 
             <div class="mb-3">
-                <label>Geosite</label>
-                <select name="geosite" class="form-control" required>
-                    @foreach($geositeList as $gs)
-                        <option value="{{ $gs }}" {{ $fasilitas->geosite == $gs ? 'selected' : '' }}>{{ ucfirst($gs) }}</option>
+                <label>Geosite <span class="text-danger">*</span></label>
+                <select name="geosite_id" class="form-control" required>
+                    <option value="">-- Pilih Geosite --</option>
+                    @foreach($geositeList as $g)
+                        <option value="{{ $g->id }}" {{ old('geosite_id', $fasilitas->geosite_id) == $g->id ? 'selected' : '' }}>
+                            {{ $g->nama }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -41,13 +44,17 @@
                 @if($fasilitas->gambar)
                     @php $imgUrl = !str_starts_with($fasilitas->gambar, 'data:') ? asset('storage/' . $fasilitas->gambar) : ''; @endphp
                     <img src="{{ $imgUrl ?: $fasilitas->gambar }}" width="100">
-                    @if($imgUrl)
-                        <br><a href="{{ $imgUrl }}" target="_blank" style="font-size:11px; color:#6c757d;">🔗 {{ $imgUrl }}</a>
-                    @endif
                 @else
                     <span class="text-muted">Tidak ada gambar</span>
                 @endif
                 <input type="file" name="gambar" class="form-control mt-2" accept="image/*">
+            </div>
+
+            <div class="mb-3">
+                <label>Link Referensi <small class="text-muted">(opsional — isi jika gambar diambil dari website lain)</small></label>
+                <input type="url" name="link_referensi" class="form-control"
+                       placeholder="https://sumber-gambar.com/..."
+                       value="{{ old('link_referensi', $fasilitas->link_referensi) }}">
             </div>
 
             <div class="mb-3">

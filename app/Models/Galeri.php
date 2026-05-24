@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin;
+use App\Models\Geosite;
 class Galeri extends Model
 {
     use HasFactory;
 
     protected $table = 'galeri';
-    protected $fillable = ['judul', 'kategori', 'deskripsi', 'gambar', 'sumber_gambar', 'status', 'admin_id'];
-     public function admin()
+    protected $fillable = ['judul', 'kategori', 'deskripsi', 'gambar', 'sumber_gambar', 'link_referensi', 'lokasi', 'tanggal_foto', 'geosite_id', 'status'];
+   
+
+    public function geosite()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Geosite::class);
     }
 }

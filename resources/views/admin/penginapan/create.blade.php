@@ -17,10 +17,13 @@
             </div>
 
             <div class="mb-3">
-                <label>Geosite</label>
-                <select name="geosite" class="form-control" required>
-                    @foreach($geositeList as $gs)
-                        <option value="{{ $gs }}">{{ ucfirst($gs) }}</option>
+                <label>Geosite <span class="text-danger">*</span></label>
+                <select name="geosite_id" class="form-control" required>
+                    <option value="">-- Pilih Geosite --</option>
+                    @foreach($geositeList as $g)
+                        <option value="{{ $g->id }}" {{ old('geosite_id') == $g->id ? 'selected' : '' }}>
+                            {{ $g->nama }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -43,6 +46,12 @@
             <div class="mb-3">
                 <label>Gambar</label>
                 <input type="file" name="gambar" class="form-control" accept="image/*">
+            </div>
+
+            <div class="mb-3">
+                <label>Link Referensi <small class="text-muted">(opsional — isi jika gambar diambil dari website lain)</small></label>
+                <input type="url" name="link_referensi" class="form-control"
+                       placeholder="https://sumber-gambar.com/..." value="{{ old('link_referensi') }}">
             </div>
 
             <div class="mb-3">

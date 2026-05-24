@@ -45,7 +45,6 @@
                     <label class="form-label required">Kategori</label>
                     <select name="kategori" class="form-control @error('kategori') is-invalid @enderror" required>
                         <option value="">-- Pilih Kategori --</option>
-                        <option value="Balige" {{ old('kategori') == 'Balige' ? 'selected' : '' }}> Balige</option>
                         <option value="tuktuk" {{ old('kategori') == 'tuktuk' ? 'selected' : '' }}> tuktuk</option>
                         <option value="Ambarita" {{ old('kategori') == 'Ambarita' ? 'selected' : '' }}> Ambarita</option>
                         <option value="Tomok" {{ old('kategori') == 'Tomok' ? 'selected' : '' }}> Tomok</option>
@@ -96,6 +95,25 @@
                     @enderror
                 </div>
                 
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Link Referensi</label>
+                    <input type="url" name="link_referensi" class="form-control"
+                           placeholder="https://sumber-gambar.com/..." value="{{ old('link_referensi') }}">
+                    <small class="text-muted">Opsional — isi jika gambar diambil dari website lain</small>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Geosite <span class="text-danger">*</span></label>
+                    <select name="geosite_id" class="form-control" required>
+                        <option value="">-- Pilih Geosite --</option>
+                        @foreach($geositeList as $g)
+                            <option value="{{ $g->id }}" {{ old('geosite_id') == $g->id ? 'selected' : '' }}>
+                                {{ $g->nama }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="col-md-6 mb-3">
                     <div class="form-check mt-4">
                         <input class="form-check-input" type="checkbox" name="status" value="1" 

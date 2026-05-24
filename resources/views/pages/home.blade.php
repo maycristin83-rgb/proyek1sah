@@ -1148,53 +1148,291 @@
         </div>
         <div class="destinasi-list">
             
-            <!-- tuktuk -->
-            <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
-                <div class="destinasi-image">
-                    <img src="/image/Tuktuk/Tuktuk3.jpg" alt="tuktuk">
-                </div>
-                <div class="destinasi-content">
-                    <div class="destinasi-number">01 — GEOSITE</div>
-                    <h3>Tuktuk</h3>
-                    <div class="destinasi-location">Desa Tuktuk Siadong, Kecamatan Simanindo, Kabupaten Samosir.</div>
-                    <p class="destinasi-desc">Tuktuk adalah kawasan wisata terkenal di Pulau Samosir yang berada di tepi Danau Toba. Tempat ini banyak dikunjungi wisatawan 
-                        karena memiliki pemandangan danau yang indah, penginapan, restoran, serta suasana yang tenang dan nyaman untuk berlibur</p>
-                    <a href="{{ url('/geosite/tuktuk') }}" class="destinasi-link">Jelajahi Lebih Lanjut →</a>
-                </div>
-            </div>
-            
-            <!-- Ambarita -->
-            <div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <div class="destinasi-image">
-                    <img src="/image/Ambarita/Ambarita1.jpg" alt="Ambarita">
-                </div>
-                <div class="destinasi-content">
-                    <div class="destinasi-number">02 — GEOSITE</div>
-                    <h3>Ambarita</h3>
-                    <div class="destinasi-location">Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.</div>
-                    <p class="destinasi-desc">Ambarita adalah desa wisata budaya Batak yang terkenal dengan Batu Kursi Persidangan Raja Siallagan dan rumah adat Batak Toba.
-                         Tempat ini menjadi salah satu tujuan wisata sejarah dan budaya di Pulau Samosir.</p>
-                    <a href="{{ url('/geosite/ambarita') }}" class="destinasi-link">Jelajahi Lebih Lanjut →</a>
-                </div>
-            </div>
-            
-            <!-- Tomok -->
-            <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <div class="destinasi-image">
-                    <img src="/image/Tomok/Tomok3.jpg" alt="Tomok">
-                </div>
-                <div class="destinasi-content">
-                    <div class="destinasi-number">03 — GEOSITE</div>
-                    <h3>Tomok</h3>
-                    <div class="destinasi-location">Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.</div>
-                    <p class="destinasi-desc">Tomok merupakan desa wisata yang menjadi pintu masuk utama menuju Pulau Samosir melalui kapal feri dari Parapat. 
-                        Desa ini terkenal dengan makam Raja Sidabutar, pertunjukan budaya Batak, serta pusat penjualan suvenir dan ulos khas Batak.</p>
-                    <a href="{{ url('/geosite/tomok') }}" class="destinasi-link">Jelajahi Lebih Lanjut →</a>
-                </div>
-            </div>
-        </div>
+          <!-- 01 — TUKTUK SIADONG -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="destinasi-image">
+        <img src="/image/Tuktuk/Tuktuk3.jpg" alt="Tuktuk Siadong">
     </div>
-</section>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">01 — GEOSITE</div>
+
+        <h3>Tuktuk Siadong</h3>
+
+        <div class="destinasi-location">
+            Desa Tuktuk Siadong, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Kawasan wisata terkenal di Pulau Samosir dengan panorama Danau Toba,
+            penginapan, restoran, dan suasana tenang untuk berlibur.
+        </p>
+
+        <a href="{{ route('geosite.tuktuk_siadong') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 02 — BUKIT BETA -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+    <div class="destinasi-image">
+        <img src="/image/Tuktuk/BukitBeta.jpg" alt="Bukit Beta Tuk-Tuk">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">02 — GEOSITE</div>
+
+        <h3>Bukit Beta Tuk-Tuk</h3>
+
+        <div class="destinasi-location">
+            Desa Tuktuk Siadong, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Bukit dengan panorama indah Danau Toba yang menjadi spot favorit
+            wisatawan untuk menikmati matahari terbit dan pemandangan alam.
+        </p>
+
+        <a href="{{ route('geosite.bukit_beta_tuktuk') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 03 — DESA TOMOK -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="destinasi-image">
+        <img src="/image/Tomok/Tomok3.jpg" alt="Desa Tomok">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">03 — GEOSITE</div>
+
+        <h3>Desa Tomok</h3>
+
+        <div class="destinasi-location">
+            Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Desa wisata terkenal sebagai pintu masuk menuju Pulau Samosir
+            melalui pelabuhan feri dari Parapat.
+        </p>
+
+        <a href="{{ route('geosite.desa_tomok') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 04 — MAKAM RAJA SIDABUTAR -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+    <div class="destinasi-image">
+        <img src="/image/Tomok/Sidabutar.jpg" alt="Makam Raja Sidabutar">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">04 — GEOSITE</div>
+
+        <h3>Makam Raja Sidabutar</h3>
+
+        <div class="destinasi-location">
+            Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Situs sejarah makam Raja Sidabutar yang terkenal dengan ukiran
+            batu khas Batak dan nilai budaya yang tinggi.
+        </p>
+
+        <a href="{{ route('geosite.makam_raja_sidabutar') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 05 — SIGALE-GALE -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+    <div class="destinasi-image">
+        <img src="/image/Tomok/Sigalegale.jpg" alt="Pertunjukan Sigale-gale">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">05 — GEOSITE</div>
+
+        <h3>Pertunjukan Sigale-gale</h3>
+
+        <div class="destinasi-location">
+            Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Pertunjukan budaya Batak menggunakan boneka kayu Sigale-gale
+            yang menampilkan tarian tradisional khas Batak Toba.
+        </p>
+
+        <a href="{{ route('geosite.pertunjukan_sigalegale') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 06 — BATU MARHOSA -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+    <div class="destinasi-image">
+        <img src="/image/Tomok/BatuMarhosa.jpg" alt="Batu Marhosa">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">06 — GEOSITE</div>
+
+        <h3>Batu Marhosa</h3>
+
+        <div class="destinasi-location">
+            Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Batu bersejarah yang digunakan masyarakat Batak sebagai tempat
+            berkumpul dan bermusyawarah pada masa lampau.
+        </p>
+
+        <a href="{{ route('geosite.batu_marhosa') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 07 — PASAR SOUVENIR -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+    <div class="destinasi-image">
+        <img src="/image/Tomok/Souvenir.jpg" alt="Pasar Souvenir Tomok">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">07 — GEOSITE</div>
+
+        <h3>Pasar Souvenir Tomok</h3>
+
+        <div class="destinasi-location">
+            Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Pusat penjualan suvenir khas Batak seperti ulos, ukiran kayu,
+            gantungan kunci, dan kerajinan tradisional lainnya.
+        </p>
+
+        <a href="{{ route('geosite.pasar_souvenir_tomok') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 08 — HUTA SIALLAGAN -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/HutaSiallagan.jpg" alt="Huta Siallagan">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">08 — GEOSITE</div>
+
+        <h3>Huta Siallagan</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Perkampungan adat Batak Toba yang terkenal dengan rumah tradisional
+            dan sejarah Raja Siallagan.
+        </p>
+
+        <a href="{{ route('geosite.huta_siallagan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 09 — KURSI BATU -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/KursiBatu.jpg" alt="Kursi Batu Persidangan">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">09 — GEOSITE</div>
+
+        <h3>Kursi Batu Persidangan</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Situs batu persidangan peninggalan Raja Siallagan yang digunakan
+            untuk mengadili pelanggar hukum pada masa lalu.
+        </p>
+
+        <a href="{{ route('geosite.kursi_batu_persidangan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 10 — MUSEUM HUTA -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/Museum.jpg" alt="Museum Huta Siallagan">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">10 — GEOSITE</div>
+
+        <h3>Museum Huta Siallagan</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Museum budaya Batak yang menyimpan koleksi peninggalan sejarah,
+            alat musik, dan perlengkapan adat Batak Toba.
+        </p>
+
+        <a href="{{ route('geosite.museum_huta_siallagan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 11 — RUMAH ADAT -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/RumahAdat.jpg" alt="Rumah Adat Batak Ambarita">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">11 — GEOSITE</div>
+
+        <h3>Rumah Adat Batak Ambarita</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Rumah adat tradisional Batak Toba dengan arsitektur khas dan
+            ornamen budaya yang masih terjaga hingga saat ini.
+        </p>
+
+        <a href="{{ route('geosite.rumah_adat_batak_ambarita') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
 
 <!-- ==================== PETA LOKASI 3 DESA ==================== -->
 <section class="section section-light">

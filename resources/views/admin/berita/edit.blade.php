@@ -32,15 +32,31 @@
                 @if($berita->gambar)
                     @php $imgUrl = !str_starts_with($berita->gambar, 'data:') ? asset('storage/' . $berita->gambar) : ''; @endphp
                     <img src="{{ $imgUrl ?: $berita->gambar }}" width="100">
-                    @if($imgUrl)
-                        <br><a href="{{ $imgUrl }}" target="_blank" style="font-size:11px; color:#6c757d;">🔗 {{ $imgUrl }}</a>
-                    @endif
                 @else
                     <span class="text-muted">Tidak ada gambar</span>
                 @endif
                 <input type="file" name="gambar" class="form-control mt-2" accept="image/*">
             </div>
             
+            <div class="mb-3">
+                <label>Link Referensi <small class="text-muted">(opsional — isi jika gambar/konten diambil dari website lain)</small></label>
+                <input type="url" name="link_referensi" class="form-control"
+                       placeholder="https://contoh.com/artikel/..."
+                       value="{{ old('link_referensi', $berita->link_referensi) }}">
+            </div>
+
+            <div class="mb-3">
+                <label>Geosite <span class="text-danger">*</span></label>
+                <select name="geosite_id" class="form-control" required>
+                    <option value="">-- Pilih Geosite --</option>
+                    @foreach($geositeList as $g)
+                        <option value="{{ $g->id }}" {{ old('geosite_id', $berita->geosite_id) == $g->id ? 'selected' : '' }}>
+                            {{ $g->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="mb-3">
                 <input type="checkbox" name="status" value="1" {{ $berita->status ? 'checked' : '' }}> Aktifkan
             </div>

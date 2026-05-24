@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin;
+use App\Models\Geosite;
 class Penginapan extends Model
 {
     use HasFactory;
@@ -15,18 +16,21 @@ class Penginapan extends Model
         'nama',
         'deskripsi',
         'gambar',
+        'link_referensi',
         'harga',
         'kontak',
-        'geosite',
+        'geosite_id',
         'status',
-        'admin_id'
+       
     ];
 
     protected $casts = [
         'status' => 'boolean',
     ];
-     public function admin()
+  
+
+    public function geosite()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Geosite::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
+use App\Models\Geosite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -12,13 +13,14 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $berita = Berita::latest()->paginate(10);
+        $berita = Berita::with('geosite')->latest()->paginate(10);
         return view('admin.berita.index', compact('berita'));
     }
 
     public function create()
     {
-        return view('admin.berita.create');
+        $geositeList = Geosite::orderBy('nama')->get();
+        return view('admin.berita.create', compact('geositeList'));
     }
 
     public function store(Request $request)
@@ -26,16 +28,20 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'penulis' => 'nullable|string|max:100',
-            'status' => 'nullable|boolean'
+            'gambar'         => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'penulis'        => 'nullable|string|max:100',
+            'link_referensi' => 'nullable|url|max:500',
+            'geosite_id'     => 'required|exists:geosite,id',
+            'status'         => 'nullable|boolean'
         ]);
 
         $data = [
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'penulis' => $request->penulis ?? 'Admin',
-            'status' => $request->has('status') ? 1 : 0
+            'judul'          => $request->judul,
+            'konten'         => $request->konten,
+            'penulis'        => $request->penulis ?? 'Admin',
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0
         ];
 
         if ($request->hasFile('gambar')) {
@@ -50,8 +56,9 @@ class BeritaController extends Controller
 
     public function edit($id)
     {
-        $berita = Berita::findOrFail($id);
-        return view('admin.berita.edit', compact('berita'));
+        $berita      = Berita::findOrFail($id);
+        $geositeList = Geosite::orderBy('nama')->get();
+        return view('admin.berita.edit', compact('berita', 'geositeList'));
     }
 
     public function update(Request $request, $id)
@@ -61,16 +68,20 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'penulis' => 'nullable|string|max:100',
-            'status' => 'nullable|boolean'
+            'gambar'         => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'penulis'        => 'nullable|string|max:100',
+            'link_referensi' => 'nullable|url|max:500',
+            'geosite_id'     => 'required|exists:geosite,id',
+            'status'         => 'nullable|boolean'
         ]);
 
         $data = [
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'penulis' => $request->penulis ?? 'Admin',
-            'status' => $request->has('status') ? 1 : 0
+            'judul'          => $request->judul,
+            'konten'         => $request->konten,
+            'penulis'        => $request->penulis ?? 'Admin',
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0
         ];
 
         if ($request->hasFile('gambar')) {

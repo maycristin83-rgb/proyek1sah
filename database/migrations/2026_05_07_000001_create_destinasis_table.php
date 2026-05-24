@@ -17,12 +17,13 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('lokasi', 100);
             $table->text('deskripsi');
+            $table->string('link_referensi', 500)->nullable();
             $table->longText('gambar_utama')->nullable(); 
             $table->json('tags')->nullable();             
             $table->string('kategori', 100);                         
             $table->boolean('status')->default(true);   
             $table->timestamps();
-            $table->foreignId('admin_id')->nullable() ->default(1) ->constrained('admin');
+            $table->foreignId('geosite_id')->constrained('geosite') ->cascadeOnDelete();
         });
     }
 

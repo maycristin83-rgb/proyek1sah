@@ -20,6 +20,7 @@
                 <th>Gambar</th>
                 <th>Judul</th>
                 <th>Kategori</th>
+                <th>Geosite</th>
                 <th>Aksi</th>
             </tr>
 
@@ -29,10 +30,10 @@
                 <td>
                    @if($g->gambar)
                             @php $imgUrl = !str_starts_with($g->gambar, 'data:') ? asset('storage/' . $g->gambar) : ''; @endphp
-                            <img src="{{ $imgUrl ?: $g->gambar }}" width="60" height="60" style="object-fit: cover; border-radius: 8px;">
-                            @if($imgUrl)
-                                <br><a href="{{ $imgUrl }}" target="_blank" title="{{ $imgUrl }}" style="font-size:10px; color:#6c757d;">🔗 URL</a>
-                            @endif
+                            <div style="position:relative;display:inline-block;">
+                                <img src="{{ $imgUrl ?: $g->gambar }}" width="60" height="60" style="object-fit: cover; border-radius: 8px; display:block;">
+                            </div>
+
                             @else
                                 <div class="bg-secondary text-white text-center" style="width: 60px; height: 60px; line-height: 60px; border-radius: 8px;">
                                     <i class="fas fa-image"></i>
@@ -41,6 +42,7 @@
                 </td>
                 <td>{{ $g->judul }}</td>
                 <td>{{ $g->kategori }}</td>
+                <td><span class="badge bg-info">{{ $g->geosite?->nama ?? '-' }}</span></td>
                 <td>
                     <a href="{{ route('admin.galeri.edit', $g->id) }}" class="btn btn-warning btn-sm">Edit</a>
 

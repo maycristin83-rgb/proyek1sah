@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\Admin;
+use App\Models\Geosite;
 class Informasi extends Model
 {
     protected $table = 'informasi';
@@ -14,9 +15,11 @@ class Informasi extends Model
         'slug',
         'konten',
         'gambar',
+        'link_referensi',
+        'geosite_id',
         'urutan',
         'status',
-        'admin_id'  
+        
     ];
 
     protected $casts = [
@@ -36,8 +39,10 @@ class Informasi extends Model
             $informasi->slug = Str::slug($informasi->judul);
         });
     }
-        public function admin()
+       
+
+        public function geosite()
         {
-            return $this->belongsTo(Admin::class);
+            return $this->belongsTo(Geosite::class);
         }
 }

@@ -5,6 +5,48 @@
 @section('content')
 
 <style>
+    .sejarah-image{
+    position:relative;
+    flex:1;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,51,102,.15);
+}
+
+.img-source{
+
+    position:absolute;
+
+    bottom:12px;
+    left:12px;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(6px);
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    text-decoration:none;
+
+    z-index:99;
+
+    transition:.3s ease;
+}
+
+.img-source:hover{
+
+    background:#c6a43b;
+
+    color:#003366;
+}
     .sejarah-hero {
         height: 55vh;
         min-height: 360px;
@@ -127,33 +169,89 @@
 </section>
 
 <!-- SEJARAH BERSILANG dari DATABASE -->
+<!-- SEJARAH BERSILANG dari DATABASE -->
 <section class="section">
+
     <div class="container">
+
         <div class="section-title" data-aos="fade-up">
+
             <h2>Terbentuknya Danau Toba</h2>
+
             <div class="divider"></div>
+
         </div>
+
+
         <div class="sejarah-grid">
+
             @forelse($sejarahList as $index => $item)
-            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}" data-aos="fade-{{ $index % 2 == 0 ? 'right' : 'left' }}">
+
+            <div
+                class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}"
+                data-aos="fade-{{ $index % 2 == 0 ? 'right' : 'left' }}"
+            >
+
+                <!-- IMAGE -->
                 <div class="sejarah-image">
+
                     @if($item->gambar)
-                        <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" alt="{{ $item->judul }}">
+
+                        <img
+                            src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}"
+                            alt="{{ $item->judul }}"
+                        >
+
                     @else
-                        <img src="/image/sejarah{{ $index+1 }}.jpg" alt="{{ $item->judul }}">
+
+                        <img
+                            src="/image/sejarah{{ $index+1 }}.jpg"
+                            alt="{{ $item->judul }}"
+                        >
+
                     @endif
+
+
+                    {{-- SOURCE --}}
+                    @if($item->link_referensi)
+
+                    <a
+                        href="{{ $item->link_referensi }}"
+                        target="_blank"
+                        class="img-source"
+                        title="Sumber Gambar"
+                    >
+                        🔗 source
+                    </a>
+
+                    @endif
+
                 </div>
+
+
+                <!-- TEXT -->
                 <div class="sejarah-text">
+
                     {!! $item->konten !!}
+
                 </div>
+
             </div>
+
             @empty
+
             <div class="text-center py-5">
+
                 <p>Belum ada data sejarah.</p>
+
             </div>
+
             @endforelse
+
         </div>
+
     </div>
+
 </section>
 
 <!-- TIMELINE 4 LETUSAN (STATIS) -->

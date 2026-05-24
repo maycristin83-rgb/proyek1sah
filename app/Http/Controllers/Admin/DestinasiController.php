@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Destinasi;
+use App\Models\Geosite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -21,30 +22,34 @@ class DestinasiController extends Controller
     public function create()
     {
         $kategoriList = $this->kategoriList;
-        return view('admin.destinasi.create', compact('kategoriList'));
+        $geositeList  = Geosite::orderBy('nama')->get();
+        return view('admin.destinasi.create', compact('kategoriList', 'geositeList'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama'         => 'required|string|max:255',
-            'lokasi'       => 'required|string|max:255',
-            'deskripsi'    => 'required|string',
-            'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'tags'         => 'nullable|string',
-            'kategori'     => 'required|in:Alam,Buatan,Budaya',
+            'nama'           => 'required|string|max:255',
+            'lokasi'         => 'required|string|max:255',
+            'deskripsi'      => 'required|string',
+            'gambar_utama'   => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
+            'tags'           => 'nullable|string',
+            'kategori'       => 'required|in:Alam,Buatan,Budaya',
+            'geosite_id'     => 'required|exists:geosite,id',
         ]);
 
         $slug = $this->generateUniqueSlug($request->nama);
 
         $data = [
-            'nama'      => $request->nama,
-            'slug'      => $slug,
-            'lokasi'    => $request->lokasi,
-            'deskripsi' => $request->deskripsi,
-            'tags'      => $this->parseTags($request->tags),
-            'kategori'  => $request->kategori,
-            'status'    => $request->has('status') ? 1 : 0,
+            'nama'           => $request->nama,
+            'slug'           => $slug,
+            'lokasi'         => $request->lokasi,
+            'deskripsi'      => $request->deskripsi,
+            'tags'           => $this->parseTags($request->tags),
+            'kategori'       => $request->kategori,
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0,
         ];
 
         if ($request->hasFile('gambar_utama')) {
@@ -61,7 +66,8 @@ class DestinasiController extends Controller
     {
         $destinasi    = Destinasi::findOrFail($id);
         $kategoriList = $this->kategoriList;
-        return view('admin.destinasi.edit', compact('destinasi', 'kategoriList'));
+        $geositeList  = Geosite::orderBy('nama')->get();
+        return view('admin.destinasi.edit', compact('destinasi', 'kategoriList', 'geositeList'));
     }
 
     public function update(Request $request, $id)
@@ -75,7 +81,7 @@ class DestinasiController extends Controller
             'gambar_utama' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'tags'         => 'nullable|string',
             'kategori'     => 'required|in:Alam,Buatan,Budaya',
-            'url'          => 'nullable|string|max:255',
+            'geosite_id'   => 'required|exists:geosite,id',
         ]);
 
         $slug = ($request->nama !== $destinasi->nama)
@@ -83,14 +89,15 @@ class DestinasiController extends Controller
             : $destinasi->slug;
 
         $data = [
-            'nama'      => $request->nama,
-            'slug'      => $slug,
-            'lokasi'    => $request->lokasi,
-            'deskripsi' => $request->deskripsi,
-            'tags'      => $this->parseTags($request->tags),
-            'kategori'  => $request->kategori,
-            'url'       => $request->url,
-            'status'    => $request->has('status') ? 1 : 0,
+            'nama'           => $request->nama,
+            'slug'           => $slug,
+            'lokasi'         => $request->lokasi,
+            'deskripsi'      => $request->deskripsi,
+            'tags'           => $this->parseTags($request->tags),
+            'kategori'       => $request->kategori,
+            'link_referensi' => $request->link_referensi,
+            'geosite_id'     => $request->geosite_id,
+            'status'         => $request->has('status') ? 1 : 0,
         ];
 
         if ($request->hasFile('gambar_utama')) {
