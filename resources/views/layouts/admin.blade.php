@@ -332,6 +332,9 @@
             <a href="{{ route('admin.fasilitas.index') }}" class="{{ request()->routeIs('admin.fasilitas.*') ? 'active' : '' }}">
                 <i class="fas fa-concierge-bell"></i> Fasilitas
             </a>
+            <a href="{{ route('admin.sejarah.index') }}" class="{{ request()->routeIs('admin.sejarah.*') ? 'active' : '' }}">
+                <i class="fas fa-scroll"></i> Sejarah
+            </a>
         </div>
     </div>
     

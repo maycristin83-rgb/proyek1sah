@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Terjun Sigarattung - Geosite Danau Toba</title>
+    <title>tomok - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tuktuk.css">
+ <link rel="stylesheet" href="/css/Geosite.css">
 </head>
 <body>
 
@@ -48,48 +48,50 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" style="background-image: url('/image/air_terjun/air_terjun1.jpg');">
+<section class="hero" style="background-image: url('/image/Tomok/Tomok3.jpg');">
     <div>
-        <h1 class="hero-title">A I R &nbsp; T E R J U N &nbsp; S I G A R A T T U N G</h1>
-        <p class="hero-subtitle">Kawasan Geopark · Danau Toba</p>
+        <h1 class="hero-title">T O M O K</h1>
+        <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
 </section>
 
 <!-- SEJARAH -->
+<!-- SEJARAH -->
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
-            <h2>Keindahan Air Terjun Sigarattung</h2>
+            <h2>Sejarah & Budaya</h2>
             <div class="divider"></div>
-            <p>Permata tersembunyi di jantung kawasan Geopark Danau Toba yang memukau</p>
+            <p>Warisan budaya Batak yang autentik dan masih hidup</p>
         </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun2.jpg" alt="Air Terjun Sigarattung"></div>
-            <div class="sejarah-text">
-                <h3>Sejarah Air Terjun Sigarattung</h3>
-                <p>Air Terjun Sigarattung adalah salah satu air terjun tersembunyi yang terletak di kawasan Geopark Danau Toba.
-                    Dengan ketinggian yang mengesankan, air terjun ini telah lama dikenal masyarakat Batak setempat
-                    sebagai tempat yang dikeramatkan dan dipercaya memiliki nilai spiritual yang tinggi.</p>
+
+        @foreach($sejarah as $index => $item)
+            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+
+                <div class="sejarah-image">
+                    <img 
+                        src="{{ asset('storage/' . $item->gambar) }}" 
+                        alt="{{ $item->judul }}"
+                    >
+                </div>
+
+                <div class="sejarah-text">
+                    <h3>{{ $item->judul }}</h3>
+
+                    <p>
+                        {{ $item->konten }}
+                    </p>
+
+                    @if($item->link_referensi)
+                        <a href="{{ $item->link_referensi }}" target="_blank">
+                            Lihat Referensi
+                        </a>
+                    @endif
+                </div>
+
             </div>
-        </div>
-        <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun3.jpg" alt="Alam Sekitar Air Terjun"></div>
-            <div class="sejarah-text">
-                <h3>Keunikan Alam Sigarattung</h3>
-                <p>Air terjun ini dikelilingi oleh hutan tropis yang lebat dengan keanekaragaman hayati yang tinggi.
-                    Suara gemericik air yang jatuh dari ketinggian menciptakan suasana yang tenang dan damai.
-                    Alam sekitarnya masih sangat alami dan menjadi habitat bagi berbagai flora dan fauna khas Sumatera.</p>
-            </div>
-        </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun4.jpg" alt="Trek Menuju Air Terjun"></div>
-            <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Sigarattung</h3>
-                <p>Air Terjun Sigarattung menawarkan petualangan alam yang menakjubkan. Wisatawan dapat menikmati
-                    trek singkat melalui hutan, berenang di kolam alami di bawah air terjun, serta menghirup
-                    udara segar pegunungan yang menyegarkan jauh dari keramaian kota.</p>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 
@@ -99,7 +101,7 @@
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal di kawasan Air Terjun Sigarattung</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal tomok</p>
         </div>
         <div class="grid-3">
             @forelse($umkm as $item)
@@ -192,19 +194,21 @@
     </div>
 </section>
 
+
+
 <!-- LOKASI -->
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi Air Terjun Sigarattung</h2>
+            <h2>Lokasi Tomok</h2>
             <div class="divider"></div>
-            <p>Permata alam tersembunyi di kawasan Geopark Danau Toba</p>
+            <p>Desa bersejarah di Pulau Samosir, Danau Toba</p>
         </div>
 
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Air+Terjun+Sigarattung,+Samosir,+Sumatera+Utara&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Tomok,%20Simanindo,%20Samosir,%20Sumatera%20Utara&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -215,18 +219,18 @@
 
             <div class="rute-info">
                 <div class="rute-item">
-                    <h4>🚢 Dari Ajibata</h4>
-                    <p>Ferry dari Ajibata ke Tomok, lanjut darat ke lokasi air terjun.</p>
-                    <span class="rute-time">± 1.5 jam</span>
+                    <h4>🚢 Dari Parapat</h4>
+                    <p>Naik ferry dari Pelabuhan Parapat menuju Pelabuhan Tomok (± 45 menit).</p>
+                    <span class="rute-time">Ferry tersedia setiap hari</span>
                 </div>
                 <div class="rute-item">
-                    <h4>🚶 Trek Menuju Air Terjun</h4>
-                    <p>Jalan kaki melalui jalur setapak di hutan sekitar lokasi.</p>
-                    <span class="rute-time">± 15–20 menit</span>
+                    <h4>🏍️ Dari Tuktuk Siadong</h4>
+                    <p>Berkendara ke arah selatan sekitar 5 km dari pusat Tuktuk.</p>
+                    <span class="rute-time">± 10 menit</span>
                 </div>
                 <div class="rute-item">
-                    <h4>📌 Tips Berkunjung</h4>
-                    <p>Disarankan datang pagi hari dan menggunakan alas kaki yang nyaman untuk trek.</p>
+                    <h4>📍 Daya Tarik Utama</h4>
+                    <p>Makam Raja Sidabutar, pertunjukan Sigale-gale, dan pusat oleh-oleh khas Batak.</p>
                     <span class="rute-time">Buka setiap hari</span>
                 </div>
             </div>
@@ -237,12 +241,12 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Rasakan Keajaiban Air Terjun Sigarattung</h3>
+        <h3>Jangan Lewatkan Keindahan tomok</h3>
         <div class="divider"></div>
-        <p>Temukan ketenangan di tengah alam liar yang asri, dengarkan suara gemericik air yang menenangkan jiwa, dan nikmati kesegaran kolam alami di kaki air terjun yang menakjubkan ini.</p>
+        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tomok</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
-            <a href="#fasilitas" class="cta-btn cta-btn-secondary">Lihat Fasilitas</a>
+            <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
         </div>
     </div>
 </section>

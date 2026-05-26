@@ -56,40 +56,42 @@
 </section>
 
 <!-- SEJARAH -->
+<!-- SEJARAH -->
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
-            <h2>Sejarah &amp; Pelabuhan</h2>
+            <h2>Sejarah & Budaya</h2>
             <div class="divider"></div>
-            <p>Gerbang utama menuju Desa Ambarita yang sarat sejarah dan budaya Batak Toba</p>
+            <p>Warisan budaya Batak yang autentik dan masih hidup</p>
         </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita7.jpg" alt="Pelabuhan Ambarita"></div>
-            <div class="sejarah-text">
-                <h3>Sejarah Pelabuhan Ambarita</h3>
-                <p>Pelabuhan Ambarita merupakan salah satu pintu masuk utama menuju Desa Ambarita di Pulau Samosir.
-                    Pelabuhan ini melayani penyeberangan kapal ferry dari berbagai arah, menjadi jalur vital
-                    bagi wisatawan maupun warga lokal yang ingin mengunjungi situs sejarah Batu Persidangan Raja Siallagan.</p>
+
+        @foreach($sejarah as $index => $item)
+            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+
+                <div class="sejarah-image">
+                    <img 
+                        src="{{ asset('storage/' . $item->gambar) }}" 
+                        alt="{{ $item->judul }}"
+                    >
+                </div>
+
+                <div class="sejarah-text">
+                    <h3>{{ $item->judul }}</h3>
+
+                    <p>
+                        {{ $item->konten }}
+                    </p>
+
+                    @if($item->link_referensi)
+                        <a href="{{ $item->link_referensi }}" target="_blank">
+                            Lihat Referensi
+                        </a>
+                    @endif
+                </div>
+
             </div>
-        </div>
-        <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita4.jpg" alt="Aktivitas Pelabuhan"></div>
-            <div class="sejarah-text">
-                <h3>Kehidupan di Pelabuhan</h3>
-                <p>Di sekitar pelabuhan, kehidupan masyarakat Batak Toba tetap terjaga keasliannya. Aktivitas nelayan,
-                    pedagang tradisional, dan kegiatan adat masih dapat disaksikan sehari-hari. Para nelayan berangkat
-                    pagi hari membawa hasil tangkapan ikan segar dari Danau Toba untuk dijual di pasar sekitar pelabuhan.</p>
-            </div>
-        </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita5.jpg" alt="Pemandangan Danau Toba"></div>
-            <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Pelabuhan Ambarita</h3>
-                <p>Pelabuhan Ambarita menawarkan pemandangan Danau Toba yang menakjubkan langsung dari dermaga.
-                    Wisatawan dapat menikmati sunrise dan sunset yang memukau, melihat aktivitas perahu tradisional,
-                    serta menjadikan pelabuhan sebagai titik awal penjelajahan menuju situs bersejarah Ambarita.</p>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 

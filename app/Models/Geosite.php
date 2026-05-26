@@ -53,4 +53,9 @@ class Geosite extends Model
     {
         return $this->hasMany(Fasilitas::class);
     }
+
+    public function sejarah()
+    {
+        return $this->hasMany(Sejarah::class);
+    }
 }

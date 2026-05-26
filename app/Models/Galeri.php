@@ -11,7 +11,7 @@ class Galeri extends Model
     use HasFactory;
 
     protected $table = 'galeri';
-    protected $fillable = ['judul', 'kategori', 'deskripsi', 'gambar', 'sumber_gambar', 'link_referensi', 'lokasi', 'tanggal_foto', 'geosite_id', 'status'];
+    protected $fillable = ['judul', 'kategori', 'deskripsi', 'gambar', 'link_referensi', 'lokasi', 'tanggal_foto', 'geosite_id', 'status'];
    
 
     public function geosite()

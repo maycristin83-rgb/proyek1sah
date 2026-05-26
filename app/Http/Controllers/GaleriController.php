@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class GaleriController extends Controller
 {
@@ -15,7 +15,21 @@ class GaleriController extends Controller
 
         $galeriByKategori = $allGaleri->groupBy('kategori');
 
-        return view('pages.galeri', compact('galeriByKategori'));
+        // Tambahkan ini
+        $allPhotos = $allGaleri->map(function ($item) {
+            return [
+                'src' => asset('storage/' . $item->gambar),
+                'judul' => $item->judul,
+                'deskripsi' => $item->deskripsi,
+                'kategori' => $item->kategori,
+                'lokasi' => $item->lokasi ?? 'Danau Toba',
+            ];
+        });
+
+        return view('pages.galeri', compact(
+            'galeriByKategori',
+            'allPhotos'
+        ));
     }
 
     public function show($id)

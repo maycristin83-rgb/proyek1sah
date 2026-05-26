@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ambarita - Geosite Danau Toba</title>
+    <title>Huta Siallagan - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="/css/Geosite.css">
 </head>
-<body>
+<body>  
 
 <!-- NAVBAR -->
 <div class="navbar" id="navbar">
@@ -50,11 +50,12 @@
 <!-- HERO -->
 <section class="hero" style="background-image: url('/image/Ambarita/Ambarita1.jpg');">
     <div>
-        <h1 class="hero-title">A M B A R I T A</h1>
+        <h1 class="hero-title">H U T A &nbsp; S I A L L A G A N</h1>
         <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
 </section>
 
+<!-- SEJARAH -->
 <!-- SEJARAH -->
 <section id="sejarah" class="section">
     <div class="container">
@@ -63,34 +64,34 @@
             <div class="divider"></div>
             <p>Warisan budaya Batak yang autentik dan masih hidup</p>
         </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita7.jpg" alt="Desa ambarita"></div>
-            <div class="sejarah-text">
-                <h3>Sejarah Ambarita</h3>
-                <p>Ambarita merupakan desa tua yang terkenal sebagai pusat pemerintahan Raja
-                 Siallagan pada masa lalu. Desa ini dikenal karena adanya kursi batu dan meja persidangan batu yang digunakan 
-                 sebagai tempat pengadilan adat masyarakat Batak Toba.</p>
+
+        @foreach($sejarah as $index => $item)
+            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+
+                <div class="sejarah-image">
+                    <img 
+                        src="{{ asset('storage/' . $item->gambar) }}" 
+                        alt="{{ $item->judul }}"
+                    >
+                </div>
+
+                <div class="sejarah-text">
+                    <h3>{{ $item->judul }}</h3>
+
+                    <p>
+                        {{ $item->konten }}
+                    </p>
+
+                    @if($item->link_referensi)
+                        <a href="{{ $item->link_referensi }}" target="_blank">
+                            Lihat Referensi
+                        </a>
+                    @endif
+                </div>
+
             </div>
-        </div>
-        <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita4.jpg" alt="Tradisi Batak"></div>
-            <div class="sejarah-text">
-                <h3>Budaya Ambarita</h3>
-                <p>Budaya di Ambarita masih sangat kental dengan tradisi Batak Toba. Rumah adat tradisional, tarian tortor, dan penggunaan ulos
-                     masih dijaga oleh masyarakat setempat. 
-                    Cerita rakyat dan sejarah kerajaan Batak juga diwariskan secara turun-temurun.</p>
-            </div>
-        </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/Ambarita/Ambarita5.jpg" alt="Wisata Budaya"></div>
-            <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Ambarita</h3>
-                <p>Ambarita terkenal dengan situs Batu Persidangan 
-                    Raja Siallagan yang menjadi daya tarik utama wisatawan.
-                     Selain melihat peninggalan sejarah, pengunjung juga dapat menikmati suasana
-                      desa tradisional Batak dan menyaksikan pertunjukan budaya khas Batak Toba.</p>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 

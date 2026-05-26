@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Umkm;
+use App\Models\Sejarah;
 use App\Models\Penginapan;
 use App\Models\Fasilitas;
 use App\Models\Geosite;
@@ -22,6 +23,12 @@ class GeositeController extends Controller
         $geositeId = $geosite?->id;
 
         return [
+             'sejarah' => $geositeId
+                ? Sejarah::where('geosite_id', $geositeId)
+                    ->where('status', true)
+                    ->get()
+                : collect(),
+        
             'umkm' => $geositeId
                 ? Umkm::where('geosite_id', $geositeId)
                     ->where('status', true)

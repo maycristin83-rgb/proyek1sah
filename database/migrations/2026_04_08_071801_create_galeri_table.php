@@ -24,6 +24,7 @@ return new class extends Migration
     $table->string('lokasi', 255)->nullable();
     $table->date('tanggal_foto')->nullable();
     $table->boolean('status')->default(true);
+    $table->unsignedBigInteger('views')->default(0);
     $table->index('kategori');
     $table->index('status');
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tuktuk - Geosite Danau Toba</title>
+    <title>Bukit Beta Tuktuk - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
 </head>
@@ -57,6 +57,7 @@
 </section>
 
 <!-- SEJARAH -->
+<!-- SEJARAH -->
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
@@ -64,32 +65,34 @@
             <div class="divider"></div>
             <p>Warisan budaya Batak yang autentik dan masih hidup</p>
         </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/tuktuk/slide2.jpg" alt="Desa tuktuk"></div>
-            <div class="sejarah-text">
-                <h3>Sejarah Tuktuk</h3>
-                <p>Tuktuk Siadong merupakan kawasan wisata yang berada di Pulau Samosir, di tengah Danau Toba. Dahulu daerah ini merupakan perkampungan masyarakat Batak Toba yang 
-                    hidup dari pertanian dan perikanan. Seiring berkembangnya pariwisata Danau Toba, Tuktuk mulai dikenal sebagai pusat wisata dan penginapan yang ramai dikunjungi wisatawan.</p>
+
+        @foreach($sejarah as $index => $item)
+            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+
+                <div class="sejarah-image">
+                    <img 
+                        src="{{ asset('storage/' . $item->gambar) }}" 
+                        alt="{{ $item->judul }}"
+                    >
+                </div>
+
+                <div class="sejarah-text">
+                    <h3>{{ $item->judul }}</h3>
+
+                    <p>
+                        {{ $item->konten }}
+                    </p>
+
+                    @if($item->link_referensi)
+                        <a href="{{ $item->link_referensi }}" target="_blank">
+                            Lihat Referensi
+                        </a>
+                    @endif
+                </div>
+
             </div>
-        </div>
-        <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/tuktuk/Tuktuk8.jpg" alt="Tradisi Batak"></div>
-            <div class="sejarah-text">
-                <h3>Budaya Tuktuk</h3>
-                <p>Budaya di Tuktuk Siadong masih kental dengan tradisi Batak Toba, seperti tarian tortor, musik gondang, serta penggunaan kain ulos dalam acara adat.
-                     Kawasan ini juga dikenal dengan rumah adat Batak berukiran gorga dan berbagai kerajinan tradisional seperti ukiran kayu, patung, serta topeng budaya yang banyak dijumpai di galeri seni dan tempat wisata budaya. 
-                    Kehidupan masyarakat yang ramah membuat budaya lokal tetap hidup berdampingan dengan perkembangan pariwisata</p>
-            </div>
-        </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/tuktuk/slide1.jpg" alt="Wisata Budaya"></div>
-            <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Tuktuk</h3>
-                <p>Tuktuk terkenal dengan pemandangan Danau Toba yang indah dan suasana yang tenang. Di kawasan ini 
-                    terdapat berbagai penginapan, restoran, dan tempat bersantai di tepi danau. Wisatawan juga dapat menikmati
-                     kegiatan seperti bersepeda, berenang, berkeliling danau, hingga menikmati matahari terbenam.</p>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 

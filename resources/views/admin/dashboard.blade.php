@@ -47,6 +47,12 @@
             <div class="stat-label">Total Fasilitas</div>
         </div>
     </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card" style="border-left-color: #e11d48;">
+            <div class="stat-number">{{ $totalSejarah ?? 0 }}</div>
+            <div class="stat-label">Total Sejarah</div>
+        </div>
+    </div>
     
 </div>
 
@@ -81,6 +87,7 @@
     <a href="{{ route('admin.umkm.create') }}" class="action-btn"><i class="fas fa-plus-circle"></i> UMKM</a>
     <a href="{{ route('admin.penginapan.create') }}" class="action-btn"><i class="fas fa-plus-circle"></i> Penginapan</a>
     <a href="{{ route('admin.fasilitas.create') }}" class="action-btn"><i class="fas fa-plus-circle"></i> Fasilitas</a>
+    <a href="{{ route('admin.sejarah.create') }}" class="action-btn"><i class="fas fa-plus-circle"></i> Sejarah</a>
     <a href="{{ url('/') }}" target="_blank" class="action-btn"><i class="fas fa-globe"></i> Website</a>
 </div>
 @endsection

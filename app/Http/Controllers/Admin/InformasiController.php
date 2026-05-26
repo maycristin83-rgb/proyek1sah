@@ -7,13 +7,12 @@ use App\Models\Informasi;
 use App\Models\Geosite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class InformasiController extends Controller
 {
     public function index()
     {
-        $informasi = Informasi::orderBy('urutan', 'asc')->paginate(10);
+        $informasi = Informasi::orderBy('updated_at', 'asc')->paginate(10);
         return view('admin.informasi.index', compact('informasi'));
     }
 
@@ -29,7 +28,7 @@ class InformasiController extends Controller
             'judul'      => 'required|string|max:255',
             'konten'     => 'required|string',
             'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'urutan'     => 'required|integer|unique:informasi,urutan',
+           
             'geosite_id' => 'required|exists:geosite,id',
             'status'     => 'nullable|boolean'
         ]);
@@ -37,7 +36,7 @@ class InformasiController extends Controller
         $data = [
             'judul'          => $request->judul,
             'konten'         => $request->konten,
-            'urutan'         => $request->urutan,
+           
             'link_referensi' => $request->link_referensi,
             'geosite_id'     => $request->geosite_id,
             'status'         => $request->has('status') ? 1 : 0
@@ -68,7 +67,7 @@ class InformasiController extends Controller
             'judul'      => 'required|string|max:255',
             'konten'     => 'required|string',
             'gambar'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
-            'urutan'     => 'required|integer|unique:informasi,urutan,' . $id,
+            
             'geosite_id' => 'required|exists:geosite,id',
             'status'     => 'nullable|boolean'
         ]);
@@ -76,7 +75,7 @@ class InformasiController extends Controller
         $data = [
             'judul'          => $request->judul,
             'konten'         => $request->konten,
-            'urutan'         => $request->urutan,
+            
             'link_referensi' => $request->link_referensi,
             'geosite_id'     => $request->geosite_id,
             'status'         => $request->has('status') ? 1 : 0

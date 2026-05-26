@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\Geosite;
-class Informasi extends Model
+
+class Sejarah extends Model
 {
-    protected $table = 'informasi';
+    protected $table = 'sejarah';
 
     protected $fillable = [
         'judul',
@@ -17,7 +17,6 @@ class Informasi extends Model
         'link_referensi',
         'geosite_id',
         'status',
-        
     ];
 
     protected $casts = [
@@ -27,19 +26,19 @@ class Informasi extends Model
     protected static function boot()
     {
         parent::boot();
-        
-        static::creating(function ($informasi) {
-            $informasi->slug = static::generateUniqueSlug($informasi->judul);
+
+        static::creating(function ($sejarah) {
+            $sejarah->slug = static::generateUniqueSlug($sejarah->judul);
         });
-        
-        static::updating(function ($informasi) {
-            $informasi->slug = static::generateUniqueSlug($informasi->judul, $informasi->id);
+
+        static::updating(function ($sejarah) {
+            $sejarah->slug = static::generateUniqueSlug($sejarah->judul, $sejarah->id);
         });
     }
 
     private static function generateUniqueSlug(string $judul, ?int $excludeId = null): string
     {
-        $base  = \Illuminate\Support\Str::slug($judul);
+        $base  = Str::slug($judul);
         $slug  = $base;
         $count = 1;
 
@@ -53,10 +52,9 @@ class Informasi extends Model
 
         return $slug;
     }
-   
 
-        public function geosite()
-        {
-            return $this->belongsTo(Geosite::class);
-        }
+    public function geosite()
+    {
+        return $this->belongsTo(Geosite::class);
+    }
 }

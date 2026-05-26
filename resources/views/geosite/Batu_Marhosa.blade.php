@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Terjun Sigarattung - Geosite Danau Toba</title>
+    <title>Batu Marhosa - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
 </head>
@@ -56,40 +56,42 @@
 </section>
 
 <!-- SEJARAH -->
+<!-- SEJARAH -->
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
-            <h2>Keindahan Air Terjun Sigarattung</h2>
+            <h2>Sejarah & Budaya</h2>
             <div class="divider"></div>
-            <p>Permata tersembunyi di jantung kawasan Geopark Danau Toba yang memukau</p>
+            <p>Warisan budaya Batak yang autentik dan masih hidup</p>
         </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun2.jpg" alt="Air Terjun Sigarattung"></div>
-            <div class="sejarah-text">
-                <h3>Sejarah Air Terjun Sigarattung</h3>
-                <p>Air Terjun Sigarattung adalah salah satu air terjun tersembunyi yang terletak di kawasan Geopark Danau Toba.
-                    Dengan ketinggian yang mengesankan, air terjun ini telah lama dikenal masyarakat Batak setempat
-                    sebagai tempat yang dikeramatkan dan dipercaya memiliki nilai spiritual yang tinggi.</p>
+
+        @foreach($sejarah as $index => $item)
+            <div class="sejarah-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+
+                <div class="sejarah-image">
+                    <img 
+                        src="{{ asset('storage/' . $item->gambar) }}" 
+                        alt="{{ $item->judul }}"
+                    >
+                </div>
+
+                <div class="sejarah-text">
+                    <h3>{{ $item->judul }}</h3>
+
+                    <p>
+                        {{ $item->konten }}
+                    </p>
+
+                    @if($item->link_referensi)
+                        <a href="{{ $item->link_referensi }}" target="_blank">
+                            Lihat Referensi
+                        </a>
+                    @endif
+                </div>
+
             </div>
-        </div>
-        <div class="sejarah-item reverse">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun3.jpg" alt="Alam Sekitar Air Terjun"></div>
-            <div class="sejarah-text">
-                <h3>Keunikan Alam Sigarattung</h3>
-                <p>Air terjun ini dikelilingi oleh hutan tropis yang lebat dengan keanekaragaman hayati yang tinggi.
-                    Suara gemericik air yang jatuh dari ketinggian menciptakan suasana yang tenang dan damai.
-                    Alam sekitarnya masih sangat alami dan menjadi habitat bagi berbagai flora dan fauna khas Sumatera.</p>
-            </div>
-        </div>
-        <div class="sejarah-item">
-            <div class="sejarah-image"><img src="/image/air_terjun/air_terjun4.jpg" alt="Trek Menuju Air Terjun"></div>
-            <div class="sejarah-text">
-                <h3>Daya Tarik Wisata Sigarattung</h3>
-                <p>Air Terjun Sigarattung menawarkan petualangan alam yang menakjubkan. Wisatawan dapat menikmati
-                    trek singkat melalui hutan, berenang di kolam alami di bawah air terjun, serta menghirup
-                    udara segar pegunungan yang menyegarkan jauh dari keramaian kota.</p>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 

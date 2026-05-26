@@ -18,12 +18,13 @@ class DashboardController extends Controller
         $totalUmkm       = DB::table('umkm')->count();
         $totalPenginapan = DB::table('penginapan')->count();
         $totalFasilitas  = DB::table('fasilitas')->count();
+        $totalSejarah    = DB::table('sejarah')->count();
 
        
 
         return view('admin.dashboard', compact(
             'totalGaleri', 'totalBerita', 'totalInformasi', 'totalDestinasi',
-            'totalUmkm', 'totalPenginapan', 'totalFasilitas',
+            'totalUmkm', 'totalPenginapan', 'totalFasilitas', 'totalSejarah',
         ));
     }
 }
