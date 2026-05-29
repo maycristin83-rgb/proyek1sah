@@ -1148,7 +1148,7 @@
         </div>
         <div class="destinasi-list">
             
-          <!-- 01 — TUKTUK SIADONG -->
+        <!-- 01 — TUKTUK SIADONG -->
 <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
         <img src="/image/Tuktuk/Tuktuk3.jpg" alt="Tuktuk Siadong">
@@ -1168,7 +1168,7 @@
             penginapan, restoran, dan suasana tenang untuk berlibur.
         </p>
 
-        <a href="{{ route('geosite.tuktuk_siadong') }}" class="destinasi-link">
+        <a href="{{ route('geosite.tuktuk-siadong') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1194,7 +1194,7 @@
             wisatawan untuk menikmati matahari terbit dan pemandangan alam.
         </p>
 
-        <a href="{{ route('geosite.bukit_beta_tuktuk') }}" class="destinasi-link">
+        <a href="{{ route('geosite.bukit-beta-tuktuk') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1220,7 +1220,7 @@
             melalui pelabuhan feri dari Parapat.
         </p>
 
-        <a href="{{ route('geosite.desa_tomok') }}" class="destinasi-link">
+        <a href="{{ route('geosite.desa-tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1246,7 +1246,7 @@
             batu khas Batak dan nilai budaya yang tinggi.
         </p>
 
-        <a href="{{ route('geosite.makam_raja_sidabutar') }}" class="destinasi-link">
+        <a href="{{ route('geosite.makam-raja-sidabutar') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1272,7 +1272,7 @@
             yang menampilkan tarian tradisional khas Batak Toba.
         </p>
 
-        <a href="{{ route('geosite.pertunjukan_sigalegale') }}" class="destinasi-link">
+        <a href="{{ route('geosite.pertunjukan-sigalegale') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1298,7 +1298,7 @@
             berkumpul dan bermusyawarah pada masa lampau.
         </p>
 
-        <a href="{{ route('geosite.batu_marhosa') }}" class="destinasi-link">
+        <a href="{{ route('geosite.batu-marhosa') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1324,13 +1324,13 @@
             gantungan kunci, dan kerajinan tradisional lainnya.
         </p>
 
-        <a href="{{ route('geosite.pasar_souvenir_tomok') }}" class="destinasi-link">
+        <a href="{{ route('geosite.pasar-souvenir-tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 08 — HUTA SIALLAGAN -->
+
 <div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
     <div class="destinasi-image">
         <img src="/image/Ambarita/HutaSiallagan.jpg" alt="Huta Siallagan">
@@ -1350,85 +1350,7 @@
             dan sejarah Raja Siallagan.
         </p>
 
-        <a href="{{ route('geosite.huta_siallagan') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 09 — KURSI BATU -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-    <div class="destinasi-image">
-        <img src="/image/Ambarita/KursiBatu.jpg" alt="Kursi Batu Persidangan">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">09 — GEOSITE</div>
-
-        <h3>Kursi Batu Persidangan</h3>
-
-        <div class="destinasi-location">
-            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Situs batu persidangan peninggalan Raja Siallagan yang digunakan
-            untuk mengadili pelanggar hukum pada masa lalu.
-        </p>
-
-        <a href="{{ route('geosite.kursi_batu_persidangan') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 10 — MUSEUM HUTA -->
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
-    <div class="destinasi-image">
-        <img src="/image/Ambarita/Museum.jpg" alt="Museum Huta Siallagan">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">10 — GEOSITE</div>
-
-        <h3>Museum Huta Siallagan</h3>
-
-        <div class="destinasi-location">
-            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Museum budaya Batak yang menyimpan koleksi peninggalan sejarah,
-            alat musik, dan perlengkapan adat Batak Toba.
-        </p>
-
-        <a href="{{ route('geosite.museum_huta_siallagan') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 11 — RUMAH ADAT -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
-    <div class="destinasi-image">
-        <img src="/image/Ambarita/RumahAdat.jpg" alt="Rumah Adat Batak Ambarita">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">11 — GEOSITE</div>
-
-        <h3>Rumah Adat Batak Ambarita</h3>
-
-        <div class="destinasi-location">
-            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Rumah adat tradisional Batak Toba dengan arsitektur khas dan
-            ornamen budaya yang masih terjaga hingga saat ini.
-        </p>
-
-        <a href="{{ route('geosite.rumah_adat_batak_ambarita') }}" class="destinasi-link">
+        <a href="{{ route('geosite.huta-siallagan') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
