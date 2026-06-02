@@ -49,90 +49,45 @@ class GeositeController extends Controller
         ];
     }
 
-    public function tuktuk_siadong()
-    {
-        $data = $this->geositeData('tuktuk');
+   public function tuktuk_siadong()
+{
+    $data = $this->geositeData('tuktuk');
 
-        return view('geosite.Tuktuk_Siadong', $data);
-    }
+    return view('geosite.Tuktuk_Siadong', $data);
+}
 
+public function bukit_beta_tuktuk()
+{
+    $data = $this->geositeData('beta');
 
-    public function bukit_beta_tuktuk()
-    {
-        $data = $this->geositeData('beta');
+    return view('geosite.Bukit_Beta_Tuktuk', $data);
+}
 
-        return view('geosite.Bukit_Beta_Tuktuk', $data);
-    }
+public function pelabuhan_ambarita()
+{
+    $data = $this->geositeData('pelabuhan');
 
+    return view('geosite.Pelabuhan_Ambarita', $data);
+}
 
-    public function desa_tomok()
-    {
-        $data = $this->geositeData('tomok');
+public function air_terjun_sigarantung()
+{
+    $data = $this->geositeData('sigarantung');
 
-        return view('geosite.Desa_Tomok', $data);
-    }
+    return view('geosite.Air_Terjun_Sigarantung', $data);
+}
 
+public function tomok_parsaoran()
+{
+    $data = $this->geositeData('tomok');
 
-    public function makam_raja_sidabutar()
-    {
-        $data = $this->geositeData('sidabutar');
+    return view('geosite.Tomok_Parsaoran', $data);
+}
 
-        return view('geosite.Makam_Raja_Sidabutar', $data);
-    }
+public function huta_siallagan()
+{
+    $data = $this->geositeData('siallagan');
 
-
-    public function pertunjukan_sigalegale()
-    {
-        $data = $this->geositeData('sigale');
-
-        return view('geosite.Pertunjukan_Sigalegale', $data);
-    }
-
-
-    public function batu_marhosa()
-    {
-        $data = $this->geositeData('marhosa');
-
-        return view('geosite.Batu_Marhosa', $data);
-    }
-
-   
-    public function pasar_souvenir_tomok()
-    {
-        $data = $this->geositeData('souvenir');
-
-        return view('geosite.Pasar_Souvenir_Tomok', $data);
-    }
-
-
-    public function huta_siallagan()
-    {
-        $data = $this->geositeData('siallagan');
-
-        return view('geosite.Huta_Siallagan', $data);
-    }
-
-
-    public function kursi_batu_persidangan()
-    {
-        $data = $this->geositeData('persidangan');
-
-        return view('geosite.Kursi_Batu_Persidangan', $data);
-    }
-
-
-    public function museum_huta_siallagan()
-    {
-        $data = $this->geositeData('museum');
-
-        return view('geosite.Museum_Huta_Siallagan', $data);
-    }
-
-
-    public function rumah_adat_batak_ambarita()
-    {
-        $data = $this->geositeData('ambarita');
-
-        return view('geosite.Rumah_Adat_Batak_Ambarita', $data);
-    }
+    return view('geosite.Huta_Siallagan', $data);
+}
 }

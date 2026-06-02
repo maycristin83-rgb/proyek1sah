@@ -39,17 +39,23 @@ Route::get('/budaya', [HomeController::class, 'budaya'])->name('budaya');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::post('/kontak', [KontakController::class, 'kirim'])->name('kontak.kirim');
 
-Route::get('/geosite/tuktuk_siadong', [GeositeController::class, 'tuktuk_siadong'])->name('geosite.tuktuk_siadong');
-Route::get('/geosite/bukit_beta_tuktuk', [GeositeController::class, 'bukit_beta_tuktuk'])->name('geosite.bukit_beta_tuktuk');
-Route::get('/geosite/desa_tomok', [GeositeController::class, 'desa_tomok'])->name('geosite.desa_tomok');
-Route::get('/geosite/makam_raja_sidabutar', [GeositeController::class, 'makam_raja_sidabutar'])->name('geosite.makam_raja_sidabutar');
-Route::get('/geosite/pertunjukan_sigalegale', [GeositeController::class, 'pertunjukan_sigalegale'])->name('geosite.pertunjukan_sigalegale');
-Route::get('/geosite/batu_marhosa', [GeositeController::class, 'batu_marhosa'])->name('geosite.batu_marhosa');
-Route::get('/geosite/pasar_souvenir_tomok', [GeositeController::class, 'pasar_souvenir_tomok'])->name('geosite.pasar_souvenir_tomok');
-Route::get('/geosite/huta_siallagan', [GeositeController::class, 'huta_siallagan'])->name('geosite.huta_siallagan');
-Route::get('/geosite/kursi_batu_persidangan', [GeositeController::class, 'kursi_batu_persidangan'])->name('geosite.kursi_batu_persidangan');
-Route::get('/geosite/museum_huta_siallagan', [GeositeController::class, 'museum_huta_siallagan'])->name('geosite.museum_huta_siallagan');
-Route::get('/geosite/rumah_adat_batak_ambarita', [GeositeController::class, 'rumah_adat_batak_ambarita'])->name('geosite.rumah_adat_batak_ambarita');
+Route::get('/geosite/tuktuk_siadong', [GeositeController::class, 'tuktuk_siadong'])
+    ->name('geosite.tuktuk_siadong');
+
+Route::get('/geosite/bukit_beta_tuktuk', [GeositeController::class, 'bukit_beta_tuktuk'])
+    ->name('geosite.bukit_beta_tuktuk');
+
+Route::get('/geosite/pelabuhan_ambarita', [GeositeController::class, 'pelabuhan_ambarita'])
+    ->name('geosite.pelabuhan_ambarita');
+
+Route::get('/geosite/air_terjun_sigarantung', [GeositeController::class, 'air_terjun_sigarantung'])
+    ->name('geosite.air_terjun_sigarantung');
+
+Route::get('/geosite/tomok_parsaoran', [GeositeController::class, 'tomok_parsaoran'])
+    ->name('geosite.tomok_parsaoran');
+
+Route::get('/geosite/huta_siallagan', [GeositeController::class, 'huta_siallagan'])
+    ->name('geosite.huta_siallagan');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

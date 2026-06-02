@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bukit Beta Tuktuk - Geosite Danau Toba</title>
+    <title>tomok - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/Geosite.css">
+ <link rel="stylesheet" href="/css/Geosite.css">
 </head>
 <body>
-
 
 <!-- NAVBAR -->
 <div class="navbar" id="navbar">
@@ -49,9 +48,9 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" style="background-image: url('/image/tuktuk/Tuktuk3.jpg');">
+<section class="hero" style="background-image: url('/image/Tomok/Tomok3.jpg');">
     <div>
-        <h1 class="hero-title">T U K T U K</h1>
+        <h1 class="hero-title">T O M O K</h1>
         <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
 </section>
@@ -99,299 +98,117 @@
 <!-- UMKM -->
 <section id="umkm" class="section bg-light">
     <div class="container">
-
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal tuktuk</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal tomok</p>
         </div>
-
         <div class="grid-3">
-
             @forelse($umkm as $item)
-
             <div class="card">
-
                 @if($item->gambar)
-
-                <div style="position:relative; overflow:hidden; border-radius:16px;">
-
-                    <img 
-                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
-                            ? asset('storage/' . $item->gambar) 
-                            : $item->gambar }}" 
-                        class="card-img" 
-                        alt="{{ $item->nama }}"
-                    >
-
-                    {{-- LINK REFERENSI --}}
-                    @if($item->link_referensi)
-                        <a 
-                            href="{{ $item->link_referensi }}" 
-                            target="_blank"
-                            style="
-                                position:absolute;
-                                bottom:0;
-                                left:0;
-                                background:rgba(0,0,0,0.55);
-                                color:#fff;
-                                font-size:10px;
-                                padding:3px 6px;
-                                text-decoration:none;
-                                line-height:1.4;
-                                max-width:80px;
-                                overflow:hidden;
-                                white-space:nowrap;
-                                display:block;
-                                border-radius:0 10px 0 0;
-                                z-index:10;
-                                backdrop-filter: blur(2px);
-                            "
-                            title="{{ $item->link_referensi }}"
-                        >
-                            🔗 src
-                        </a>
-                    @endif
-
-                </div>
-
+                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="card-img" alt="{{ $item->nama }}">
                 @endif
-
                 <div class="card-content">
-
                     <h3>{{ $item->nama }}</h3>
-
                     <p>{{ $item->deskripsi }}</p>
-
                     @if($item->lokasi)
-                        <div class="card-location">
-                            📍 {{ $item->lokasi }}
-                        </div>
+                    <div class="card-location">📍 {{ $item->lokasi }}</div>
                     @endif
-
                     @if($item->kontak)
-                        <div class="card-contact">
-                            📞 {{ $item->kontak }}
-                        </div>
+                    <div class="card-contact">📞 {{ $item->kontak }}</div>
                     @endif
-
                 </div>
-
             </div>
-
             @empty
-
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data UMKM untuk geosite ini.</p>
             </div>
-
             @endforelse
-
         </div>
-
     </div>
 </section>
-```
-
 
 <!-- PENGINAPAN -->
 <section id="penginapan" class="section">
     <div class="container">
-
         <div class="section-title">
             <h2>Penginapan & Akomodasi</h2>
             <div class="divider"></div>
             <p>Pilihan tempat menginap dengan nuansa budaya Batak yang autentik</p>
         </div>
-
         <div class="grid-3">
-
             @forelse($penginapan as $item)
-
             <div class="card">
-
                 @if($item->gambar)
-
-                <div style="position:relative; overflow:hidden; border-radius:16px;">
-
-                    <img 
-                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
-                            ? asset('storage/' . $item->gambar) 
-                            : $item->gambar }}" 
-                        class="card-img" 
-                        alt="{{ $item->nama }}"
-                    >
-
-                    {{-- LINK REFERENSI --}}
-                    @if($item->link_referensi)
-                        <a 
-                            href="{{ $item->link_referensi }}" 
-                            target="_blank"
-                            style="
-                                position:absolute;
-                                bottom:0;
-                                left:0;
-                                background:rgba(0,0,0,0.55);
-                                color:#fff;
-                                font-size:10px;
-                                padding:3px 6px;
-                                text-decoration:none;
-                                line-height:1.4;
-                                max-width:80px;
-                                overflow:hidden;
-                                white-space:nowrap;
-                                display:block;
-                                border-radius:0 10px 0 0;
-                                z-index:10;
-                                backdrop-filter: blur(2px);
-                            "
-                            title="{{ $item->link_referensi }}"
-                        >
-                            🔗 src
-                        </a>
-                    @endif
-
-                </div>
-
+                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="card-img" alt="{{ $item->nama }}">
                 @endif
-
                 <div class="card-content">
-
                     <h3>{{ $item->nama }}</h3>
-
                     <p>{{ $item->deskripsi }}</p>
-
                     @if($item->harga)
-                        <div class="card-price">
-                            💰 {{ $item->harga }}
-                        </div>
+                    <div class="card-price">💰 {{ $item->harga }}</div>
                     @endif
-
                     @if($item->kontak)
-                        <div class="card-contact">
-                            📞 {{ $item->kontak }}
-                        </div>
+                    <div class="card-contact">📞 {{ $item->kontak }}</div>
                     @endif
-
                 </div>
-
             </div>
-
             @empty
-
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data penginapan untuk geosite ini.</p>
             </div>
-
             @endforelse
-
         </div>
-
     </div>
 </section>
+
 <!-- FASILITAS -->
 <section id="fasilitas" class="section bg-light">
     <div class="container">
-
         <div class="section-title">
             <h2>Fasilitas & Layanan</h2>
             <div class="divider"></div>
             <p>Berbagai fasilitas lengkap untuk kenyamanan wisatawan</p>
         </div>
-
         <div class="grid-2">
-
             @forelse($fasilitas as $item)
-
             <div class="fasilitas-item">
-
                 @if($item->gambar)
-
-                <div style="position:relative; overflow:hidden; border-radius:16px;">
-
-                    <img 
-                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
-                            ? asset('storage/' . $item->gambar) 
-                            : $item->gambar }}" 
-                        class="fasilitas-img" 
-                        alt="{{ $item->nama }}"
-                    >
-
-                    {{-- LINK REFERENSI --}}
-                    @if($item->link_referensi)
-                        <a 
-                            href="{{ $item->link_referensi }}" 
-                            target="_blank"
-                            style="
-                                position:absolute;
-                                bottom:0;
-                                left:0;
-                                background:rgba(0,0,0,0.60);
-                                color:#fff;
-                                font-size:10px;
-                                padding:3px 7px;
-                                text-decoration:none;
-                                line-height:1.4;
-                                white-space:nowrap;
-                                display:inline-block;
-                                width:auto;
-                                border-radius:0 10px 0 0;
-                                z-index:10;
-                                backdrop-filter:blur(2px);
-                                font-weight:500;
-                            "
-                            title="{{ $item->link_referensi }}"
-                        >
-                            🔗 src
-                        </a>
-                    @endif
-
-                </div>
-
+                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="fasilitas-img" alt="{{ $item->nama }}">
                 @endif
-
                 <div class="fasilitas-content">
-
                     <h4>{{ $item->nama }}</h4>
-
                     <p>{{ $item->deskripsi }}</p>
-
                     @if($item->harga)
-                        <div class="fasilitas-price">
-                            {{ $item->harga }}
-                        </div>
+                    <div class="fasilitas-price">{{ $item->harga }}</div>
                     @endif
-
                 </div>
-
             </div>
-
             @empty
-
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data fasilitas untuk geosite ini.</p>
             </div>
-
             @endforelse
-
         </div>
-
     </div>
 </section>
+
+
 
 <!-- LOKASI -->
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi Tuktuk</h2>
+            <h2>Lokasi Tomok</h2>
             <div class="divider"></div>
-            <p>Pusat wisata dan penginapan di Samosir</p>
+            <p>Desa bersejarah di Pulau Samosir, Danau Toba</p>
         </div>
 
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Bukit%20Beta%20TukTuk%20Viewpoint,%20Samosir&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Desa%20Tomok,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -402,9 +219,19 @@
 
             <div class="rute-info">
                 <div class="rute-item">
-                    <h4>📍 Tuktuk</h4>
-                    <p>Area favorit wisatawan dengan hotel, cafe, dan restoran.</p>
-                    <span class="rute-time">Pusat wisata Samosir</span>
+                    <h4>🚢 Dari Parapat</h4>
+                    <p>Naik ferry dari Pelabuhan Parapat menuju Pelabuhan Tomok (± 45 menit).</p>
+                    <span class="rute-time">Ferry tersedia setiap hari</span>
+                </div>
+                <div class="rute-item">
+                    <h4>🏍️ Dari Tuktuk Siadong</h4>
+                    <p>Berkendara ke arah selatan sekitar 5 km dari pusat Tuktuk.</p>
+                    <span class="rute-time">± 10 menit</span>
+                </div>
+                <div class="rute-item">
+                    <h4>📍 Daya Tarik Utama</h4>
+                    <p>Makam Raja Sidabutar, pertunjukan Sigale-gale, dan pusat oleh-oleh khas Batak.</p>
+                    <span class="rute-time">Buka setiap hari</span>
                 </div>
             </div>
         </div>
@@ -414,9 +241,9 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Jangan Lewatkan Keindahan tuktuk</h3>
+        <h3>Jangan Lewatkan Keindahan tomok</h3>
         <div class="divider"></div>
-        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tuktuk</p>
+        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tomok</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
             <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
