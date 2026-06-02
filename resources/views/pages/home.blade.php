@@ -154,7 +154,7 @@
     .slide-2 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide2.jpg'); }
     .slide-3 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide3.jpg'); }
     .slide-4 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide4.jpg'); }
-    .slide-5 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide5.jpg'); }
+    .slide-5 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide5.png'); }
     
     .hero-content {
         position: absolute;
@@ -1168,7 +1168,7 @@
             penginapan, restoran, dan suasana tenang untuk berlibur.
         </p>
 
-        <a href="{{ route('geosite.tuktuk-siadong') }}" class="destinasi-link">
+        <a href="{{ route('geosite.tuktuk_siadong') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1177,7 +1177,7 @@
 <!-- 02 — BUKIT BETA -->
 <div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
     <div class="destinasi-image">
-        <img src="/image/Tuktuk/BukitBeta.jpg" alt="Bukit Beta Tuk-Tuk">
+        <img src="/image/Tuktuk/slide5.png" alt="Bukit Beta Tuk-Tuk">
     </div>
 
     <div class="destinasi-content">
@@ -1194,16 +1194,16 @@
             wisatawan untuk menikmati matahari terbit dan pemandangan alam.
         </p>
 
-        <a href="{{ route('geosite.bukit-beta-tuktuk') }}" class="destinasi-link">
+        <a href="{{ route('geosite.bukit_beta_tuktuk') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
 <!-- 03 — DESA TOMOK -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tomok/Tomok3.jpg" alt="Desa Tomok">
+        <img src="/image/Tomok/Tomok2.jpg" alt="Desa Tomok">
     </div>
 
     <div class="destinasi-content">
@@ -1216,20 +1216,20 @@
         </div>
 
         <p class="destinasi-desc">
-            Desa wisata terkenal sebagai pintu masuk menuju Pulau Samosir
-            melalui pelabuhan feri dari Parapat.
+            Desa wisata budaya yang terkenal dengan peninggalan sejarah,
+            rumah adat Batak, dan berbagai atraksi budaya khas Samosir.
         </p>
 
-        <a href="{{ route('geosite.desa-tomok') }}" class="destinasi-link">
+        <a href="{{ route('geosite.desa_tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
 <!-- 04 — MAKAM RAJA SIDABUTAR -->
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tomok/Sidabutar.jpg" alt="Makam Raja Sidabutar">
+        <img src="/image/Tomok/Tomok3.jpg" alt="Makam Raja Sidabutar">
     </div>
 
     <div class="destinasi-content">
@@ -1242,20 +1242,20 @@
         </div>
 
         <p class="destinasi-desc">
-            Situs sejarah makam Raja Sidabutar yang terkenal dengan ukiran
-            batu khas Batak dan nilai budaya yang tinggi.
+            Situs sejarah berupa kompleks makam batu kuno peninggalan
+            Raja Sidabutar yang menjadi salah satu ikon wisata budaya Tomok.
         </p>
 
-        <a href="{{ route('geosite.makam-raja-sidabutar') }}" class="destinasi-link">
+        <a href="{{ route('geosite.makam_raja_sidabutar') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 05 — SIGALE-GALE -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+<!-- 05 — PERTUNJUKAN SIGALE-GALE -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tomok/Sigalegale.jpg" alt="Pertunjukan Sigale-gale">
+        <img src="/image/Tomok/Tomok1.jpg" alt="Pertunjukan Sigale-gale">
     </div>
 
     <div class="destinasi-content">
@@ -1268,18 +1268,18 @@
         </div>
 
         <p class="destinasi-desc">
-            Pertunjukan budaya Batak menggunakan boneka kayu Sigale-gale
-            yang menampilkan tarian tradisional khas Batak Toba.
+            Pertunjukan budaya khas Batak yang menampilkan boneka Sigale-gale
+            menari diiringi musik tradisional dan tarian tortor.
         </p>
 
-        <a href="{{ route('geosite.pertunjukan-sigalegale') }}" class="destinasi-link">
+        <a href="{{ route('geosite.pertunjukan_sigalegale') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
 <!-- 06 — BATU MARHOSA -->
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
         <img src="/image/Tomok/BatuMarhosa.jpg" alt="Batu Marhosa">
     </div>
@@ -1294,20 +1294,20 @@
         </div>
 
         <p class="destinasi-desc">
-            Batu bersejarah yang digunakan masyarakat Batak sebagai tempat
-            berkumpul dan bermusyawarah pada masa lampau.
+            Batu bersejarah yang memiliki nilai budaya dan menjadi bagian
+            dari warisan tradisi masyarakat Batak di kawasan Tomok.
         </p>
 
-        <a href="{{ route('geosite.batu-marhosa') }}" class="destinasi-link">
+        <a href="{{ route('geosite.batu_marhosa') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 07 — PASAR SOUVENIR -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+<!-- 07 — PASAR SOUVENIR TOMOK -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tomok/Souvenir.jpg" alt="Pasar Souvenir Tomok">
+        <img src="/image/Tomok/Tomok1.jpg" alt="Pasar Souvenir Tomok">
     </div>
 
     <div class="destinasi-content">
@@ -1320,18 +1320,18 @@
         </div>
 
         <p class="destinasi-desc">
-            Pusat penjualan suvenir khas Batak seperti ulos, ukiran kayu,
-            gantungan kunci, dan kerajinan tradisional lainnya.
+            Pusat penjualan berbagai kerajinan tangan, ulos, dan oleh-oleh
+            khas Batak yang banyak dikunjungi wisatawan.
         </p>
 
-        <a href="{{ route('geosite.pasar-souvenir-tomok') }}" class="destinasi-link">
+        <a href="{{ route('geosite.pasar_souvenir_tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+<!-- 08 — HUTA SIALLAGAN -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
         <img src="/image/Ambarita/HutaSiallagan.jpg" alt="Huta Siallagan">
     </div>
@@ -1346,11 +1346,89 @@
         </div>
 
         <p class="destinasi-desc">
-            Perkampungan adat Batak Toba yang terkenal dengan rumah tradisional
-            dan sejarah Raja Siallagan.
+            Perkampungan tradisional Batak yang masih mempertahankan rumah adat
+            dan peninggalan sejarah masyarakat Siallagan.
         </p>
 
-        <a href="{{ route('geosite.huta-siallagan') }}" class="destinasi-link">
+        <a href="{{ route('geosite.huta_siallagan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 09 — KURSI BATU PERSIDANGAN -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/KursiBatu.jpg" alt="Kursi Batu Persidangan">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">09 — GEOSITE</div>
+
+        <h3>Kursi Batu Persidangan</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Situs sejarah berupa kursi dan meja batu yang dahulu digunakan
+            sebagai tempat persidangan adat oleh Raja Siallagan.
+        </p>
+
+        <a href="{{ route('geosite.kursi_batu_persidangan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 10 — MUSEUM HUTA SIALLAGAN -->
+<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/MuseumHutaSiallagan.jpg" alt="Museum Huta Siallagan">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">10 — GEOSITE</div>
+
+        <h3>Museum Huta Siallagan</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Museum yang menyimpan koleksi benda bersejarah dan informasi
+            mengenai budaya serta kehidupan masyarakat Batak.
+        </p>
+
+        <a href="{{ route('geosite.museum_huta_siallagan') }}" class="destinasi-link">
+            Jelajahi Lebih Lanjut →
+        </a>
+    </div>
+</div>
+
+<!-- 11 — RUMAH ADAT BATAK AMBARITA -->
+<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
+    <div class="destinasi-image">
+        <img src="/image/Ambarita/RumahAdatBatak.jpg" alt="Rumah Adat Batak Ambarita">
+    </div>
+
+    <div class="destinasi-content">
+        <div class="destinasi-number">11 — GEOSITE</div>
+
+        <h3>Rumah Adat Batak Ambarita</h3>
+
+        <div class="destinasi-location">
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+        </div>
+
+        <p class="destinasi-desc">
+            Rumah adat tradisional Batak Toba yang memperlihatkan arsitektur,
+            filosofi, dan kehidupan masyarakat Batak pada masa lampau.
+        </p>
+
+        <a href="{{ route('geosite.rumah_adat_batak_ambarita') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>

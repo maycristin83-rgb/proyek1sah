@@ -56,8 +56,7 @@
     </div>
 </section>
 
-<!-- SEJARAH -->
-<!-- SEJARAH -->
+
 <section id="sejarah" class="section">
     <div class="container">
         <div class="section-title">
@@ -391,7 +390,7 @@
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Tuktuk%20Siadong,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Rumah%20Adat%20Batak%20Ambarita,%20Samosir&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
