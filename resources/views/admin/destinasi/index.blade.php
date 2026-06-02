@@ -44,7 +44,6 @@
                                     <img src="{{ $imgUrl ?: $item->gambar_utama }}" width="60" height="60"
                                          style="object-fit: cover; border-radius: 8px; display:block;">
                                   
-                                    @endif
                                 </div>
 
                             @else
