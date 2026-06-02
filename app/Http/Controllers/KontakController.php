@@ -24,7 +24,7 @@ class KontakController extends Controller
         ]);
 
         try {
-            Mail::to(config('mail.from.address', 'ambaritatuktuktomokadmingeosit@gmail.com'))->send(
+            Mail::to(config('mail.from.address', 'tuktukambaritatomokgeosite@gmail.com'))->send(
                 new KontakMail(
                     $request->nama,
                     $request->email,

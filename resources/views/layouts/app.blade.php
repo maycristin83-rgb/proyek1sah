@@ -43,15 +43,16 @@
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
         }
         
-        .navbar .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
+     .navbar .container {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
         
         .logo-wrapper {
             display: flex;

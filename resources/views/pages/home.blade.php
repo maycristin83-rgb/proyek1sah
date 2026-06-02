@@ -106,10 +106,13 @@
     
     /* ==================== HERO SLIDER ==================== */
     .hero-section {
+        width: 100%;
         height: 100vh;
-        position: relative;
-        overflow: hidden;
+        min-height: 500px;
         margin-top: 0;
+        padding-top: 0;
+        overflow: hidden;
+        position: relative;
     }
     
     .slides-container {
@@ -125,7 +128,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
         opacity: 0;
         transform: scale(1.05);
@@ -147,7 +150,6 @@
         width: 100%;
         height: 100%;
         background: linear-gradient(135deg, rgba(0,51,102,0.4) 0%, rgba(0,102,153,0.2) 100%);
-        animation: shimmer 3s infinite;
     }
     
     .slide-1 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide1.jpg'); }
@@ -159,40 +161,42 @@
     .hero-content {
         position: absolute;
         z-index: 10;
-        bottom: 20%;
+        top: 50%;
         left: 0;
         right: 0;
+        transform: translateY(-50%);
         text-align: center;
         color: white;
-        padding: 0 20px;
+        padding: 0 24px;
     }
     
     .hero-subtitle {
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
         letter-spacing: 0.35em;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         font-weight: 300;
         opacity: 0.9;
         animation: fadeInUp 0.8s ease;
     }
     
     .hero-title {
-        font-size: 3.8rem;
+        font-size: clamp(1.8rem, 6vw, 4rem);
         font-weight: 700;
         font-family: 'Cormorant Garamond', serif;
-        line-height: 1.2;
-        margin-bottom: 25px;
+        line-height: 1.15;
+        margin-bottom: 20px;
         color: white;
         text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         animation: fadeInUp 0.8s ease 0.1s both;
+        word-break: break-word;
     }
     
     .hero-divider {
         width: 60px;
         height: 2px;
         background: #c6a43b;
-        margin: 0 auto 30px;
+        margin: 0 auto 24px;
         animation: fadeInUp 0.8s ease 0.2s both;
     }
     
@@ -1153,6 +1157,99 @@
         .dot.active { width: 20px; }
         .maps-container iframe { height: 220px; }
     }
+    /* ===== MUSIK LATAR ===== */
+.music-card{
+    position:fixed;
+    bottom:28px;
+    right:24px;
+    z-index:1100;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:rgba(10,10,20,.82);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(198,164,59,.35);
+    border-radius:50px;
+    padding:8px 16px 8px 8px;
+    box-shadow:0 8px 32px rgba(0,0,0,.45);
+    cursor:pointer;
+    min-width:205px;
+    max-width:265px;
+}
+
+.music-disc{
+    position:relative;
+    width:44px;
+    height:44px;
+}
+
+.music-disc-img{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid rgba(198,164,59,.55);
+    animation:spinDisc 4s linear infinite;
+    animation-play-state:paused;
+}
+
+.music-disc-img.playing{
+    animation-play-state:running;
+}
+
+@keyframes spinDisc{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.music-disc::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:11px;
+    height:11px;
+    background:#10102a;
+    border-radius:50%;
+}
+
+.music-info{
+    flex:1;
+}
+
+.music-title{
+    color:#fff;
+    font-size:.72rem;
+    font-weight:700;
+}
+
+.music-artist{
+    color:#c6a43b;
+    font-size:.62rem;
+}
+
+.music-btn{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#c6a43b,#d4a947);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#003366;
+}
+
+.music-badge{
+    position:absolute;
+    top:-7px;
+    left:14px;
+    background:#003366;
+    color:#c6a43b;
+    font-size:.47rem;
+    padding:2px 8px;
+    border-radius:20px;
+}
 </style>
 
 <!-- ==================== HERO SLIDER ==================== -->
@@ -1538,6 +1635,73 @@
         clearInterval(s.interval);
         startDestAutoPlay(name);
     }
+    
+const SONG_TITLE  = 'Horbo Paung';
+const SONG_ARTIST = "D' Bambo Official";
+const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
+
+const musicCard = document.createElement('div');
+musicCard.className = 'music-card';
+
+musicCard.innerHTML = `
+    <span class="music-badge">♫ Musik</span>
+
+    <div class="music-disc">
+        <img
+            src="${DISC_IMG}"
+            class="music-disc-img"
+            id="musicDisc"
+        >
+    </div>
+
+    <div class="music-info">
+        <div class="music-title">${SONG_TITLE}</div>
+        <div class="music-artist">${SONG_ARTIST}</div>
+    </div>
+
+    <div class="music-btn">
+        <i class="bi bi-play-fill" id="musicBtnIcon"></i>
+    </div>
+`;
+
+document.body.appendChild(musicCard);
+
+const audio = new Audio(
+    "{{ asset('audio/Horbo_Paung_Gondang.mp3') }}"
+);
+
+audio.loop = true;
+audio.volume = 0.4;
+
+const disc = document.getElementById('musicDisc');
+const icon = document.getElementById('musicBtnIcon');
+
+let playing = false;
+
+function startMusic(){
+    audio.play().catch(()=>{});
+    disc.classList.add('playing');
+    icon.className = 'bi bi-stop-fill';
+    playing = true;
+}
+
+function stopMusic(){
+    audio.pause();
+    disc.classList.remove('playing');
+    icon.className = 'bi bi-play-fill';
+    playing = false;
+}
+
+musicCard.addEventListener('click',()=>{
+    playing ? stopMusic() : startMusic();
+});
+
+window.addEventListener('click',()=>{
+    if(!playing){
+        startMusic();
+    }
+},{once:true});
+
 </script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

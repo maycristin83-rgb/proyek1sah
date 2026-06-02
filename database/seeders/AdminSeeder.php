@@ -12,7 +12,7 @@ class AdminSeeder extends Seeder
     {
         // Cek apakah sudah ada, jika belum buat
         Admin::firstOrCreate(
-            ['email' => 'ambaritatuktuktomokadmingeosit@gmail.com'],
+            ['email' => 'tuktukambaritatomokgeosite@gmail.com'],
             [
                 'name' => 'Admin GeoToba',
                 'password' => Hash::make('admin123'),

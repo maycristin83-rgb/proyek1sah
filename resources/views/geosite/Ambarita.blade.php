@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelabuhan Ambarita - Geosite Danau Toba</title>
+    <title>tuktuk - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
+
 <div class="navbar" id="navbar">
     <div class="nav-container">
         <div class="nav-logo">
@@ -47,56 +47,12 @@
     <a href="#lokasi" class="mobile-link">Lokasi</a>
 </div>
 
-<!-- HERO SLIDER -->
-<section class="hero-slider" id="heroSlider">
-    <div class="hero-slide active" style="background-image: url('/image/Ambarita/Ambarita1.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
+<!-- HERO -->
+<section class="hero" style="background-image: url('/image/tuktuk/Tuktuk3.jpg');">
+    <div>
+        <h1 class="hero-title">T U K T U K</h1>
+        <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita2.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita3.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita4.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita5.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita6.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita7.jpg');">
-        <div>
-            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
-            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
-        </div>
-    </div>
-
-    <button class="hero-slider-btn hero-slider-prev" onclick="changeSlide(-1)">‹</button>
-    <button class="hero-slider-btn hero-slider-next" onclick="changeSlide(1)">›</button>
-
-    <div class="hero-slider-dots" id="heroSliderDots"></div>
-    <div class="hero-slider-progress" id="heroSliderProgress"></div>
 </section>
 
 <!-- SEJARAH -->
@@ -142,99 +98,283 @@
 <!-- UMKM -->
 <section id="umkm" class="section bg-light">
     <div class="container">
+
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal Pelabuhan Ambarita</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal tuktuk</p>
         </div>
+
         <div class="grid-3">
+
             @forelse($umkm as $item)
+
             <div class="card">
+
                 @if($item->gambar)
-                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="card-img" alt="{{ $item->nama }}">
-                @endif
-                <div class="card-content">
-                    <h3>{{ $item->nama }}</h3>
-                    <p>{{ $item->deskripsi }}</p>
-                    @if($item->lokasi)
-                    <div class="card-location">📍 {{ $item->lokasi }}</div>
+
+                <div style="position:relative; overflow:hidden; border-radius:16px;">
+
+                    <img 
+                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
+                            ? asset('storage/' . $item->gambar) 
+                            : $item->gambar }}" 
+                        class="card-img" 
+                        alt="{{ $item->nama }}"
+                    >
+
+                    {{-- LINK REFERENSI --}}
+                    @if($item->link_referensi)
+                        <a 
+                            href="{{ $item->link_referensi }}" 
+                            target="_blank"
+                            style="
+                                position:absolute;
+                                bottom:0;
+                                left:0;
+                                background:rgba(0,0,0,0.55);
+                                color:#fff;
+                                font-size:10px;
+                                padding:3px 6px;
+                                text-decoration:none;
+                                line-height:1.4;
+                                max-width:80px;
+                                overflow:hidden;
+                                white-space:nowrap;
+                                display:block;
+                                border-radius:0 10px 0 0;
+                                z-index:10;
+                                backdrop-filter: blur(2px);
+                            "
+                            title="{{ $item->link_referensi }}"
+                        >
+                            🔗 src
+                        </a>
                     @endif
-                    @if($item->kontak)
-                    <div class="card-contact">📞 {{ $item->kontak }}</div>
-                    @endif
+
                 </div>
+
+                @endif
+
+                <div class="card-content">
+
+                    <h3>{{ $item->nama }}</h3>
+
+                    <p>{{ $item->deskripsi }}</p>
+
+                    @if($item->lokasi)
+                        <div class="card-location">
+                            📍 {{ $item->lokasi }}
+                        </div>
+                    @endif
+
+                    @if($item->kontak)
+                        <div class="card-contact">
+                            📞 {{ $item->kontak }}
+                        </div>
+                    @endif
+
+                </div>
+
             </div>
+
             @empty
+
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data UMKM untuk geosite ini.</p>
             </div>
+
             @endforelse
+
         </div>
+
     </div>
 </section>
+```
+
 
 <!-- PENGINAPAN -->
 <section id="penginapan" class="section">
     <div class="container">
+
         <div class="section-title">
             <h2>Penginapan & Akomodasi</h2>
             <div class="divider"></div>
             <p>Pilihan tempat menginap dengan nuansa budaya Batak yang autentik</p>
         </div>
+
         <div class="grid-3">
+
             @forelse($penginapan as $item)
+
             <div class="card">
+
                 @if($item->gambar)
-                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="card-img" alt="{{ $item->nama }}">
-                @endif
-                <div class="card-content">
-                    <h3>{{ $item->nama }}</h3>
-                    <p>{{ $item->deskripsi }}</p>
-                    @if($item->harga)
-                    <div class="card-price">💰 {{ $item->harga }}</div>
+
+                <div style="position:relative; overflow:hidden; border-radius:16px;">
+
+                    <img 
+                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
+                            ? asset('storage/' . $item->gambar) 
+                            : $item->gambar }}" 
+                        class="card-img" 
+                        alt="{{ $item->nama }}"
+                    >
+
+                    {{-- LINK REFERENSI --}}
+                    @if($item->link_referensi)
+                        <a 
+                            href="{{ $item->link_referensi }}" 
+                            target="_blank"
+                            style="
+                                position:absolute;
+                                bottom:0;
+                                left:0;
+                                background:rgba(0,0,0,0.55);
+                                color:#fff;
+                                font-size:10px;
+                                padding:3px 6px;
+                                text-decoration:none;
+                                line-height:1.4;
+                                max-width:80px;
+                                overflow:hidden;
+                                white-space:nowrap;
+                                display:block;
+                                border-radius:0 10px 0 0;
+                                z-index:10;
+                                backdrop-filter: blur(2px);
+                            "
+                            title="{{ $item->link_referensi }}"
+                        >
+                            🔗 src
+                        </a>
                     @endif
-                    @if($item->kontak)
-                    <div class="card-contact">📞 {{ $item->kontak }}</div>
-                    @endif
+
                 </div>
+
+                @endif
+
+                <div class="card-content">
+
+                    <h3>{{ $item->nama }}</h3>
+
+                    <p>{{ $item->deskripsi }}</p>
+
+                    @if($item->harga)
+                        <div class="card-price">
+                            💰 {{ $item->harga }}
+                        </div>
+                    @endif
+
+                    @if($item->kontak)
+                        <div class="card-contact">
+                            📞 {{ $item->kontak }}
+                        </div>
+                    @endif
+
+                </div>
+
             </div>
+
             @empty
+
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data penginapan untuk geosite ini.</p>
             </div>
+
             @endforelse
+
         </div>
+
     </div>
 </section>
-
 <!-- FASILITAS -->
 <section id="fasilitas" class="section bg-light">
     <div class="container">
+
         <div class="section-title">
             <h2>Fasilitas & Layanan</h2>
             <div class="divider"></div>
             <p>Berbagai fasilitas lengkap untuk kenyamanan wisatawan</p>
         </div>
+
         <div class="grid-2">
+
             @forelse($fasilitas as $item)
+
             <div class="fasilitas-item">
+
                 @if($item->gambar)
-                <img src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}" class="fasilitas-img" alt="{{ $item->nama }}">
-                @endif
-                <div class="fasilitas-content">
-                    <h4>{{ $item->nama }}</h4>
-                    <p>{{ $item->deskripsi }}</p>
-                    @if($item->harga)
-                    <div class="fasilitas-price">{{ $item->harga }}</div>
+
+                <div style="position:relative; overflow:hidden; border-radius:16px;">
+
+                    <img 
+                        src="{{ $item->gambar && !str_starts_with($item->gambar, 'data:') 
+                            ? asset('storage/' . $item->gambar) 
+                            : $item->gambar }}" 
+                        class="fasilitas-img" 
+                        alt="{{ $item->nama }}"
+                    >
+
+                    {{-- LINK REFERENSI --}}
+                    @if($item->link_referensi)
+                        <a 
+                            href="{{ $item->link_referensi }}" 
+                            target="_blank"
+                            style="
+                                position:absolute;
+                                bottom:0;
+                                left:0;
+                                background:rgba(0,0,0,0.60);
+                                color:#fff;
+                                font-size:10px;
+                                padding:3px 7px;
+                                text-decoration:none;
+                                line-height:1.4;
+                                white-space:nowrap;
+                                display:inline-block;
+                                width:auto;
+                                border-radius:0 10px 0 0;
+                                z-index:10;
+                                backdrop-filter:blur(2px);
+                                font-weight:500;
+                            "
+                            title="{{ $item->link_referensi }}"
+                        >
+                            🔗 src
+                        </a>
                     @endif
+
                 </div>
+
+                @endif
+
+                <div class="fasilitas-content">
+
+                    <h4>{{ $item->nama }}</h4>
+
+                    <p>{{ $item->deskripsi }}</p>
+
+                    @if($item->harga)
+                        <div class="fasilitas-price">
+                            {{ $item->harga }}
+                        </div>
+                    @endif
+
+                </div>
+
             </div>
+
             @empty
+
             <div style="grid-column:1/-1;text-align:center;padding:2rem;color:#888;">
                 <p>Belum ada data fasilitas untuk geosite ini.</p>
             </div>
+
             @endforelse
+
         </div>
+
     </div>
 </section>
 
@@ -242,15 +382,15 @@
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi Pelabuhan Ambarita</h2>
+            <h2>Lokasi Tuktuk</h2>
             <div class="divider"></div>
-            <p>Gerbang utama menuju situs bersejarah Ambarita di Pulau Samosir</p>
+            <p>Pusat wisata dan penginapan di Samosir</p>
         </div>
 
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Makam%20Raja%20Sidabutar,%20Tomok,%20Samosir&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Tuktuk%20Siadong,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -261,19 +401,9 @@
 
             <div class="rute-info">
                 <div class="rute-item">
-                    <h4>⛴️ Dari Muara</h4>
-                    <p>Naik ferry dari Muara menuju Pelabuhan Ambarita langsung.</p>
-                    <span class="rute-time">± 45 menit</span>
-                </div>
-                <div class="rute-item">
-                    <h4>🚢 Dari Ajibata</h4>
-                    <p>Ferry dari Ajibata ke Tomok, lanjut darat ke Ambarita.</p>
-                    <span class="rute-time">± 1.5 jam</span>
-                </div>
-                <div class="rute-item">
-                    <h4>📍 Jarak ke Situs Batu</h4>
-                    <p>Dari pelabuhan, situs Batu Persidangan Raja Siallagan dapat dicapai dengan berjalan kaki.</p>
-                    <span class="rute-time">± 10 menit</span>
+                    <h4>📍 Tuktuk</h4>
+                    <p>Area favorit wisatawan dengan hotel, cafe, dan restoran.</p>
+                    <span class="rute-time">Pusat wisata Samosir</span>
                 </div>
             </div>
         </div>
@@ -283,9 +413,9 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Jelajahi Pesona Pelabuhan Ambarita</h3>
+        <h3>Jangan Lewatkan Keindahan tuktuk</h3>
         <div class="divider"></div>
-        <p>Nikmati keindahan Danau Toba dari dermaga bersejarah, saksikan aktivitas nelayan lokal yang autentik, dan jadikan Pelabuhan Ambarita sebagai pintu gerbang petualangan budaya Batak Toba yang tak terlupakan.</p>
+        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tuktuk</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
             <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
@@ -344,81 +474,72 @@
 </div>
 
 <script>
-    // ========== HERO SLIDER ==========
-    var heroCurrentSlide = 0;
-    var heroSlides = document.querySelectorAll('.hero-slide');
-    var heroTotalSlides = heroSlides.length;
-    var heroAutoPlayInterval;
-    var heroProgressInterval;
-    var heroSlideDuration = 5000;
+   
+const SONG_TITLE  = 'Horbo Paung';
+const SONG_ARTIST = "D' Bambo Official";
+const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
 
-    function initHeroSlider() {
-        var dotsContainer = document.getElementById('heroSliderDots');
-        if (!dotsContainer) return;
-        for (var i = 0; i < heroTotalSlides; i++) {
-            var dot = document.createElement('button');
-            dot.className = 'hero-slider-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('data-slide', i);
-            dot.addEventListener('click', function() {
-                goToSlide(parseInt(this.getAttribute('data-slide')));
-            });
-            dotsContainer.appendChild(dot);
-        }
-        startAutoPlay();
+const musicCard = document.createElement('div');
+musicCard.className = 'music-card';
+
+musicCard.innerHTML = `
+    <span class="music-badge">♫ Musik</span>
+
+    <div class="music-disc">
+        <img
+            src="${DISC_IMG}"
+            class="music-disc-img"
+            id="musicDisc"
+        >
+    </div>
+
+    <div class="music-info">
+        <div class="music-title">${SONG_TITLE}</div>
+        <div class="music-artist">${SONG_ARTIST}</div>
+    </div>
+
+    <div class="music-btn">
+        <i class="bi bi-play-fill" id="musicBtnIcon"></i>
+    </div>
+`;
+
+document.body.appendChild(musicCard);
+
+const audio = new Audio(
+    "{{ asset('audio/Horbo_Paung_Gondang.mp3') }}"
+);
+
+audio.loop = true;
+audio.volume = 0.4;
+
+const disc = document.getElementById('musicDisc');
+const icon = document.getElementById('musicBtnIcon');
+
+let playing = false;
+
+function startMusic(){
+    audio.play().catch(()=>{});
+    disc.classList.add('playing');
+    icon.className = 'bi bi-stop-fill';
+    playing = true;
+}
+
+function stopMusic(){
+    audio.pause();
+    disc.classList.remove('playing');
+    icon.className = 'bi bi-play-fill';
+    playing = false;
+}
+
+musicCard.addEventListener('click',()=>{
+    playing ? stopMusic() : startMusic();
+});
+
+window.addEventListener('click',()=>{
+    if(!playing){
+        startMusic();
     }
-
-    function goToSlide(index) {
-        heroSlides[heroCurrentSlide].classList.remove('active');
-        var dots = document.querySelectorAll('.hero-slider-dot');
-        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.remove('active');
-
-        heroCurrentSlide = (index + heroTotalSlides) % heroTotalSlides;
-
-        heroSlides[heroCurrentSlide].classList.add('active');
-        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.add('active');
-
-        resetProgress();
-    }
-
-    function changeSlide(direction) {
-        goToSlide(heroCurrentSlide + direction);
-        restartAutoPlay();
-    }
-
-    function startAutoPlay() {
-        heroAutoPlayInterval = setInterval(function() {
-            goToSlide(heroCurrentSlide + 1);
-        }, heroSlideDuration);
-        startProgress();
-    }
-
-    function restartAutoPlay() {
-        clearInterval(heroAutoPlayInterval);
-        clearInterval(heroProgressInterval);
-        startAutoPlay();
-    }
-
-    function startProgress() {
-        var progressBar = document.getElementById('heroSliderProgress');
-        if (!progressBar) return;
-        var startTime = Date.now();
-        progressBar.style.width = '0%';
-        heroProgressInterval = setInterval(function() {
-            var elapsed = Date.now() - startTime;
-            var pct = Math.min((elapsed / heroSlideDuration) * 100, 100);
-            progressBar.style.width = pct + '%';
-            if (pct >= 100) clearInterval(heroProgressInterval);
-        }, 30);
-    }
-
-    function resetProgress() {
-        clearInterval(heroProgressInterval);
-        var progressBar = document.getElementById('heroSliderProgress');
-        if (progressBar) progressBar.style.width = '0%';
-        startProgress();
-    }
-
-    initHeroSlider();
+},{once:true});
 
     // ========== LIGHTBOX ZOOM ADVANCED ==========
     let currentImageIndex = 0;

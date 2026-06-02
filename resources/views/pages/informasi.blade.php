@@ -158,6 +158,99 @@
         .timeline { flex-direction: column; }
         .fakta-grid { grid-template-columns: 1fr; }
     }
+    /* ===== MUSIK LATAR ===== */
+.music-card{
+    position:fixed;
+    bottom:28px;
+    right:24px;
+    z-index:1100;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:rgba(10,10,20,.82);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(198,164,59,.35);
+    border-radius:50px;
+    padding:8px 16px 8px 8px;
+    box-shadow:0 8px 32px rgba(0,0,0,.45);
+    cursor:pointer;
+    min-width:205px;
+    max-width:265px;
+}
+
+.music-disc{
+    position:relative;
+    width:44px;
+    height:44px;
+}
+
+.music-disc-img{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid rgba(198,164,59,.55);
+    animation:spinDisc 4s linear infinite;
+    animation-play-state:paused;
+}
+
+.music-disc-img.playing{
+    animation-play-state:running;
+}
+
+@keyframes spinDisc{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.music-disc::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:11px;
+    height:11px;
+    background:#10102a;
+    border-radius:50%;
+}
+
+.music-info{
+    flex:1;
+}
+
+.music-title{
+    color:#fff;
+    font-size:.72rem;
+    font-weight:700;
+}
+
+.music-artist{
+    color:#c6a43b;
+    font-size:.62rem;
+}
+
+.music-btn{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#c6a43b,#d4a947);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#003366;
+}
+
+.music-badge{
+    position:absolute;
+    top:-7px;
+    left:14px;
+    background:#003366;
+    color:#c6a43b;
+    font-size:.47rem;
+    padding:2px 8px;
+    border-radius:20px;
+}
 </style>
 
 <!-- HERO -->
@@ -321,5 +414,71 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 700, once: true, offset: 50 });</script>
+<script>
+const SONG_TITLE  = 'Horbo Paung';
+const SONG_ARTIST = "D' Bambo Official";
+const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
 
+const musicCard = document.createElement('div');
+musicCard.className = 'music-card';
+
+musicCard.innerHTML = `
+    <span class="music-badge">♫ Musik</span>
+
+    <div class="music-disc">
+        <img
+            src="${DISC_IMG}"
+            class="music-disc-img"
+            id="musicDisc"
+        >
+    </div>
+
+    <div class="music-info">
+        <div class="music-title">${SONG_TITLE}</div>
+        <div class="music-artist">${SONG_ARTIST}</div>
+    </div>
+
+    <div class="music-btn">
+        <i class="bi bi-play-fill" id="musicBtnIcon"></i>
+    </div>
+`;
+
+document.body.appendChild(musicCard);
+
+const audio = new Audio(
+    "{{ asset('audio/Horbo_Paung_Gondang.mp3') }}"
+);
+
+audio.loop = true;
+audio.volume = 0.4;
+
+const disc = document.getElementById('musicDisc');
+const icon = document.getElementById('musicBtnIcon');
+
+let playing = false;
+
+function startMusic(){
+    audio.play().catch(()=>{});
+    disc.classList.add('playing');
+    icon.className = 'bi bi-stop-fill';
+    playing = true;
+}
+
+function stopMusic(){
+    audio.pause();
+    disc.classList.remove('playing');
+    icon.className = 'bi bi-play-fill';
+    playing = false;
+}
+
+musicCard.addEventListener('click',()=>{
+    playing ? stopMusic() : startMusic();
+});
+
+window.addEventListener('click',()=>{
+    if(!playing){
+        startMusic();
+    }
+},{once:true});
+</script>
 @endsection

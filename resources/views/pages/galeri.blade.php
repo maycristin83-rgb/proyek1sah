@@ -20,13 +20,7 @@
         position: relative;
         overflow: hidden;
     }
-    .gallery-hero::before {
-        content: '';
-        position: absolute; top: -50%; left: -50%;
-        width: 200%; height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-        animation: heroRotate 30s linear infinite;
-    }
+   
     @keyframes heroRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
     .gallery-hero-content { position: relative; z-index: 2; padding: 0 20px; }
     .gallery-hero-eyebrow {
@@ -359,7 +353,6 @@
     .modal-img-part img {
         max-width: 100%; max-height: 72vh;
         width: auto; height: auto;
-        object-fit: contain;
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.4);
         transition: transform 0.3s ease;
@@ -429,13 +422,104 @@
         .carousel-arrow { width:40px; height:40px; font-size:0.9rem; }
         .gallery-hero h1 { font-size: 2rem; }
     }
+    /* ===== HERO ===== */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain; /* seluruh gambar terlihat */
+    object-position: center;
+
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        rgba(0,20,50,0.45),
+        rgba(0,20,50,0.65)
+    );
+
+    z-index: 2;
+}
+
+.gallery-hero-content {
+    position: relative;
+    z-index: 3;
+
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-hero h1 {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
+
+.gallery-hero p {
+    color: rgba(255,255,255,0.9);
+}
+
+.gallery-hero-eyebrow {
+    color: #c6a43b;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.gallery-hero{
+    position:relative;
+    height:600px;
+    margin-top:70px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover; /* penuh layar */
+    object-position:center;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.gallery-hero-content{
+    position:relative;
+    z-index:10;
+    text-align:center;
+}
 </style>
 
 <!-- HERO -->
 <div class="gallery-hero">
+    <img src="{{ asset('image/tuktuk/Tuktuk1.jpg') }}"
+         alt="Danau Toba"
+         class="hero-image">
+    <div class="hero-overlay"></div>
+
     <div class="gallery-hero-content">
-        <div class="gallery-hero-eyebrow">Geopark Kaldera Toba &bull; Samosir</div>
+        <div class="gallery-hero-eyebrow">
+            Geopark Kaldera Toba &bull; Samosir
+        </div>
+
         <h1>Galeri Foto</h1>
+
         <p>Pesona Alam &amp; Budaya Danau Toba</p>
     </div>
 </div>
@@ -443,9 +527,7 @@
 <section class="gallery-section">
     <div class="gcontainer">
 
-        {{-- ============================================================
-             FOTO UNGGULAN — CAROUSEL FULLWIDTH HORIZONTAL (SWIPEABLE)
-        ============================================================ --}}
+        
         <div class="featured-section">
             <div class="section-label">
                 <h2>Foto Unggulan</h2>
