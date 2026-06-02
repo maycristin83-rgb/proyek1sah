@@ -640,6 +640,96 @@
     .destinasi-image:hover img {
         transform: scale(1.08);
     }
+
+    /* ==================== DESTINASI SLIDER ==================== */
+    .destinasi-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .destinasi-slider-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+    }
+
+    .destinasi-slider-track img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        flex-shrink: 0;
+        display: block;
+    }
+
+    .destinasi-slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0, 51, 102, 0.7);
+        color: #fff;
+        border: 2px solid rgba(198, 164, 59, 0.6);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        z-index: 5;
+        opacity: 0;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .destinasi-image:hover .destinasi-slider-arrow {
+        opacity: 1;
+    }
+
+    .destinasi-slider-arrow:hover {
+        background: #c6a43b;
+        color: #003366;
+        transform: translateY(-50%) scale(1.15);
+        box-shadow: 0 4px 15px rgba(198, 164, 59, 0.4);
+    }
+
+    .destinasi-slider-arrow.prev { left: 12px; }
+    .destinasi-slider-arrow.next { right: 12px; }
+
+    .destinasi-slider-dots {
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 5;
+    }
+
+    .destinasi-slider-dots .ds-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 1.5px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .destinasi-slider-dots .ds-dot.active {
+        background: #c6a43b;
+        width: 24px;
+        border-radius: 10px;
+        border-color: #c6a43b;
+        box-shadow: 0 0 8px rgba(198, 164, 59, 0.5);
+    }
+
+    .destinasi-slider-dots .ds-dot:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.3);
+    }
     
     .destinasi-content { 
         flex: 1; 
@@ -1148,10 +1238,25 @@
         </div>
         <div class="destinasi-list">
             
-      <!-- 01 — TUKTUK SIADONG -->
+<!-- 01 — TUKTUK SIADONG -->
 <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tuktuk/Tuktuk3.jpg" alt="Tuktuk Siadong">
+        <div class="destinasi-slider" data-slider="tuktuk">
+            <div class="destinasi-slider-track">
+                <img src="/image/Tuktuk/Tuktuk1.jpg" alt="Tuktuk Siadong 1">
+                <img src="/image/Tuktuk/Tuktuk3.jpg" alt="Tuktuk Siadong 2">
+                <img src="/image/Tuktuk/Tuktuk4.jpg" alt="Tuktuk Siadong 3">
+                <img src="/image/Tuktuk/Tuktuk8.jpg" alt="Tuktuk Siadong 4">
+            </div>
+            <button class="destinasi-slider-arrow prev" onclick="destSlide('tuktuk', -1)">&#10094;</button>
+            <button class="destinasi-slider-arrow next" onclick="destSlide('tuktuk', 1)">&#10095;</button>
+            <div class="destinasi-slider-dots">
+                <span class="ds-dot active" onclick="destGoTo('tuktuk', 0)"></span>
+                <span class="ds-dot" onclick="destGoTo('tuktuk', 1)"></span>
+                <span class="ds-dot" onclick="destGoTo('tuktuk', 2)"></span>
+                <span class="ds-dot" onclick="destGoTo('tuktuk', 3)"></span>
+            </div>
+        </div>
     </div>
 
     <div class="destinasi-content">
@@ -1164,135 +1269,88 @@
 
         <p class="destinasi-desc">
             Kawasan wisata terkenal di Pulau Samosir dengan panorama Danau Toba,
-            penginapan, restoran, dan suasana tenang untuk berlibur.
+            penginapan, restoran, serta berbagai aktivitas wisata yang menarik.
         </p>
 
-        <a href="{{ route('geosite.tuktuk_siadong') }}" class="destinasi-link">
+        <a href="{{ route('geosite.tuktuk') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 02 — BUKIT BETA TUK-TUK -->
+<!-- 02 — AMBARITA -->
 <div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tuktuk/slide5.png" alt="Bukit Beta Tuk-Tuk">
+        <div class="destinasi-slider" data-slider="ambarita">
+            <div class="destinasi-slider-track">
+                <img src="/image/Ambarita/Ambarita1.jpg" alt="Ambarita 1">
+                <img src="/image/Ambarita/Ambarita2.jpg" alt="Ambarita 2">
+                <img src="/image/Ambarita/Ambarita3.jpg" alt="Ambarita 3">
+                <img src="/image/Ambarita/Ambarita6.jpg" alt="Ambarita 4">
+            </div>
+            <button class="destinasi-slider-arrow prev" onclick="destSlide('ambarita', -1)">&#10094;</button>
+            <button class="destinasi-slider-arrow next" onclick="destSlide('ambarita', 1)">&#10095;</button>
+            <div class="destinasi-slider-dots">
+                <span class="ds-dot active" onclick="destGoTo('ambarita', 0)"></span>
+                <span class="ds-dot" onclick="destGoTo('ambarita', 1)"></span>
+                <span class="ds-dot" onclick="destGoTo('ambarita', 2)"></span>
+                <span class="ds-dot" onclick="destGoTo('ambarita', 3)"></span>
+            </div>
+        </div>
     </div>
 
     <div class="destinasi-content">
         <div class="destinasi-number">02 — GEOSITE</div>
-        <h3>Bukit Beta Tuk-Tuk</h3>
-
-        <div class="destinasi-location">
-            Desa Tuktuk Siadong, Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Bukit dengan panorama Danau Toba yang indah dan menjadi spot favorit
-            wisatawan untuk menikmati matahari terbit.
-        </p>
-
-        <a href="{{ route('geosite.bukit_beta_tuktuk') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 03 — PELABUHAN AMBARITA -->
-<div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
-    <div class="destinasi-image">
-        <img src="/image/Ambarita/Ambarita1.jpg" alt="Pelabuhan Ambarita">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">03 — GEOSITE</div>
-        <h3>Pelabuhan Ambarita</h3>
+        <h3>Ambarita</h3>
 
         <div class="destinasi-location">
             Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
         </div>
 
         <p class="destinasi-desc">
-            Pelabuhan utama yang menghubungkan Pulau Samosir dengan wilayah
-            sekitar Danau Toba serta menjadi pintu masuk wisatawan.
+            Kawasan wisata budaya yang terkenal dengan Huta Siallagan,
+            pelabuhan wisata, serta peninggalan sejarah masyarakat Batak.
         </p>
 
-        <a href="{{ route('geosite.pelabuhan_ambarita') }}" class="destinasi-link">
+        <a href="{{ route('geosite.ambarita') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 04 — AIR TERJUN SIGARANTUNG -->
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
-    <div class="destinasi-image">
-        <img src="/image/Sigarantung/Sigarantung1.jpg" alt="Air Terjun Sigarantung">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">04 — GEOSITE</div>
-        <h3>Air Terjun Sigarantung</h3>
-
-        <div class="destinasi-location">
-            Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Air terjun alami yang menawarkan suasana sejuk, pemandangan hijau,
-            dan pengalaman wisata alam yang menenangkan.
-        </p>
-
-        <a href="{{ route('geosite.air_terjun_sigarantung') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 05 — TOMOK PARSAORAN -->
+<!-- 03 — TOMOK -->
 <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
-        <img src="/image/Tomok/Tomok2.jpg" alt="Tomok Parsaoran">
+        <div class="destinasi-slider" data-slider="tomok">
+            <div class="destinasi-slider-track">
+                <img src="/image/Tomok/Tomok1.jpg" alt="Tomok 1">
+                <img src="/image/Tomok/Tomok2.jpg" alt="Tomok 2">
+                <img src="/image/Tomok/Tomok3.jpg" alt="Tomok 3">
+            </div>
+            <button class="destinasi-slider-arrow prev" onclick="destSlide('tomok', -1)">&#10094;</button>
+            <button class="destinasi-slider-arrow next" onclick="destSlide('tomok', 1)">&#10095;</button>
+            <div class="destinasi-slider-dots">
+                <span class="ds-dot active" onclick="destGoTo('tomok', 0)"></span>
+                <span class="ds-dot" onclick="destGoTo('tomok', 1)"></span>
+                <span class="ds-dot" onclick="destGoTo('tomok', 2)"></span>
+            </div>
+        </div>
     </div>
 
     <div class="destinasi-content">
-        <div class="destinasi-number">05 — GEOSITE</div>
-        <h3>Tomok Parsaoran</h3>
+        <div class="destinasi-number">03 — GEOSITE</div>
+        <h3>Tomok</h3>
 
         <div class="destinasi-location">
             Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
         </div>
 
         <p class="destinasi-desc">
-            Kawasan wisata budaya yang menyimpan berbagai peninggalan sejarah,
-            tradisi Batak, dan aktivitas wisata budaya di Tomok.
+            Destinasi wisata budaya yang menyimpan makam Raja Sidabutar,
+            museum, pertunjukan seni Batak, dan pusat suvenir khas Samosir.
         </p>
 
-        <a href="{{ route('geosite.tomok_parsaoran') }}" class="destinasi-link">
-            Jelajahi Lebih Lanjut →
-        </a>
-    </div>
-</div>
-
-<!-- 06 — HUTA SIALLAGAN -->
-<div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
-    <div class="destinasi-image">
-        <img src="/image/Ambarita/HutaSiallagan.jpg" alt="Huta Siallagan">
-    </div>
-
-    <div class="destinasi-content">
-        <div class="destinasi-number">06 — GEOSITE</div>
-        <h3>Huta Siallagan</h3>
-
-        <div class="destinasi-location">
-            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
-        </div>
-
-        <p class="destinasi-desc">
-            Perkampungan tradisional Batak yang terkenal dengan rumah adat,
-            kursi batu persidangan, dan warisan budaya Siallagan.
-        </p>
-
-        <a href="{{ route('geosite.huta_siallagan') }}" class="destinasi-link">
+        <a href="{{ route('geosite.tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1438,6 +1496,48 @@
         el.style.transition = 'all 0.8s ease';
         observer.observe(el);
     });
+
+    // ==================== DESTINASI IMAGE SLIDERS ====================
+    const destSliders = {};
+
+    document.querySelectorAll('.destinasi-slider').forEach(slider => {
+        const name = slider.dataset.slider;
+        const track = slider.querySelector('.destinasi-slider-track');
+        const images = track.querySelectorAll('img');
+        const dots = slider.querySelectorAll('.ds-dot');
+        destSliders[name] = { track, images, dots, current: 0, count: images.length, interval: null };
+        startDestAutoPlay(name);
+    });
+
+    function destGoTo(name, index) {
+        const s = destSliders[name];
+        if (!s) return;
+        s.current = ((index % s.count) + s.count) % s.count;
+        s.track.style.transform = `translateX(-${s.current * 100}%)`;
+        s.dots.forEach((d, i) => d.classList.toggle('active', i === s.current));
+        restartDestAutoPlay(name);
+    }
+
+    function destSlide(name, dir) {
+        const s = destSliders[name];
+        if (!s) return;
+        destGoTo(name, s.current + dir);
+    }
+
+    function startDestAutoPlay(name) {
+        const s = destSliders[name];
+        if (!s) return;
+        s.interval = setInterval(() => {
+            destGoTo(name, s.current + 1);
+        }, 4000);
+    }
+
+    function restartDestAutoPlay(name) {
+        const s = destSliders[name];
+        if (!s) return;
+        clearInterval(s.interval);
+        startDestAutoPlay(name);
+    }
 </script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

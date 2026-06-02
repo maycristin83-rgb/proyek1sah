@@ -47,12 +47,38 @@
     <a href="#lokasi" class="mobile-link">Lokasi</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" style="background-image: url('/image/Tomok/Tomok3.jpg');">
-    <div>
-        <h1 class="hero-title">T O M O K</h1>
-        <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+<!-- HERO SLIDER -->
+<section class="hero-slider" id="heroSlider">
+    <div class="hero-slide active" style="background-image: url('/image/Tuktuk/Tuktuk1.jpg');">
+        <div>
+            <h1 class="hero-title">T U K T U K &nbsp; S I A D O N G</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
     </div>
+    <div class="hero-slide" style="background-image: url('/image/Tuktuk/Tuktuk3.jpg');">
+        <div>
+            <h1 class="hero-title">T U K T U K &nbsp; S I A D O N G</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Tuktuk/Tuktuk4.jpg');">
+        <div>
+            <h1 class="hero-title">T U K T U K &nbsp; S I A D O N G</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Tuktuk/Tuktuk8.jpg');">
+        <div>
+            <h1 class="hero-title">T U K T U K &nbsp; S I A D O N G</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+
+    <button class="hero-slider-btn hero-slider-prev" onclick="changeSlide(-1)">‹</button>
+    <button class="hero-slider-btn hero-slider-next" onclick="changeSlide(1)">›</button>
+
+    <div class="hero-slider-dots" id="heroSliderDots"></div>
+    <div class="hero-slider-progress" id="heroSliderProgress"></div>
 </section>
 
 <!-- SEJARAH -->
@@ -302,6 +328,82 @@
 </div>
 
 <script>
+    // ========== HERO SLIDER ==========
+    var heroCurrentSlide = 0;
+    var heroSlides = document.querySelectorAll('.hero-slide');
+    var heroTotalSlides = heroSlides.length;
+    var heroAutoPlayInterval;
+    var heroProgressInterval;
+    var heroSlideDuration = 5000;
+
+    function initHeroSlider() {
+        var dotsContainer = document.getElementById('heroSliderDots');
+        if (!dotsContainer) return;
+        for (var i = 0; i < heroTotalSlides; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'hero-slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-slide', i);
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(this.getAttribute('data-slide')));
+            });
+            dotsContainer.appendChild(dot);
+        }
+        startAutoPlay();
+    }
+
+    function goToSlide(index) {
+        heroSlides[heroCurrentSlide].classList.remove('active');
+        var dots = document.querySelectorAll('.hero-slider-dot');
+        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.remove('active');
+
+        heroCurrentSlide = (index + heroTotalSlides) % heroTotalSlides;
+
+        heroSlides[heroCurrentSlide].classList.add('active');
+        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.add('active');
+
+        resetProgress();
+    }
+
+    function changeSlide(direction) {
+        goToSlide(heroCurrentSlide + direction);
+        restartAutoPlay();
+    }
+
+    function startAutoPlay() {
+        heroAutoPlayInterval = setInterval(function() {
+            goToSlide(heroCurrentSlide + 1);
+        }, heroSlideDuration);
+        startProgress();
+    }
+
+    function restartAutoPlay() {
+        clearInterval(heroAutoPlayInterval);
+        clearInterval(heroProgressInterval);
+        startAutoPlay();
+    }
+
+    function startProgress() {
+        var progressBar = document.getElementById('heroSliderProgress');
+        if (!progressBar) return;
+        var startTime = Date.now();
+        progressBar.style.width = '0%';
+        heroProgressInterval = setInterval(function() {
+            var elapsed = Date.now() - startTime;
+            var pct = Math.min((elapsed / heroSlideDuration) * 100, 100);
+            progressBar.style.width = pct + '%';
+            if (pct >= 100) clearInterval(heroProgressInterval);
+        }, 30);
+    }
+
+    function resetProgress() {
+        clearInterval(heroProgressInterval);
+        var progressBar = document.getElementById('heroSliderProgress');
+        if (progressBar) progressBar.style.width = '0%';
+        startProgress();
+    }
+
+    initHeroSlider();
+
     // ========== LIGHTBOX ZOOM ADVANCED ==========
     let currentImageIndex = 0;
     let allGaleriImages = [];

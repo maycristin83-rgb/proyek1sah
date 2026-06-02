@@ -49,45 +49,26 @@ class GeositeController extends Controller
         ];
     }
 
-   public function tuktuk_siadong()
+
+
+public function tuktuk()
 {
     $data = $this->geositeData('tuktuk');
 
-    return view('geosite.Tuktuk_Siadong', $data);
+    return view('geosite.Tuktuk', $data);
 }
 
-public function bukit_beta_tuktuk()
+public function ambarita()
 {
-    $data = $this->geositeData('beta');
+    $data = $this->geositeData('ambarita');
 
-    return view('geosite.Bukit_Beta_Tuktuk', $data);
+    return view('geosite.Ambarita', $data);
 }
 
-public function pelabuhan_ambarita()
-{
-    $data = $this->geositeData('pelabuhan');
-
-    return view('geosite.Pelabuhan_Ambarita', $data);
-}
-
-public function air_terjun_sigarantung()
-{
-    $data = $this->geositeData('sigarantung');
-
-    return view('geosite.Air_Terjun_Sigarantung', $data);
-}
-
-public function tomok_parsaoran()
+public function tomok()
 {
     $data = $this->geositeData('tomok');
 
-    return view('geosite.Tomok_Parsaoran', $data);
-}
-
-public function huta_siallagan()
-{
-    $data = $this->geositeData('siallagan');
-
-    return view('geosite.Huta_Siallagan', $data);
+    return view('geosite.Tomok', $data);
 }
 }

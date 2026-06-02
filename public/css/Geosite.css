@@ -162,9 +162,21 @@ body {
     margin-bottom: 10px;
 }
 
-/* ========== HERO ========== */
-.hero {
+/* ========== HERO SLIDER ========== */
+.hero-slider {
     width: 100%;
+    min-height: 100vh;
+    margin-top: 45px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -173,12 +185,17 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    margin-top: 45px;
-    min-height: 100vh;
-    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
 }
 
-.hero::before {
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -189,7 +206,7 @@ body {
     z-index: 1;
 }
 
-.hero>div {
+.hero-slide > div {
     position: relative;
     z-index: 2;
     padding: 100px 20px;
@@ -207,6 +224,85 @@ body {
     text-transform: uppercase;
     margin-top: 8px;
     opacity: 0.9;
+}
+
+/* Slider Navigation Arrows */
+.hero-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.hero-slider-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-slider-prev {
+    left: 20px;
+}
+
+.hero-slider-next {
+    right: 20px;
+}
+
+/* Slider Dots */
+.hero-slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.hero-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.hero-slider-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    width: 28px;
+    border-radius: 14px;
+}
+
+.hero-slider-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Progress bar */
+.hero-slider-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 5;
+    transition: width 0.1s linear;
 }
 
 /* ========== SECTION ========== */
@@ -836,6 +932,15 @@ body {
         font-size: 2.5rem;
     }
 
+    .hero-slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .hero-slider-prev { left: 12px; }
+    .hero-slider-next { right: 12px; }
+
     .lightbox-prev,
     .lightbox-next {
         font-size: 24px;
@@ -874,15 +979,27 @@ body {
         font-size: 0.8rem;
     }
 
-    .hero {
+    .hero-slider {
         margin-top: 65px;
         min-height: 350px;
-        padding: 80px 20px;
     }
 
     .hero-title {
         font-size: 2rem;
     }
+
+    .hero-slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .hero-slider-prev { left: 8px; }
+    .hero-slider-next { right: 8px; }
+
+    .hero-slider-dots { bottom: 16px; gap: 6px; }
+    .hero-slider-dot { width: 8px; height: 8px; }
+    .hero-slider-dot.active { width: 22px; }
 
     .section {
         padding: 35px 0;
@@ -990,14 +1107,18 @@ body {
         font-size: 0.7rem;
     }
 
-    .hero {
+    .hero-slider {
         min-height: 300px;
-        padding: 60px 20px;
     }
 
     .hero-title {
         font-size: 1.5rem;
     }
+
+    .hero-slider-btn { display: none; }
+    .hero-slider-dots { bottom: 12px; gap: 5px; }
+    .hero-slider-dot { width: 7px; height: 7px; }
+    .hero-slider-dot.active { width: 18px; }
 
     .galeri-grid {
         grid-template-columns: 1fr;

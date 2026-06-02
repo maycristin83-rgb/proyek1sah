@@ -39,23 +39,9 @@ Route::get('/budaya', [HomeController::class, 'budaya'])->name('budaya');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::post('/kontak', [KontakController::class, 'kirim'])->name('kontak.kirim');
 
-Route::get('/geosite/tuktuk_siadong', [GeositeController::class, 'tuktuk_siadong'])
-    ->name('geosite.tuktuk_siadong');
-
-Route::get('/geosite/bukit_beta_tuktuk', [GeositeController::class, 'bukit_beta_tuktuk'])
-    ->name('geosite.bukit_beta_tuktuk');
-
-Route::get('/geosite/pelabuhan_ambarita', [GeositeController::class, 'pelabuhan_ambarita'])
-    ->name('geosite.pelabuhan_ambarita');
-
-Route::get('/geosite/air_terjun_sigarantung', [GeositeController::class, 'air_terjun_sigarantung'])
-    ->name('geosite.air_terjun_sigarantung');
-
-Route::get('/geosite/tomok_parsaoran', [GeositeController::class, 'tomok_parsaoran'])
-    ->name('geosite.tomok_parsaoran');
-
-Route::get('/geosite/huta_siallagan', [GeositeController::class, 'huta_siallagan'])
-    ->name('geosite.huta_siallagan');
+Route::get('/tuktuk', [GeositeController::class, 'tuktuk'])->name('geosite.tuktuk');
+Route::get('/ambarita', [GeositeController::class, 'ambarita'])->name('geosite.ambarita');
+Route::get('/tomok', [GeositeController::class, 'tomok'])->name('geosite.tomok');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

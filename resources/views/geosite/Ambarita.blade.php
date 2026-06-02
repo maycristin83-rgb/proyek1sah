@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batu Marhosa - Geosite Danau Toba</title>
+    <title>Pelabuhan Ambarita - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
 </head>
@@ -47,12 +47,56 @@
     <a href="#lokasi" class="mobile-link">Lokasi</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" style="background-image: url('/image/air_terjun/air_terjun1.jpg');">
-    <div>
-        <h1 class="hero-title">A I R &nbsp; T E R J U N &nbsp; S I G A R A T T U N G</h1>
-        <p class="hero-subtitle">Kawasan Geopark · Danau Toba</p>
+<!-- HERO SLIDER -->
+<section class="hero-slider" id="heroSlider">
+    <div class="hero-slide active" style="background-image: url('/image/Ambarita/Ambarita1.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
     </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita2.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita3.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita4.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita5.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita6.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('/image/Ambarita/Ambarita7.jpg');">
+        <div>
+            <h1 class="hero-title">P E L A B U H A N &nbsp; A M B A R I T A</h1>
+            <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
+        </div>
+    </div>
+
+    <button class="hero-slider-btn hero-slider-prev" onclick="changeSlide(-1)">‹</button>
+    <button class="hero-slider-btn hero-slider-next" onclick="changeSlide(1)">›</button>
+
+    <div class="hero-slider-dots" id="heroSliderDots"></div>
+    <div class="hero-slider-progress" id="heroSliderProgress"></div>
 </section>
 
 <!-- SEJARAH -->
@@ -101,7 +145,7 @@
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal di kawasan Air Terjun Sigarattung</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal Pelabuhan Ambarita</p>
         </div>
         <div class="grid-3">
             @forelse($umkm as $item)
@@ -198,15 +242,15 @@
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi Air Terjun Sigarattung</h2>
+            <h2>Lokasi Pelabuhan Ambarita</h2>
             <div class="divider"></div>
-            <p>Permata alam tersembunyi di kawasan Geopark Danau Toba</p>
+            <p>Gerbang utama menuju situs bersejarah Ambarita di Pulau Samosir</p>
         </div>
 
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Batu%20Marhosa,%20Tomok,%20Samosir&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Makam%20Raja%20Sidabutar,%20Tomok,%20Samosir&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -217,19 +261,19 @@
 
             <div class="rute-info">
                 <div class="rute-item">
+                    <h4>⛴️ Dari Muara</h4>
+                    <p>Naik ferry dari Muara menuju Pelabuhan Ambarita langsung.</p>
+                    <span class="rute-time">± 45 menit</span>
+                </div>
+                <div class="rute-item">
                     <h4>🚢 Dari Ajibata</h4>
-                    <p>Ferry dari Ajibata ke Tomok, lanjut darat ke lokasi air terjun.</p>
+                    <p>Ferry dari Ajibata ke Tomok, lanjut darat ke Ambarita.</p>
                     <span class="rute-time">± 1.5 jam</span>
                 </div>
                 <div class="rute-item">
-                    <h4>🚶 Trek Menuju Air Terjun</h4>
-                    <p>Jalan kaki melalui jalur setapak di hutan sekitar lokasi.</p>
-                    <span class="rute-time">± 15–20 menit</span>
-                </div>
-                <div class="rute-item">
-                    <h4>📌 Tips Berkunjung</h4>
-                    <p>Disarankan datang pagi hari dan menggunakan alas kaki yang nyaman untuk trek.</p>
-                    <span class="rute-time">Buka setiap hari</span>
+                    <h4>📍 Jarak ke Situs Batu</h4>
+                    <p>Dari pelabuhan, situs Batu Persidangan Raja Siallagan dapat dicapai dengan berjalan kaki.</p>
+                    <span class="rute-time">± 10 menit</span>
                 </div>
             </div>
         </div>
@@ -239,12 +283,12 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Rasakan Keajaiban Air Terjun Sigarattung</h3>
+        <h3>Jelajahi Pesona Pelabuhan Ambarita</h3>
         <div class="divider"></div>
-        <p>Temukan ketenangan di tengah alam liar yang asri, dengarkan suara gemericik air yang menenangkan jiwa, dan nikmati kesegaran kolam alami di kaki air terjun yang menakjubkan ini.</p>
+        <p>Nikmati keindahan Danau Toba dari dermaga bersejarah, saksikan aktivitas nelayan lokal yang autentik, dan jadikan Pelabuhan Ambarita sebagai pintu gerbang petualangan budaya Batak Toba yang tak terlupakan.</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
-            <a href="#fasilitas" class="cta-btn cta-btn-secondary">Lihat Fasilitas</a>
+            <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
         </div>
     </div>
 </section>
@@ -300,6 +344,82 @@
 </div>
 
 <script>
+    // ========== HERO SLIDER ==========
+    var heroCurrentSlide = 0;
+    var heroSlides = document.querySelectorAll('.hero-slide');
+    var heroTotalSlides = heroSlides.length;
+    var heroAutoPlayInterval;
+    var heroProgressInterval;
+    var heroSlideDuration = 5000;
+
+    function initHeroSlider() {
+        var dotsContainer = document.getElementById('heroSliderDots');
+        if (!dotsContainer) return;
+        for (var i = 0; i < heroTotalSlides; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'hero-slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-slide', i);
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(this.getAttribute('data-slide')));
+            });
+            dotsContainer.appendChild(dot);
+        }
+        startAutoPlay();
+    }
+
+    function goToSlide(index) {
+        heroSlides[heroCurrentSlide].classList.remove('active');
+        var dots = document.querySelectorAll('.hero-slider-dot');
+        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.remove('active');
+
+        heroCurrentSlide = (index + heroTotalSlides) % heroTotalSlides;
+
+        heroSlides[heroCurrentSlide].classList.add('active');
+        if (dots[heroCurrentSlide]) dots[heroCurrentSlide].classList.add('active');
+
+        resetProgress();
+    }
+
+    function changeSlide(direction) {
+        goToSlide(heroCurrentSlide + direction);
+        restartAutoPlay();
+    }
+
+    function startAutoPlay() {
+        heroAutoPlayInterval = setInterval(function() {
+            goToSlide(heroCurrentSlide + 1);
+        }, heroSlideDuration);
+        startProgress();
+    }
+
+    function restartAutoPlay() {
+        clearInterval(heroAutoPlayInterval);
+        clearInterval(heroProgressInterval);
+        startAutoPlay();
+    }
+
+    function startProgress() {
+        var progressBar = document.getElementById('heroSliderProgress');
+        if (!progressBar) return;
+        var startTime = Date.now();
+        progressBar.style.width = '0%';
+        heroProgressInterval = setInterval(function() {
+            var elapsed = Date.now() - startTime;
+            var pct = Math.min((elapsed / heroSlideDuration) * 100, 100);
+            progressBar.style.width = pct + '%';
+            if (pct >= 100) clearInterval(heroProgressInterval);
+        }, 30);
+    }
+
+    function resetProgress() {
+        clearInterval(heroProgressInterval);
+        var progressBar = document.getElementById('heroSliderProgress');
+        if (progressBar) progressBar.style.width = '0%';
+        startProgress();
+    }
+
+    initHeroSlider();
+
     // ========== LIGHTBOX ZOOM ADVANCED ==========
     let currentImageIndex = 0;
     let allGaleriImages = [];
