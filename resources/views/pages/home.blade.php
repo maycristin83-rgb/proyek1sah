@@ -105,6 +105,16 @@
     }
     
     /* ==================== HERO SLIDER ==================== */
+
+   .hero-desc {
+    font-family: 'Montserrat', serif;
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: justify;
+    color: #090909;
+    color: #000 !important;
+}
+
     .hero-section {
         width: 100%;
         height: 100vh;
@@ -154,9 +164,9 @@
     
     .slide-1 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide1.jpg'); }
     .slide-2 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide2.jpg'); }
-    .slide-3 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide3.jpg'); }
-    .slide-4 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide4.jpg'); }
-    .slide-5 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide5.png'); }
+    .slide-3 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide3.jpeg'); }
+    .slide-4 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide4.jpeg'); }
+    .slide-5 { background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 102, 153, 0.3)), url('/image/tuktuk/slide5.jpeg'); }
     
     .hero-content {
         position: absolute;
@@ -798,13 +808,12 @@
         transform: translateX(10px);
     }
     
-    .destinasi-desc {
-        color: #2c5f8a;
-        line-height: 1.8;
-        margin-bottom: 25px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
+   .destinasi-desc {
+    font-family: 'Merriweather', serif;
+    font-size: 0.8rem;
+    line-height: 2;
+    text-align: justify;
+}
     
     .destinasi-item:hover .destinasi-desc {
         transform: translateX(10px);
@@ -1177,79 +1186,7 @@
     max-width:265px;
 }
 
-.music-disc{
-    position:relative;
-    width:44px;
-    height:44px;
-}
 
-.music-disc-img{
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid rgba(198,164,59,.55);
-    animation:spinDisc 4s linear infinite;
-    animation-play-state:paused;
-}
-
-.music-disc-img.playing{
-    animation-play-state:running;
-}
-
-@keyframes spinDisc{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-}
-
-.music-disc::after{
-    content:'';
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:11px;
-    height:11px;
-    background:#10102a;
-    border-radius:50%;
-}
-
-.music-info{
-    flex:1;
-}
-
-.music-title{
-    color:#fff;
-    font-size:.72rem;
-    font-weight:700;
-}
-
-.music-artist{
-    color:#c6a43b;
-    font-size:.62rem;
-}
-
-.music-btn{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#c6a43b,#d4a947);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#003366;
-}
-
-.music-badge{
-    position:absolute;
-    top:-7px;
-    left:14px;
-    background:#003366;
-    color:#c6a43b;
-    font-size:.47rem;
-    padding:2px 8px;
-    border-radius:20px;
-}
 </style>
 
 <!-- ==================== HERO SLIDER ==================== -->
@@ -1315,11 +1252,18 @@
         <div class="about-grid">
             <div class="about-content" data-aos="fade-right" data-aos-duration="1000">
                 <h3>Warisan Geologi Kelas Dunia</h3>
-                <p>Danau Toba, terbentuk dari letusan supervolcano 74.000 tahun lalu, adalah danau vulkanik terbesar di dunia. Diakui UNESCO sebagai Global Geopark pada tahun 2020.</p>
-                <p>Kawasan ini menyimpan nilai geologi luar biasa, keanekaragaman hayati, dan warisan budaya Batak yang autentik. </p>
+                <p class="hero-desc">
+    Danau Toba merupakan salah satu keajaiban geologi terbesar di dunia yang terbentuk akibat letusan supervolcano sekitar 74.000 tahun yang lalu. Peristiwa dahsyat tersebut membentuk kaldera raksasa yang kemudian terisi air dan menjadi danau vulkanik terbesar di dunia. Keunikan proses pembentukannya menjadikan Danau Toba sebagai laboratorium alam yang penting untuk penelitian geologi, vulkanologi, dan perubahan iklim global.
+</p>
+                <p class="hero-desc">
+    Pada tahun 2020, UNESCO secara resmi menetapkan Kaldera Toba sebagai Global Geopark karena memiliki nilai geologi, keanekaragaman hayati, serta warisan budaya yang luar biasa. Kawasan ini tidak hanya menyajikan panorama alam yang menakjubkan, tetapi juga menjadi rumah bagi masyarakat Batak yang masih menjaga tradisi, adat istiadat, dan kearifan lokal yang diwariskan dari generasi ke generasi.
+</p>
+<p class="hero-desc">
+    Melalui berbagai geosite yang tersebar di sekitar Danau Toba, pengunjung dapat mempelajari sejarah terbentuknya bumi, menikmati keindahan alam yang unik, serta mengenal lebih dekat budaya Batak yang menjadi identitas khas kawasan ini. Perpaduan antara geologi, budaya, dan pariwisata menjadikan Danau Toba sebagai destinasi berkelas dunia yang memiliki nilai edukasi dan konservasi yang tinggi.
+</p>
             </div>
             <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
-                <img src="/image/Ambarita/Ambarita3.jpg" alt="Danau Toba">
+                <img src="/image/Ambarita/danautoba.jpeg" alt="Danau Toba">
             </div>
         </div>
     </div>
@@ -1335,15 +1279,15 @@
         </div>
         <div class="destinasi-list">
             
-<!-- 01 — TUKTUK SIADONG -->
+<!-- 01 — AMBARITA -->
 <div class="destinasi-item" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
         <div class="destinasi-slider" data-slider="tuktuk">
             <div class="destinasi-slider-track">
-                <img src="/image/Tuktuk/Tuktuk1.jpg" alt="Tuktuk Siadong 1">
-                <img src="/image/Tuktuk/Tuktuk3.jpg" alt="Tuktuk Siadong 2">
-                <img src="/image/Tuktuk/Tuktuk4.jpg" alt="Tuktuk Siadong 3">
-                <img src="/image/Tuktuk/Tuktuk8.jpg" alt="Tuktuk Siadong 4">
+                <img src="/image/Tuktuk/ambarita1.jpeg" alt="Tuktuk Siadong 1">
+                <img src="/image/Tuktuk/ambarita2.jpeg" alt="Tuktuk Siadong 2">
+                <img src="/image/Tuktuk/ambarita3.jpeg" alt="Tuktuk Siadong 3">
+                <img src="/image/Tuktuk/ambarita4.jpeg" alt="Tuktuk Siadong 4">
             </div>
             <button class="destinasi-slider-arrow prev" onclick="destSlide('tuktuk', -1)">&#10094;</button>
             <button class="destinasi-slider-arrow next" onclick="destSlide('tuktuk', 1)">&#10095;</button>
@@ -1358,32 +1302,35 @@
 
     <div class="destinasi-content">
         <div class="destinasi-number">01 — GEOSITE</div>
-        <h3>Tuktuk Siadong</h3>
+        <h3>Ambarita</h3>
 
         <div class="destinasi-location">
-            Desa Tuktuk Siadong, Kecamatan Simanindo, Kabupaten Samosir.
+            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
         </div>
 
-        <p class="destinasi-desc">
-            Kawasan wisata terkenal di Pulau Samosir dengan panorama Danau Toba,
-            penginapan, restoran, serta berbagai aktivitas wisata yang menarik.
+        <p class="destinasi-desc" style="text-align: justify;">
+            Ambarita merupakan salah satu geosite bersejarah di Pulau Samosir yang terkenal dengan peninggalan budaya Batak Toba, 
+            seperti Batu Persidangan Raja Siallagan. Destinasi ini menawarkan wisata sejarah, budaya, serta pemandangan Danau Toba 
+            yang memukau.
         </p>
+  
 
-        <a href="{{ route('geosite.tuktuk') }}" class="destinasi-link">
+
+        <a href="{{ route('geosite.ambarita') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
 </div>
 
-<!-- 02 — AMBARITA -->
+<!-- 02 — TUKTUK -->
 <div class="destinasi-item reverse" data-aos="fade-up" data-aos-duration="1000">
     <div class="destinasi-image">
         <div class="destinasi-slider" data-slider="ambarita">
             <div class="destinasi-slider-track">
-                <img src="/image/Ambarita/Ambarita1.jpg" alt="Ambarita 1">
-                <img src="/image/Ambarita/Ambarita2.jpg" alt="Ambarita 2">
-                <img src="/image/Ambarita/Ambarita3.jpg" alt="Ambarita 3">
-                <img src="/image/Ambarita/Ambarita6.jpg" alt="Ambarita 4">
+                <img src="/image/Ambarita/tuktuk3.jpeg" alt="Ambarita 1">
+                <img src="/image/Ambarita/tuktuk2.jpeg" alt="Ambarita 2">
+                <img src="/image/Ambarita/tuktuk1.jpeg" alt="Ambarita 3">
+                <img src="/image/Ambarita/tuktuk4.jpeg" alt="Ambarita 4">
             </div>
             <button class="destinasi-slider-arrow prev" onclick="destSlide('ambarita', -1)">&#10094;</button>
             <button class="destinasi-slider-arrow next" onclick="destSlide('ambarita', 1)">&#10095;</button>
@@ -1398,18 +1345,19 @@
 
     <div class="destinasi-content">
         <div class="destinasi-number">02 — GEOSITE</div>
-        <h3>Ambarita</h3>
+        <h3>Tuktuk</h3>
 
         <div class="destinasi-location">
-            Desa Ambarita, Kecamatan Simanindo, Kabupaten Samosir.
+            Desa Tuktuk, Kecamatan Simanindo, Kabupaten Samosir.
         </div>
 
         <p class="destinasi-desc">
-            Kawasan wisata budaya yang terkenal dengan Huta Siallagan,
-            pelabuhan wisata, serta peninggalan sejarah masyarakat Batak.
+           Tuktuk merupakan destinasi wisata populer di Pulau Samosir yang menawarkan panorama indah Danau Toba, 
+           beragam penginapan, kuliner khas Batak, serta berbagai aktivitas wisata. Kawasan ini menjadi pusat
+            kunjungan wisatawan yang ingin menikmati keindahan alam, budaya, dan keramahan masyarakat setempat.
         </p>
 
-        <a href="{{ route('geosite.ambarita') }}" class="destinasi-link">
+        <a href="{{ route('geosite.tuktuk') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
         </a>
     </div>
@@ -1420,17 +1368,19 @@
     <div class="destinasi-image">
         <div class="destinasi-slider" data-slider="tomok">
             <div class="destinasi-slider-track">
-                <img src="/image/Tomok/Tomok1.jpg" alt="Tomok 1">
-                <img src="/image/Tomok/Tomok2.jpg" alt="Tomok 2">
-                <img src="/image/Tomok/Tomok3.jpg" alt="Tomok 3">
-            </div>
+    <img src="/image/Tomok/tomok1.jpg" alt="Tomok 1">
+    <img src="/image/Tomok/Tomok2.jpg" alt="Tomok 2">
+    <img src="/image/Tomok/tomok3.jpeg" alt="Tomok 3">
+    <img src="/image/Tomok/tomok4.jpeg" alt="Tomok 4">
+</div>
             <button class="destinasi-slider-arrow prev" onclick="destSlide('tomok', -1)">&#10094;</button>
             <button class="destinasi-slider-arrow next" onclick="destSlide('tomok', 1)">&#10095;</button>
             <div class="destinasi-slider-dots">
-                <span class="ds-dot active" onclick="destGoTo('tomok', 0)"></span>
-                <span class="ds-dot" onclick="destGoTo('tomok', 1)"></span>
-                <span class="ds-dot" onclick="destGoTo('tomok', 2)"></span>
-            </div>
+    <span class="ds-dot active" onclick="destGoTo('tomok', 0)"></span>
+    <span class="ds-dot" onclick="destGoTo('tomok', 1)"></span>
+    <span class="ds-dot" onclick="destGoTo('tomok', 2)"></span>
+    <span class="ds-dot" onclick="destGoTo('tomok', 3)"></span>
+</div>
         </div>
     </div>
 
@@ -1442,10 +1392,12 @@
             Desa Tomok, Kecamatan Simanindo, Kabupaten Samosir.
         </div>
 
-        <p class="destinasi-desc">
-            Destinasi wisata budaya yang menyimpan makam Raja Sidabutar,
-            museum, pertunjukan seni Batak, dan pusat suvenir khas Samosir.
-        </p>
+       <p class="destinasi-desc">
+    Tomok merupakan salah satu destinasi budaya terkenal di Pulau Samosir yang kaya akan sejarah dan tradisi Batak Toba. 
+    Geosite ini dikenal sebagai lokasi Makam Raja Sidabutar yang berusia ratusan tahun, museum budaya Batak, serta berbagai 
+    pertunjukan seni tradisional. Selain menikmati nilai sejarah dan budaya yang kuat, wisatawan juga dapat menemukan beragam 
+    kerajinan tangan dan suvenir khas Samosir yang mencerminkan kearifan lokal masyarakat Batak.
+</p>
 
         <a href="{{ route('geosite.tomok') }}" class="destinasi-link">
             Jelajahi Lebih Lanjut →
@@ -1636,71 +1588,6 @@
         startDestAutoPlay(name);
     }
     
-const SONG_TITLE  = 'Horbo Paung';
-const SONG_ARTIST = "D' Bambo Official";
-const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
-
-const musicCard = document.createElement('div');
-musicCard.className = 'music-card';
-
-musicCard.innerHTML = `
-    <span class="music-badge">♫ Musik</span>
-
-    <div class="music-disc">
-        <img
-            src="${DISC_IMG}"
-            class="music-disc-img"
-            id="musicDisc"
-        >
-    </div>
-
-    <div class="music-info">
-        <div class="music-title">${SONG_TITLE}</div>
-        <div class="music-artist">${SONG_ARTIST}</div>
-    </div>
-
-    <div class="music-btn">
-        <i class="bi bi-play-fill" id="musicBtnIcon"></i>
-    </div>
-`;
-
-document.body.appendChild(musicCard);
-
-const audio = new Audio(
-    "{{ asset('audio/Horbo_Paung_Gondang.mp3') }}"
-);
-
-audio.loop = true;
-audio.volume = 0.4;
-
-const disc = document.getElementById('musicDisc');
-const icon = document.getElementById('musicBtnIcon');
-
-let playing = false;
-
-function startMusic(){
-    audio.play().catch(()=>{});
-    disc.classList.add('playing');
-    icon.className = 'bi bi-stop-fill';
-    playing = true;
-}
-
-function stopMusic(){
-    audio.pause();
-    disc.classList.remove('playing');
-    icon.className = 'bi bi-play-fill';
-    playing = false;
-}
-
-musicCard.addEventListener('click',()=>{
-    playing ? stopMusic() : startMusic();
-});
-
-window.addEventListener('click',()=>{
-    if(!playing){
-        startMusic();
-    }
-},{once:true});
 
 </script>
 
