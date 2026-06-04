@@ -208,7 +208,9 @@
 
 <!-- HERO -->
 <section class="detail-hero"
-    style="background-image: url('{{ $destinasi->gambar_utama ? $destinasi->gambar_utama : asset('image/destinasi-hero.jpg') }}');">
+    style="background-image: url('{{ $destinasi->gambar_utama && !str_starts_with($destinasi->gambar_utama, 'data:')
+    ? asset('storage/' . $destinasi->gambar_utama)
+    : $destinasi->gambar_utama }}');">
 
     <div class="detail-hero-content container">
         <span class="badge-kategori">{{ $destinasi->kategori }}</span>

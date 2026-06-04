@@ -14,7 +14,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
    
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -190,7 +190,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
         }
         
         .footer {
-            background: white;
+            background: #054071;
             color: black;
             padding: 40px 0 20px;
             margin-top: 0;
@@ -384,7 +384,6 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
                     <p style="font-size: 0.8rem; color: rgba(0, 0, 0, 1);">Sistem Informasi Geosite Danau Toba - Menyajikan informasi lengkap tentang keindahan geologi dan budaya Batak di kawasan Danau Toba.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -392,13 +391,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Tautan</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a hr ef="{{ url('/') }}">Beranda</a></li>
+                        <li class="mb-2"><a href="{{ url('/') }}">Home</a></li>
                         <li class="mb-2"><a href="{{ url('/informasi') }}">Informasi</a></li>
                         <li class="mb-2"><a href="{{ url('/galeri') }}">Galeri</a></li>
                         <li class="mb-2"><a href="{{ url('/berita') }}">Berita</a></li>
                         <li class="mb-2"><a href="{{ url('/kontak') }}">Kontak</a></li>
                     </ul>
-                </div>
+                </div> 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Destinasi</h5>
                     <ul class="list-unstyled">

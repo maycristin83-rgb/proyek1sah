@@ -107,12 +107,13 @@
     /* ==================== HERO SLIDER ==================== */
 
    .hero-desc {
-    font-family: 'Montserrat', serif;
-    font-size: 1.1rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
     line-height: 2;
+    letter-spacing: 0.2px;
+    color: #4a4a4a;
     text-align: justify;
-    color: #090909;
-    color: #000 !important;
 }
 
     .hero-section {
@@ -809,9 +810,12 @@
     }
     
    .destinasi-desc {
-    font-family: 'Merriweather', serif;
-    font-size: 0.8rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
     line-height: 2;
+    letter-spacing: 0.2px;
+    color: #4a4a4a;
     text-align: justify;
 }
     
@@ -1210,7 +1214,7 @@
     <div class="hero-content">
         <div>
             <div class="hero-subtitle">Global Geopark</div>
-            <h1 class="hero-title"> Tuktuk · Ambarita · Tomok</h1>
+            <h1 class="hero-title"> Ambarita · Tuktuk · Tomok</h1>
             <div class="hero-divider"></div>
             <a href="#destinasi" class="hero-btn">Jelajahi Sekarang</a>
         </div>

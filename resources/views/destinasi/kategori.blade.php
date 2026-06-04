@@ -248,9 +248,11 @@
                  data-aos-delay="{{ $loop->index * 100 }}">
 
                 <div class="card-image">
-                    <img src="{{ $item->gambar_utama }}"
-                         alt="{{ $item->nama }}"
-                         onerror="this.src='{{ asset('image/destinasi-hero.jpg') }}'">
+                    <img src="{{ $item->gambar_utama && !str_starts_with($item->gambar_utama, 'data:') 
+                            ? asset('storage/' . $item->gambar_utama) 
+                            : $item->gambar }}" 
+                        class="card-img" 
+                        alt="{{ $item->nama }}">
                 </div>
 
                 <div class="card-content">

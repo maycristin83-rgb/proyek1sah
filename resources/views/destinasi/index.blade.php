@@ -6,68 +6,123 @@
 
 <style>
     /* ==================== HERO SECTION ==================== */
+    /* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Hero Section */
+.destinasi-hero {
+    height: 55vh;
+    min-height: 400px;
+
+    background:
+        linear-gradient(rgba(0, 51, 102, 0.45), rgba(0, 51, 102, 0.45)),
+        url('{{ asset("image/tuktuk/slide1.jpg") }}');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 76px;
+    position: relative;
+    overflow: hidden;
+}
+
+.destinasi-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1px);
+}
+
+.destinasi-hero div {
+    position: relative;
+    z-index: 2;
+}
+
+.destinasi-hero h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.8s ease;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.destinasi-hero p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.95;
+    animation: fadeInUp 0.8s ease 0.1s both;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* Deskripsi seperti gambar pertama */
+.destinasi-desc {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2;
+    color: #333333;
+    text-align: justify;
+    letter-spacing: 0.2px;
+    margin-bottom: 25px;
+}
+
+/* Judul Section */
+.section-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
     .destinasi-hero {
-        height: 55vh;
-        min-height: 400px;
-
-        background:
-            linear-gradient(rgba(0, 51, 102, 0.45), rgba(0, 51, 102, 0.45)),
-            url('{{ asset("image/tuktuk/slide1.jpg") }}');
-
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        margin-top: 76px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .destinasi-hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,0.15);
-        backdrop-filter: blur(1px);
-    }
-
-    .destinasi-hero div {
-        position: relative;
-        z-index: 2;
+        height: 45vh;
+        min-height: 300px;
     }
 
     .destinasi-hero h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 15px;
-        animation: fadeInUp 0.8s ease;
-        text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        font-size: 2.5rem;
     }
 
     .destinasi-hero p {
-        font-size: 1rem;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        opacity: 0.95;
-        animation: fadeInUp 0.8s ease 0.1s both;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
     }
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .destinasi-desc {
+        font-size: 16px;
+        line-height: 1.9;
     }
+}
 
     /* ==================== CATEGORY SECTION ==================== */
     .category-section {

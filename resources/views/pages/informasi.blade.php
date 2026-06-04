@@ -83,16 +83,35 @@
     .divider { width: 50px; height: 2px; background: #c6a43b; margin: 10px auto 0; }
 
     .sejarah-grid { display: flex; flex-direction: column; gap: 45px; }
-    .sejarah-item { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.sejarah-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
     .sejarah-item.reverse { flex-direction: row-reverse; }
-    .sejarah-text { flex: 1; line-height: 1.8; color: #2c5f8a; font-size: 0.95rem; }
-    .sejarah-image { 
-        flex: 1; 
-        border-radius: 16px; 
-        overflow: hidden; 
-        box-shadow: 0 10px 25px rgba(0, 51, 102, 0.15); 
-    }
-    .sejarah-image img { width: 100%; height: 260px; object-fit: cover; transition: 0.3s; }
+ .sejarah-text {
+    flex: 0 0 60%;
+    max-width: 60%;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 2;
+    letter-spacing: 0.3px;
+
+    color: #000306;
+    text-align: justify;
+}
+   .sejarah-image {
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+
+.sejarah-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
     .sejarah-image:hover img { transform: scale(1.02); }
 
     .timeline {
@@ -158,6 +177,44 @@
         .timeline { flex-direction: column; }
         .fakta-grid { grid-template-columns: 1fr; }
     }
+ /* ===== GORGA BATAK VERTIKAL ===== */
+.section-batak {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-batak::before,
+.section-batak::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+
+    background-image: url('/image/gorga2.jpg');
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100% auto;
+
+    opacity: 0.18;
+    z-index: 1;
+}
+
+/* kiri */
+.section-batak::before {
+    left: 40px;
+}
+
+/* kanan */
+.section-batak::after {
+    right: 40px;
+    transform: scaleX(-1);
+}
+
+.section-batak .container {
+    position: relative;
+    z-index: 2;
+}
     /* ===== MUSIK LATAR ===== */
 
 </style>
@@ -172,13 +229,13 @@
 
 <!-- SEJARAH BERSILANG dari DATABASE -->
 <!-- SEJARAH BERSILANG dari DATABASE -->
-<section class="section">
+<section class="section section-batak">
 
     <div class="container">
 
         <div class="section-title" data-aos="fade-up">
 
-            <h2>Terbentuknya Danau Toba</h2>
+            <h2>Ciri Khas</h2>
 
             <div class="divider"></div>
 
