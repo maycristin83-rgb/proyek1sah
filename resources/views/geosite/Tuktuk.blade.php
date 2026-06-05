@@ -508,17 +508,14 @@
 
 const SONG_TITLE  = 'Horbo Paung';
 const SONG_ARTIST = "D' Bambo Official";
-const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
+
 
 const musicCard = document.createElement('div');
 musicCard.className = 'music-card';
 musicCard.id        = 'musicCard';
 musicCard.innerHTML = `
     <span class="music-badge">&#9835; Bebas Hak Cipta</span>
-    <div class="music-disc">
-        <img src="${DISC_IMG}" alt="sampul lagu" class="music-disc-img" id="musicDisc"
-             onerror="this.src='https://placehold.co/44x44/003366/c6a43b?text=\u266a'">
-    </div>
+    
     <div class="music-info">
         <div class="music-title">${SONG_TITLE}</div>
         <div class="music-artist">${SONG_ARTIST}</div>
@@ -531,23 +528,93 @@ musicCard.innerHTML = `
     </div>
 `;
 document.body.appendChild(musicCard);
+/* ================= AUDIO ================= */
 
-const audio   = new Audio("{{ asset('audio/Horbo_Paung_Gondang.mp3') }}");
-audio.loop    = true;
-audio.volume  = 0.45;
+const audio = new Audio("{{ asset('audio/Horbo_Paung_Gondang.mp3') }}");
+audio.loop = true;
+audio.volume = 0.45;
 
-const discEl  = document.getElementById('musicDisc');
-const eqEl    = document.getElementById('musicEq');
-const iconEl  = document.getElementById('musicBtnIcon');
+/* ================= ELEMENT ================= */
+
+
+const eqEl = document.getElementById('musicEq');
+const iconEl = document.getElementById('musicBtnIcon');
+const playBtn = document.getElementById('musicPlayBtn');
+
 let isPlaying = false;
 
-function startMusic() { audio.play().catch(()=>{}); discEl.classList.add('playing'); eqEl.classList.add('active'); iconEl.className='bi bi-stop-fill'; isPlaying=true; }
-function stopMusic()  { audio.pause(); discEl.classList.remove('playing'); eqEl.classList.remove('active'); iconEl.className='bi bi-play-fill'; isPlaying=false; }
+/* ================= PLAY ================= */
 
-document.getElementById('musicPlayBtn').addEventListener('click', e => { e.stopPropagation(); isPlaying ? stopMusic() : startMusic(); });
-musicCard.addEventListener('click', () => { isPlaying ? stopMusic() : startMusic(); });
-window.addEventListener('click', () => { if (!isPlaying) startMusic(); }, { once: true });
-    // ========== LIGHTBOX ZOOM ADVANCED ==========
+function startMusic() {
+
+    audio.play()
+        .then(() => {
+
+            isPlaying = true;
+
+            eqEl.classList.add('active');
+
+            iconEl.classList.remove('bi-play-fill');
+            iconEl.classList.add('bi-pause-fill');
+
+        })
+        .catch(error => {
+            console.log('Audio Error:', error);
+        });
+}
+
+/* ================= STOP ================= */
+
+function stopMusic() {
+
+    audio.pause();
+
+    isPlaying = false;
+
+    eqEl.classList.remove('active');
+
+    iconEl.classList.remove('bi-pause-fill');
+    iconEl.classList.add('bi-play-fill');
+}
+
+/* ================= BUTTON CLICK ================= */
+
+playBtn.addEventListener('click', function(e) {
+
+    e.stopPropagation();
+
+    if (isPlaying) {
+        stopMusic();
+    } else {
+        startMusic();
+    }
+
+});
+
+/* ================= AUTO PLAY SETELAH INTERAKSI USER ================= */
+
+window.addEventListener('click', function() {
+
+    if (!isPlaying) {
+        startMusic();
+    }
+
+}, {
+    once: true
+});
+
+/* ================= JIKA LAGU SELESAI ================= */
+
+audio.addEventListener('ended', function() {
+
+    isPlaying = false;
+
+    eqEl.classList.remove('active');
+
+    iconEl.classList.remove('bi-pause-fill');
+    iconEl.classList.add('bi-play-fill');
+
+});   // ========== LIGHTBOX ZOOM ADVANCED ==========
     let currentImageIndex = 0;
     let allGaleriImages = [];
     let currentZoom = 1;

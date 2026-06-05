@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tuktuk - Geosite Danau Toba</title>
+    <title>Tomok - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -76,7 +76,7 @@
 <!-- HERO -->
 <section class="hero" style="background-image: url('/image/tuktuk/Tuktuk3.jpg');">
     <div>
-        <h1 class="hero-title">T U K T U K</h1>
+        <h1 class="hero-title">T O M O K</h1>
         <p class="hero-subtitle">Pulau Samosir · Danau Toba</p>
     </div>
 </section>
@@ -128,7 +128,7 @@
         <div class="section-title">
             <h2>UMKM Lokal</h2>
             <div class="divider"></div>
-            <p>Produk autentik dan berkualitas dari pengrajin lokal tuktuk</p>
+            <p>Produk autentik dan berkualitas dari pengrajin lokal Tomok</p>
         </div>
 
         <div class="grid-3">
@@ -408,7 +408,7 @@
 <section id="lokasi" class="section bg-light">
     <div class="container">
         <div class="section-title">
-            <h2>Lokasi Tuktuk</h2>
+            <h2>Lokasi Tomok</h2>
             <div class="divider"></div>
             <p>Pusat wisata dan penginapan di Samosir</p>
         </div>
@@ -416,7 +416,7 @@
         <div class="maps-section">
             <div class="maps-container">
                 <iframe
-                    src="https://maps.google.com/maps?q=Tuktuk%20Siadong,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Desa%20Tomok,%20Simanindo,%20Samosir,%20Sumatera%20Utara&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="450"
                     style="border:0;"
@@ -427,7 +427,7 @@
 
             <div class="rute-info">
                 <div class="rute-item">
-                    <h4>📍 Tuktuk</h4>
+                    <h4>📍 Tomok</h4>
                     <p>Area favorit wisatawan dengan hotel, cafe, dan restoran.</p>
                     <span class="rute-time">Pusat wisata Samosir</span>
                 </div>
@@ -439,9 +439,9 @@
 <!-- CTA -->
 <section class="cta">
     <div class="container">
-        <h3>Jangan Lewatkan Keindahan tuktuk</h3>
+        <h3>Jangan Lewatkan Keindahan tomok</h3>
         <div class="divider"></div>
-        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tuktuk</p>
+        <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tomok</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
             <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
@@ -503,46 +503,124 @@
    
 const SONG_TITLE  = 'Horbo Paung';
 const SONG_ARTIST = "D' Bambo Official";
-const DISC_IMG    = "{{ asset('image/musik/horbo_paung.jpg') }}";
+
 
 const musicCard = document.createElement('div');
 musicCard.className = 'music-card';
 musicCard.id        = 'musicCard';
 musicCard.innerHTML = `
-    <span class="music-badge">&#9835; Bebas Hak Cipta</span>
-    <div class="music-disc">
-        <img src="${DISC_IMG}" alt="sampul lagu" class="music-disc-img" id="musicDisc"
-             onerror="this.src='https://placehold.co/44x44/003366/c6a43b?text=\u266a'">
+    <span class="music-badge">
+        ♫ BEBAS HAK CIPTA
+    </span>
+
+    <div class="music-icon">
+        <i class="bi bi-music-note-beamed"></i>
     </div>
+
     <div class="music-info">
         <div class="music-title">${SONG_TITLE}</div>
         <div class="music-artist">${SONG_ARTIST}</div>
     </div>
+
     <div class="music-eq" id="musicEq">
-        <span></span><span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <div class="music-btn" id="musicPlayBtn">
+
+    <button class="music-btn" id="musicPlayBtn">
         <i class="bi bi-play-fill" id="musicBtnIcon"></i>
-    </div>
+    </button>
 `;
 document.body.appendChild(musicCard);
 
-const audio   = new Audio("{{ asset('audio/Horbo_Paung_Gondang.mp3') }}");
-audio.loop    = true;
-audio.volume  = 0.45;
+/* ================= AUDIO ================= */
 
-const discEl  = document.getElementById('musicDisc');
-const eqEl    = document.getElementById('musicEq');
-const iconEl  = document.getElementById('musicBtnIcon');
+const audio = new Audio("{{ asset('audio/Horbo_Paung_Gondang.mp3') }}");
+audio.loop = true;
+audio.volume = 0.45;
+
+/* ================= ELEMENT ================= */
+
+const eqEl = document.getElementById('musicEq');
+const iconEl = document.getElementById('musicBtnIcon');
+const playBtn = document.getElementById('musicPlayBtn');
+
 let isPlaying = false;
 
-function startMusic() { audio.play().catch(()=>{}); discEl.classList.add('playing'); eqEl.classList.add('active'); iconEl.className='bi bi-stop-fill'; isPlaying=true; }
-function stopMusic()  { audio.pause(); discEl.classList.remove('playing'); eqEl.classList.remove('active'); iconEl.className='bi bi-play-fill'; isPlaying=false; }
+/* ================= PLAY ================= */
 
-document.getElementById('musicPlayBtn').addEventListener('click', e => { e.stopPropagation(); isPlaying ? stopMusic() : startMusic(); });
-musicCard.addEventListener('click', () => { isPlaying ? stopMusic() : startMusic(); });
-window.addEventListener('click', () => { if (!isPlaying) startMusic(); }, { once: true });
+function startMusic() {
 
+    audio.play()
+        .then(() => {
+
+            isPlaying = true;
+
+            eqEl.classList.add('active');
+
+            iconEl.classList.remove('bi-play-fill');
+            iconEl.classList.add('bi-pause-fill');
+
+        })
+        .catch(error => {
+            console.log('Audio Error:', error);
+        });
+}
+
+/* ================= STOP ================= */
+
+function stopMusic() {
+
+    audio.pause();
+
+    isPlaying = false;
+
+    eqEl.classList.remove('active');
+
+    iconEl.classList.remove('bi-pause-fill');
+    iconEl.classList.add('bi-play-fill');
+}
+
+/* ================= BUTTON CLICK ================= */
+
+playBtn.addEventListener('click', function(e) {
+
+    e.stopPropagation();
+
+    if (isPlaying) {
+        stopMusic();
+    } else {
+        startMusic();
+    }
+
+});
+
+/* ================= AUTO PLAY SETELAH INTERAKSI USER ================= */
+
+window.addEventListener('click', function() {
+
+    if (!isPlaying) {
+        startMusic();
+    }
+
+}, {
+    once: true
+});
+
+/* ================= JIKA LAGU SELESAI ================= */
+
+audio.addEventListener('ended', function() {
+
+    isPlaying = false;
+
+    eqEl.classList.remove('active');
+
+    iconEl.classList.remove('bi-pause-fill');
+    iconEl.classList.add('bi-play-fill');
+
+});
     // ========== LIGHTBOX ZOOM ADVANCED ==========
     let currentImageIndex = 0;
     let allGaleriImages = [];
