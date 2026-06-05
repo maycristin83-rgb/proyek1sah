@@ -2,6 +2,8 @@
 
 GeoToba adalah aplikasi berbasis web yang menyajikan informasi lengkap tentang keindahan geologi, destinasi wisata, dan budaya Batak di kawasan Danau Toba (khususnya wilayah Ambarita, Tuktuk, dan Tomok).
 
+🌐 **Live Website:** [https://geotoba-ambarita.d4trpl-itdel.id/](https://geotoba-ambarita.d4trpl-itdel.id/)
+
 ---
 
 ## 🛠️ Persyaratan Sistem & Instalasi
@@ -44,6 +46,3 @@ git commit -m "tulis pesan perubahan Anda di sini"
 ```bash
 git push maycristin main
 ```
-
-
-$env:Path += ";D:\laragon\bin\php\php-8.3.11-Win32-vs16-x64"
