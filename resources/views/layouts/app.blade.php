@@ -657,6 +657,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
         flex: 0 0 100%;
         max-width: 100%;
     }
+    
 }
 </style>
 

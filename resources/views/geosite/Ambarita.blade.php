@@ -6,6 +6,24 @@
     <title>Ambarita - Geosite Danau Toba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Geosite.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .card-content p {
+    font-family: 'Quicksand', sans-serif !important;
+    text-align: justify !important;
+    }
+    .fasilitas-content p {
+        font-family: 'Quicksand', sans-serif !important;
+        text-align: justify !important;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    .card-content p {
+        font-family: 'Quicksand', sans-serif !important;
+        text-align: justify !important;
+    }
+</style>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
    
 </head>

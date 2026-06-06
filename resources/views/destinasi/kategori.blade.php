@@ -13,7 +13,6 @@
         background:
             linear-gradient(rgba(0,51,102,0.45), rgba(0,51,102,0.45)),
             url('{{ asset("image/tuktuk/destinasi-" . strtolower($kategori) . ".jpg") }}');
-
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -140,6 +139,7 @@
     line-height: 1.6;
     margin-bottom: 15px;
     font-family: 'Quicksand', sans-serif;
+    text-align: justify;
     }
 
     .card-tags {

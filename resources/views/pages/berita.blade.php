@@ -328,6 +328,7 @@ BODY
     margin-bottom:20px;
     flex:1;
     font-family:'Quicksand', sans-serif;
+    text-align: justify;
 }
 
 /* =========================================
