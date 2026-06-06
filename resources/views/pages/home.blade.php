@@ -1415,7 +1415,7 @@
         <div class="section-title" data-aos="fade-up" data-aos-duration="800">
             <h2>Lokasi 3 Geosite</h2>
             <div class="divider"></div>
-            <p>Tuktuk · Ambarita · Tomok</p>
+            <p>Ambarita · Tuktuk · Tomok</p>
         </div>
         
         <div class="maps-container" data-aos="zoom-in" data-aos-duration="1000">

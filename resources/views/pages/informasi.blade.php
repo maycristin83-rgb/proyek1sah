@@ -370,9 +370,9 @@
 <section class="cta-section">
     <div class="container">
         <div class="cta-content" data-aos="fade-up">
-            <h3>Jelajahi Geosite Lainnya</h3>
+        <h3 style="color: white;">Jelajahi Geosite Lainnya</h3>
             <div class="divider"></div>
-            <p>Temukan keajaiban geologi lainnya di Geopark Danau Toba</p>
+            <p style="color: white;">Temukan keajaiban geologi lainnya di Geopark Danau Toba</p>
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
         </div>
     </div>

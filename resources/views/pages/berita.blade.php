@@ -3,8 +3,8 @@
 @section('title', 'Berita Terkini - Geosite Danau Toba')
 
 @section('content')
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 
 <style>
 
@@ -147,7 +147,7 @@ GRID
 .news-card{
     background:white;
     border-radius:22px;
-    overflow:hidden;
+    overflow:visible;
     position:relative;
     transition:.4s ease;
     box-shadow:0 8px 30px rgba(0,51,102,.08);
@@ -172,6 +172,7 @@ IMAGE
     overflow:hidden;
     background:#001c36;
     cursor:pointer;
+    border-radius:22px 22px 0 0;
 }
 
 .news-image img{
@@ -194,6 +195,7 @@ IMAGE
         rgba(0,0,0,.6),
         transparent
     );
+    pointer-events: none;
 }
 
 /* =========================================
@@ -325,6 +327,7 @@ BODY
     color:#64748b;
     margin-bottom:20px;
     flex:1;
+    font-family:'Quicksand', sans-serif;
 }
 
 /* =========================================
@@ -335,6 +338,8 @@ BUTTON
     border:none;
     border-radius:50px;
     padding:12px 20px;
+    position:relative;
+    z-index:10;
     font-size:.76rem;
     font-weight:700;
     cursor:pointer;
@@ -568,10 +573,10 @@ RESPONSIVE
                 <!-- IMAGE -->
                 <div class="news-image"
 
-                    onclick="openImageModal(
+                        onclick="openImageModal(
                         '{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}',
-                        '{{ addslashes($item->judul) }}',
-                        '{{ addslashes(Str::limit(strip_tags($item->konten),250)) }}'
+                        {{ json_encode($item->judul) }},
+                        {{ json_encode(Str::limit(strip_tags($item->konten),250)) }}
                     )"
                 >
 
@@ -634,13 +639,14 @@ RESPONSIVE
                     </div>
 
                     <button
-                        class="news-btn"
-                        onclick="openImageModal(
-                            '{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}',
-                            '{{ addslashes($item->judul) }}',
-                            '{{ addslashes(Str::limit(strip_tags($item->konten),250)) }}'
-                        )"
-                    >
+                            class="news-btn"
+                            onclick="openImageModal(
+                                '{{ $item->gambar && !str_starts_with($item->gambar, 'data:') ? asset('storage/' . $item->gambar) : $item->gambar }}',
+                                {{ json_encode($item->judul) }},
+                                {{ json_encode(Str::limit(strip_tags($item->konten),250)) }}
+                            )"
+>
+
                         <i class="bi bi-book"></i>
                         Lihat Detail
                     </button>

@@ -29,7 +29,10 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(198, 164, 59, 0.25);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 1040;
     }
 
@@ -330,7 +333,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
     }
 
     .dropdown-header {
-        color: var(--gold);
+        color: #c6a43b;
         padding: 8px 24px;
         font-size: 0.7rem;
         text-transform: uppercase;
@@ -482,8 +485,8 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
         #0a4f89 100%
     );
     color: #ffffff;
-    padding: 60px 0 20px;
-    margin-top: 80px;
+    padding: 30px 0 10px;
+    margin-top: 40px;
     position: relative;
     overflow: hidden;
 }
@@ -661,7 +664,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
     @stack('styles')
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" id="navbar" style="position:relative;">
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
             <!-- LOGO SECTION - LANGSUNG DARI FOLDER public/image/Logo/ -->
             <div class="logo-wrapper">
@@ -725,18 +728,11 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
             <i class="fas fa-phone me-1"></i> Kontak
         </a>
     </li>
-<!-- tamba login -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}">
-            <i class="fas fa-lock me-1"></i> Login
-        </a>
-    </li>
 </ul>
 </div>
     </nav>
 
-    <main>@yield('content')</main>
-
+    <main style="padding-top: 80px; position: relative; z-index: 1;">@yield('content')</main>
    <footer class="footer">
     <div class="container-fluid px-5">
             <div class="row">

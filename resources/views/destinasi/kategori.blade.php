@@ -135,10 +135,11 @@
     }
 
     .card-desc {
-        font-size: 0.85rem;
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 15px;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family: 'Quicksand', sans-serif;
     }
 
     .card-tags {
