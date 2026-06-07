@@ -466,7 +466,6 @@
         <p>Rasakan pengalaman wisata budaya Batak yang autentik, nikmati keindahan alam Danau Toba yang memukau, dan ciptakan kenangan indah bersama keluarga tercinta di tuktuk</p>
         <div class="cta-buttons">
             <a href="{{ url('/') }}" class="cta-btn">Kembali ke Beranda</a>
-            <a href="#penginapan" class="cta-btn cta-btn-secondary">Pesan Penginapan</a>
         </div>
     </div>
 </section>

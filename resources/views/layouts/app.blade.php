@@ -308,7 +308,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
 }
     /* ===================== DROPDOWN ===================== */
     .dropdown-menu {
-        background: rgba(0, 51, 102, 0.96);
+        background: white;
         backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 24px;
@@ -318,12 +318,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
     }
 
     .dropdown-item {
-        color: white;
+        color: black;
         padding: 10px 24px;
         font-size: 0.85rem;
         transition: all 0.25s ease;
         border-radius: 18px;
         margin: 4px 10px;
+        font-weight: bold;
     }
 
     .dropdown-item:hover {

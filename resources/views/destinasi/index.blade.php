@@ -9,9 +9,7 @@
     /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
-body {
-    font-family: 'Open Sans', sans-serif;
-}
+
 
 /* Hero Section */
 .destinasi-hero {
@@ -50,7 +48,7 @@ body {
 }
 
 .destinasi-hero h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif; 
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 15px;
@@ -59,7 +57,7 @@ body {
 }
 
 .destinasi-hero p {
-    font-family: 'Open Sans', sans-serif;
+   font-family: 'Cormorant Garamond', serif; 
     font-size: 1rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -70,7 +68,7 @@ body {
 
 /* Deskripsi seperti gambar pertama */
 .destinasi-desc {
-    font-family: 'Open Sans', sans-serif;
+   font-family: 'Cormorant Garamond', serif; 
     font-size: 18px;
     font-weight: 400;
     line-height: 2;
@@ -82,7 +80,7 @@ body {
 
 /* Judul Section */
 .section-title {
-    font-family: 'Open Sans', sans-serif;
+   font-family: 'Cormorant Garamond', serif; 
     font-size: 2rem;
     font-weight: 700;
     color: #003366;
