@@ -796,7 +796,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.c
                         </li>
                         <li>
                             <i class="fas fa-phone me-2"></i>
-                            +62 812 3456 7890
+                            (0626) 20688
                         </li>
                         <li>
                             <i class="fas fa-envelope me-2"></i>

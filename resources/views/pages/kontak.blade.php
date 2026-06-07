@@ -283,9 +283,7 @@
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h4>Telepon</h4>
-                    <p>+62 812 3456 7890</p>
-                    <p>+62 813 9876 5432</p>
-                    <p>(0622) 12345</p>
+                    <p> (0626) 20688</p>
                 </div>
             </div>
             
@@ -307,7 +305,7 @@
             <!-- FORM KONTAK -->
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="form-card">
-                    <h3>Kirim Pesan</h3>
+                    <h3>Kirim Ulasan</h3>
 
                     @if(session('success'))
                         <div class="alert alert-success d-flex align-items-center gap-2 py-2 px-3 mb-3" role="alert" style="font-size:0.85rem; border-radius:12px;">
@@ -346,10 +344,10 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <textarea name="pesan" class="form-control" rows="5" placeholder="Pesan Anda..." required>{{ old('pesan') }}</textarea>
+                            <textarea name="pesan" class="form-control" rows="5" placeholder="Ulasan Anda..." required>{{ old('pesan') }}</textarea>
                         </div>
                         <button type="submit" class="btn-send">
-                            Kirim Pesan <i class="fas fa-paper-plane ms-2"></i>
+                            Kirim Ulasan <i class="fas fa-paper-plane ms-2"></i>
                         </button>
                     </form>
                 </div>
