@@ -9,7 +9,9 @@
     /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
-
+body {
+    font-family: 'Quicksand', sans-serif;
+}
 
 /* Hero Section */
 .destinasi-hero {

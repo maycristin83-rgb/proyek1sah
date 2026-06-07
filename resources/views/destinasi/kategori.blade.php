@@ -5,11 +5,11 @@
 @section('content')
 
 <style>
-    /* ==================== HERO SECTION ==================== */
+    
     .kategori-hero {
         height: 45vh;
         min-height: 350px;
-
+        font-family: 'Cormorant Garamond', serif; 
         background:
             linear-gradient(rgba(0,51,102,0.45), rgba(0,51,102,0.45)),
             url('{{ asset("image/tuktuk/destinasi-" . strtolower($kategori) . ".jpg") }}');
@@ -138,7 +138,7 @@
     color: #666;
     line-height: 1.6;
     margin-bottom: 15px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Cormorant Garamond', serif; 
     text-align: justify;
     }
 

@@ -6,6 +6,7 @@
 
 <style>
     /* ==================== HERO SECTION ==================== */
+    
     .detail-hero {
         height: 70vh;
         min-height: 450px;
@@ -19,6 +20,7 @@
         color: white;
         overflow: hidden;
         margin-top: 76px;
+        font-family: 'Cormorant Garamond', serif; 
     }
 
     .detail-hero::before {
@@ -97,6 +99,7 @@
         margin-bottom: 30px;
         box-shadow: 0 8px 30px rgba(0,0,0,0.07);
         transition: box-shadow 0.3s ease;
+        font-family: 'Cormorant Garamond', serif; 
     }
 
     .detail-card:hover {
@@ -111,6 +114,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        
     }
 
     .detail-card h2 i {
