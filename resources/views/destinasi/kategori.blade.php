@@ -135,11 +135,13 @@
     }
 
     .card-desc {
-    font-size: 0.85rem;
-    color: #666;
+    font-size: 17px;
+    color: #4a4a4a;
     line-height: 2;
     margin-bottom: 15px;
-    font-family: 'Cormorant Garamond', serif; 
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.2px;
     text-align: justify;
     }
 
