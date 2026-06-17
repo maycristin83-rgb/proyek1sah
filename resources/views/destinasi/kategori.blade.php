@@ -89,9 +89,10 @@
 
     .card-image img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        
     }
 
     .dest-card:hover .card-image img {
@@ -136,7 +137,7 @@
     .card-desc {
     font-size: 0.85rem;
     color: #666;
-    line-height: 1.6;
+    line-height: 2;
     margin-bottom: 15px;
     font-family: 'Cormorant Garamond', serif; 
     text-align: justify;
@@ -225,6 +226,8 @@
 
         .card-image {
             height: 200px;
+            overflow: hidden;
+            position: relative;
         }
     }
 </style>
